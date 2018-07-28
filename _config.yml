@@ -3,7 +3,8 @@ title: 曾绍明的博客
 email: ZSMSimon@163.com
 description: > #曾绍明的博客
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://zsmsimon.github.io" # the base hostname & protocol for your site
+# url: "https://zsmsimon.github.io" # the base hostname & protocol for your site
+url: "http://zengshaoming.simon.com" # the base hostname & protocol for your site
 # url: "http://127.0.0.1:4000" # the base hostname & protocol for your site
 twitter_username: 
 github_username:  ZSMSimon
@@ -15,7 +16,8 @@ paginate: 10                                #分页时每页博文数量
 author:                                     #自定义常亮
   name: 曾绍明
   email: ZSMSimon@163.com
-  link: https://zsmsimon.github.io/
+  # link: https://zsmsimon.github.io/
+  link: http://zengshaoming.simon.com/
   weibo: 
   github: http://github.com/ZSMSimon
 title: 曾绍明的博客                             #自定义常量
