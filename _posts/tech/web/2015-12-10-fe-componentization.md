@@ -16,7 +16,7 @@ description:
 **seajs** 是一个前端模块化js库，作用类似于requirejs，都用来前端js的模块化和按需依赖加载的工作。功能都差不多，seajs是淘宝玉伯开发的，国产，所以国内使用者比较多，requirejs国外的，存在时间比seajs要久许多，国外用的比较多。
 两者最大的区别在于定义模块的语法不同，一个是AMD规范，一个是CMD规范。seajs是CMD规范，所以他的语法更像nodejs，写起来会比requirejs优雅一些。不过缺点也很多，比如很多第三方库都是按照AMD规范写的，会有兼容性问题，就需要自己改写模块或者使用spm工具处理。
 
-*[handlebars](http://liuyanwei.jumppo.com/2015/12/03/fe-js-handlebars.html)* 是一个前端js模板引擎 我在之前的文章介绍过handlebars及简单的用法，大家可以去看下 [点我](http://liuyanwei.jumppo.com/2015/12/03/fe-js-handlebars.html)
+*[handlebars](https://zsmsimon.github.io/2015/12/03/fe-js-handlebars.html)* 是一个前端js模板引擎 我在之前的文章介绍过handlebars及简单的用法，大家可以去看下 [点我](https://zsmsimon.github.io/2015/12/03/fe-js-handlebars.html)
 
 
 
@@ -224,7 +224,7 @@ gulp.task('css-concat', function () {
 
 ##  参考和其他资料
 
--   [handlerbars的使用及模板预编译](http://liuyanwei.jumppo.com/2015/12/03/fe-js-handlebars.html)
+-   [handlerbars的使用及模板预编译](https://zsmsimon.github.io/2015/12/03/fe-js-handlebars.html)
 -   [Hello Sea.js](http://island205.com/HelloSea.js/)
 -   [handlebars实用教程](http://www.cnblogs.com/iyangyuan/archive/2013/12/12/3471227.html)
 -   [极客标签视频教程](http://www.gbtags.com/gb/gbliblist/7.htm)
@@ -236,7 +236,7 @@ gulp.task('css-concat', function () {
 
 刘彦玮原创，转载请注明出处
 
-感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](http://liuyanwei.jumppo.com/)，转载请注明出处
+感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](https://zsmsimon.github.io/)，转载请注明出处
 
 
 

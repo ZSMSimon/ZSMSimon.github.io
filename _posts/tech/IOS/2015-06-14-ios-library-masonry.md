@@ -23,7 +23,7 @@ description:
 
 ### Masonry配置
 
-1. - 推荐使用pods方式引入类库，pod 'Masonry'，若不知道pod如何使用，情况我的另一篇文章： [提高iOS开发效率的工具](http://liuyanwei.jumppo.com/2015/05/29/ios-develop-tool.html)
+1. - 推荐使用pods方式引入类库，pod 'Masonry'，若不知道pod如何使用，情况我的另一篇文章： [提高iOS开发效率的工具](https://zsmsimon.github.io/2015/05/29/ios-develop-tool.html)
 2. - 引入头文件 #import "Masonry.h"
 
 ### Masonry使用讲解
@@ -716,4 +716,4 @@ for（遍历所有行)
 
 ## 最后
 
-感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](http://liuyanwei.jumppo.com/)，转载请注明出处
+感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](https://zsmsimon.github.io/)，转载请注明出处

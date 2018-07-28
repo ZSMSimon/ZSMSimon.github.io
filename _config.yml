@@ -40,7 +40,7 @@ markdown: kramdown                         #markdown解释器
 # baidu analytics 设置
 
 ba:
-  src: //hm.baidu.com/hm.js?22d94317cfb9f9e0bb476228d9f79278
+  src: //hm.baidu.com/hm.js?2c1583237ca3f5343d8dab0140019ca7
 
 # disqus 设置
 disqus:

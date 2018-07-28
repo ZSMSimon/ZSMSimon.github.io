@@ -82,7 +82,7 @@ paginate: 10                                #分页时每页博文数量
 author:                                     #自定义常亮
   name: 刘彦玮
   email: coolnameismy@hotmail.com
-  link: http://liuyanwei.jumppo.com/
+  link: https://zsmsimon.github.io/
   weibo: http://weibo.com/1897719834
   github: http://github.com/coolnameismy
 title: 刘彦玮的技术博客                             #自定义常量
@@ -285,7 +285,7 @@ git push
 
 另外一些特别的功能，比如三栏、评论、谷歌分析，这些都不难，相信你稍微打开Github读一下这个主题的代码就很快明白了。
 
-感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](http://liuyanwei.jumppo.com/)，转载请注明出处
+感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](https://zsmsimon.github.io/)，转载请注明出处
 
 代码地址戳[这里][6]
 

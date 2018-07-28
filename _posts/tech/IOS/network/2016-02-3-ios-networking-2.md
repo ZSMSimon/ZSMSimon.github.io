@@ -122,7 +122,7 @@ description:
 
 可以发现，线程被阻塞了。这就说明一个问题，在发送sendAsynchronousRequest异步请求后，都是异步调用，queue参数只是说明在哪个队列上执行completionHandler这个block而已。
 
-关于NSOperationQueue的部分，就不多说了，之前的文章写过，[见这里](http://liuyanwei.jumppo.com/2015/08/19/ios-ThreadAndAsynchronization.html)
+关于NSOperationQueue的部分，就不多说了，之前的文章写过，[见这里](https://zsmsimon.github.io/2015/08/19/ios-ThreadAndAsynchronization.html)
 
 ### 异步队列请求的最佳实践
 
@@ -136,6 +136,6 @@ description:
 
 [本文的demo下载](https://github.com/coolnameismy/demo/tree/master/network-demo)
 
-感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](http://liuyanwei.jumppo.com/)，转载请注明出处
+感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](https://zsmsimon.github.io/)，转载请注明出处
 
 

@@ -18,7 +18,7 @@ description:
 
 本文代码存放目录是 **ThreadAndAsynchronization**
 
-如果大家支持，请follow我的github账号，并fork我的项目，有其他问题可以在github上给我留言或者给我发邮件，coolnameismy@hotmail.com，blog的RSS订阅地址：http://liuyanwei.jumppo.com/pages/rss.xml
+如果大家支持，请follow我的github账号，并fork我的项目，有其他问题可以在github上给我留言或者给我发邮件，coolnameismy@hotmail.com，blog的RSS订阅地址：https://zsmsimon.github.io/pages/rss.xml
 
 
 ##  基础知识
@@ -528,4 +528,4 @@ queue也有对应的方法，叫做````waitUntilAllOperationsAreFinished````
 
 ## 最后
 
-感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](http://liuyanwei.jumppo.com/)，转载请注明出处
+感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](https://zsmsimon.github.io/)，转载请注明出处

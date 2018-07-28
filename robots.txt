@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 Disallow: /bin/
-Sitemap: http://liuyanwei.jumppo.com/sitemap.xml
+Sitemap: https://zsmsimon.github.io/sitemap.xml

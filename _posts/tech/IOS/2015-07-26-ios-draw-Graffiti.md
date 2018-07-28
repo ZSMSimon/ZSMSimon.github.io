@@ -8,14 +8,14 @@ description:
 
 >   之前一篇文字写了ios绘图基础，这篇文章，使用之前写的绘图基础，做一个涂鸦板。并把每一步完成都结果都单独保存一个文件，加上v+版本号
 
-### [ios绘图基础](http://liuyanwei.jumppo.com/2015/07/25/ios-draw-base.html)
+### [ios绘图基础](https://zsmsimon.github.io/2015/07/25/ios-draw-base.html)
 
-### [ios绘图demo,做一个涂鸦板(上)](http://liuyanwei.jumppo.com/2015/07/26/ios-draw-Graffiti.html)
+### [ios绘图demo,做一个涂鸦板(上)](https://zsmsimon.github.io/2015/07/26/ios-draw-Graffiti.html)
 
 -  1完成一个最基本的涂鸦板
 -  2给涂鸦板加上颜色选择功能，和笔触粗细功能
 
-### [ios绘图demo,做一个涂鸦板(下)](http://liuyanwei.jumppo.com/2015/07/26/ios-draw-Graffiti-2.html)
+### [ios绘图demo,做一个涂鸦板(下)](https://zsmsimon.github.io/2015/07/26/ios-draw-Graffiti-2.html)
 
 -  3画贝塞尔曲线
 
@@ -348,4 +348,4 @@ description:
 
 ## 最后
 
-感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](http://liuyanwei.jumppo.com/)，转载请注明出处
+感谢收看，如果对大家有帮助，请[github上follow和star](https://github.com/coolnameismy)，本文发布在[刘彦玮的技术博客](https://zsmsimon.github.io/)，转载请注明出处
