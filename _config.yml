@@ -4,7 +4,6 @@ email: ZSMSimon@163.com
 description: > #曾绍明的博客
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://zsmsimon.github.io" # the base hostname & protocol for your site
-# url: "http://127.0.0.1:4000" # the base hostname & protocol for your site
 twitter_username: 
 github_username:  ZSMSimon
 
