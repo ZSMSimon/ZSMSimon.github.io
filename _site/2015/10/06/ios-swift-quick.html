@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="baidu-site-verification" content="w9Akh6dPe4" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<!--[if lte IE 8]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
+
+<title>swift5分钟语法速记 | 曾绍明的博客</title>
+<meta name="author" content="曾绍明">
+
+  <meta name="keywords" content="ios,swift">
+
+
+
+
+<link rel="shortcut icon" href="" />
+
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
+<link href="/pages/rss.xml" rel="alternate" title="曾绍明的博客" type="application/atom+xml">
+
+
+
+  </head>
+  <body>
+        <aside id="sidebar">
+  <nav id="tags">
+    <a href="/index.html" id="avatar" style="background-image:url(https://avatars1.githubusercontent.com/u/15245912)"></a>
+
+    <ul id="tags__ul">
+      <li id="pl__all" class="tags__li tags-btn active">所有文章</li>
+       
+        <li id="技术" class="tags__li tags-btn">技术</li>
+       
+        <li id="web前端" class="tags__li tags-btn">web前端</li>
+       
+        <li id="专题" class="tags__li tags-btn">专题</li>
+       
+        <li id="iOS" class="tags__li tags-btn">iOS</li>
+       
+        <li id="生活" class="tags__li tags-btn">生活</li>
+       
+        <li id="react-native" class="tags__li tags-btn">react-native</li>
+       
+        <li id="其他" class="tags__li tags-btn">其他</li>
+       
+        <li id="IoT" class="tags__li tags-btn">IoT</li>
+      
+    </ul>
+
+    <div id="tags__bottom">
+      <a href="http://github.com/ZSMSimon" id="icon-github" class="tags-btn fontello" target="_blank"></a>
+      <a href="/pages/rss.xml" id="icon-feed" class="tags-btn fontello" target="_blank"></a>
+      <a href="mailto:ZSMSimon@163.com" id="icon-email" class="tags-btn fontello"></a>
+    </div>
+  </nav> <!-- end #tags -->
+
+  <div id="posts-list">
+    <form action="" id="search-form">
+      <a href="/index.html" id="mobile-avatar" style="background-image:url(https://avatars1.githubusercontent.com/u/15245912)"></a>
+      <!-- NOTE: input field is disabled by default -->
+      <input id="search-input" type="text" placeholder="Search..." >
+    </form>
+
+    <nav id="pl__container">
+    
+      <a class="IoT pl__all" href="/2017/05/16/JavaScript-mqtt-temperaturedemo.html"><span class="pl__circle"></span><span class="pl__title">IoT技术选型及模型设计的思考</span><span class="pl__date">17/05/16</span></a>
+    
+      <a class="IoT pl__all" href="/2017/05/02/hello-nodemcu.html"><span class="pl__circle"></span><span class="pl__title">hello nodemcu</span><span class="pl__date">17/05/02</span></a>
+    
+      <a class="其他 pl__all" href="/2017/03/16/Recruitment.html"><span class="pl__circle"></span><span class="pl__title">阿里云iot事业部招聘信息</span><span class="pl__date">17/03/16</span></a>
+    
+      <a class="技术 pl__all" href="/2017/01/23/zhihu-live-a-hour-for-bluetooth-0.html"><span class="pl__circle"></span><span class="pl__title">知乎live：一小时蓝牙科普 文字整理版</span><span class="pl__date">17/01/23</span></a>
+    
+      <a class="web前端 pl__all" href="/2016/12/08/eslint-guide.html"><span class="pl__circle"></span><span class="pl__title">ESLint使用</span><span class="pl__date">16/12/08</span></a>
+    
+      <a class="其他 pl__all" href="/2016/12/06/how-to-fupan.html"><span class="pl__circle"></span><span class="pl__title">柳传志：我的复盘方法论</span><span class="pl__date">16/12/06</span></a>
+    
+      <a class="react-native pl__all" href="/2016/11/14/react-native-flux%E6%95%B0%E6%8D%AE%E6%B5%81.html"><span class="pl__circle"></span><span class="pl__title">flux数据流在rn中的使用</span><span class="pl__date">16/11/14</span></a>
+    
+      <a class="专题 pl__all" href="/2016/05/09/iOS-networking-0.html"><span class="pl__circle"></span><span class="pl__title">iOS 网络请求专题</span><span class="pl__date">16/05/09</span></a>
+    
+      <a class="iOS pl__all" href="/2016/04/03/iOS-JavaScriptCore.html"><span class="pl__circle"></span><span class="pl__title">iOS JavaScriptCore使用</span><span class="pl__date">16/04/03</span></a>
+    
+      <a class="iOS pl__all" href="/2016/04/02/iOS-3DTouch-3.html"><span class="pl__circle"></span><span class="pl__title">iOS 3D touch开发(三) Force Properties-按压力度</span><span class="pl__date">16/04/02</span></a>
+    
+      <a class="iOS pl__all" href="/2016/04/01/iOS-3DTouch-2.html"><span class="pl__circle"></span><span class="pl__title">iOS 3D touch开发(二) peek and pop - 预览和弹出</span><span class="pl__date">16/04/01</span></a>
+    
+      <a class="iOS pl__all" href="/2016/03/21/iOS-3DTouch-1.html"><span class="pl__circle"></span><span class="pl__title">iOS 3D touch开发(一) Home Screen Quick Actions</span><span class="pl__date">16/03/21</span></a>
+    
+      <a class="iOS pl__all" href="/2016/03/10/iOS-unit-test.html"><span class="pl__circle"></span><span class="pl__title">iOS单元测试</span><span class="pl__date">16/03/10</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/29/iOS-objc-styleguide.html"><span class="pl__circle"></span><span class="pl__title">iOS objc编程规范</span><span class="pl__date">16/02/29</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/13/ios-networking-5.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（五）网络请求中的cookie</span><span class="pl__date">16/02/13</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/09/ios-networking-4.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（四） http异步文件上传和下载以及进度指示</span><span class="pl__date">16/02/09</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/04/ios-networking-3.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（三） http异步请求和https认证</span><span class="pl__date">16/02/04</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/03/ios-networking-2.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（二） http异步队列请求</span><span class="pl__date">16/02/03</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/03/ios-networking-1.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（一） http同步请求</span><span class="pl__date">16/02/03</span></a>
+    
+      <a class="react-native pl__all" href="/2016/02/02/react-native-demo.html"><span class="pl__circle"></span><span class="pl__title">react-native（二） 自己写的react-native学习demo和整理的tips</span><span class="pl__date">16/02/02</span></a>
+    
+      <a class="react-native pl__all" href="/2016/01/11/react-native-helloworld.html"><span class="pl__circle"></span><span class="pl__title">react-native（一） hello world</span><span class="pl__date">16/01/11</span></a>
+    
+      <a class="iOS pl__all" href="/2016/01/06/iOS-app-versions.html"><span class="pl__circle"></span><span class="pl__title">api如何设计才能支撑多个不同版本的app共存</span><span class="pl__date">16/01/06</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/31/playwith-imageToAscii.html"><span class="pl__circle"></span><span class="pl__title">那些好玩的nodejs插件 - 把图片转为ascii</span><span class="pl__date">15/12/31</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/10/fe-componentization.html"><span class="pl__circle"></span><span class="pl__title">前端开发框架 - seajs+handlebars模块化开发</span><span class="pl__date">15/12/10</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/06/fe-nginx-usage.html"><span class="pl__circle"></span><span class="pl__title">mac环境nginx的安装和使用</span><span class="pl__date">15/12/06</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/03/fe-js-handlebars.html"><span class="pl__circle"></span><span class="pl__title">handlerbars的使用及模板预编译</span><span class="pl__date">15/12/03</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/01/fe-engineering-gulp.html"><span class="pl__circle"></span><span class="pl__title">gulp自动构建工具教程</span><span class="pl__date">15/12/01</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/11/27/fe-environment.html"><span class="pl__circle"></span><span class="pl__title">前端开发工具和环境搭建</span><span class="pl__date">15/11/27</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/11/26/rem-em-px.html"><span class="pl__circle"></span><span class="pl__title">css3属性rem的使用</span><span class="pl__date">15/11/26</span></a>
+    
+      <a class="生活 pl__all" href="/2015/11/26/mylift-github.html"><span class="pl__circle"></span><span class="pl__title">我每天都在github上做些什么</span><span class="pl__date">15/11/26</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/24/iOS-affine-transfermation-animation.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（七）仿射变换-CGAffineTransform</span><span class="pl__date">15/11/24</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/22/iOS-library-spring.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（六）swift动画库spring使用和代码拆解</span><span class="pl__date">15/11/22</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/16/iOS-Implicit-Animation.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（五）layer隐式动画</span><span class="pl__date">15/11/16</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/06/iOS-controller-transitioning.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（四）controller间的自定义过渡效果</span><span class="pl__date">15/11/06</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/01/iOS-MotionEffects.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（三）MotionEffects</span><span class="pl__date">15/11/01</span></a>
+    
+      <a class="iOS pl__all" href="/2015/10/30/iOS-UIKit-Dynamics.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（二）UIKit力学行为</span><span class="pl__date">15/10/30</span></a>
+    
+      <a class="iOS pl__all" href="/2015/10/30/iOS-Animation-UIViewAndCoreAnimation.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（一）UIView动画和CoreAnimation</span><span class="pl__date">15/10/30</span></a>
+    
+      <a class="专题 pl__all" href="/2015/10/29/iOS-animation-0.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效专题（零）- 大纲和计划</span><span class="pl__date">15/10/29</span></a>
+    
+      <a class="iOS pl__all" href="/2015/10/17/ios-webView.html"><span class="pl__circle"></span><span class="pl__title">UIWebView和WKWebView的使用及js交互</span><span class="pl__date">15/10/17</span></a>
+    
+      <a class="iOS pl__all" href="/2015/10/06/ios-swift-quick.html"><span class="pl__circle"></span><span class="pl__title">swift5分钟语法速记</span><span class="pl__date">15/10/06</span></a>
+    
+      <a class="iOS pl__all" href="/2015/09/20/ios-macro.html"><span class="pl__circle"></span><span class="pl__title">ios宏的使用和技巧</span><span class="pl__date">15/09/20</span></a>
+    
+      <a class="iOS pl__all" href="/2015/09/11/ios-BLE-4.html"><span class="pl__circle"></span><span class="pl__title">ios蓝牙开发（四）BabyBluetooth蓝牙库介绍</span><span class="pl__date">15/09/11</span></a>
+    
+      <a class="iOS pl__all" href="/2015/09/07/ios-BLE-3.html"><span class="pl__circle"></span><span class="pl__title">ios蓝牙开发（三）app作为外设被连接的实现</span><span class="pl__date">15/09/07</span></a>
+    
+      <a class="iOS pl__all" href="/2015/09/02/ios-draw-Graffiti-2.html"><span class="pl__circle"></span><span class="pl__title">ios绘图demo,做一个涂鸦板(下)</span><span class="pl__date">15/09/02</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/08/29/go-deep-into-unsilder.js.html"><span class="pl__circle"></span><span class="pl__title">深入理解unslider.js源码</span><span class="pl__date">15/08/29</span></a>
+    
+      <a class="生活 pl__all" href="/2015/08/23/life-keyboardAndHHKB.html"><span class="pl__circle"></span><span class="pl__title">键盘那些事，hhkb开箱</span><span class="pl__date">15/08/23</span></a>
+    
+      <a class="技术 pl__all" href="/2015/08/22/github-ImagesUploadWebSite.html"><span class="pl__circle"></span><span class="pl__title">自己markdown博客的图床程序</span><span class="pl__date">15/08/22</span></a>
+    
+      <a class="iOS pl__all" href="/2015/08/19/ios-ThreadAndAsynchronization.html"><span class="pl__circle"></span><span class="pl__title">ios的线程和同步异步操作</span><span class="pl__date">15/08/19</span></a>
+    
+      <a class="iOS pl__all" href="/2015/08/14/ios-BLE-2.html"><span class="pl__circle"></span><span class="pl__title">ios蓝牙开发（二）ios连接外设的代码实现</span><span class="pl__date">15/08/14</span></a>
+    
+      <a class="iOS pl__all" href="/2015/07/26/ios-draw-Graffiti.html"><span class="pl__circle"></span><span class="pl__title">ios绘图demo,做一个涂鸦板(上)</span><span class="pl__date">15/07/26</span></a>
+    
+      <a class="iOS pl__all" href="/2015/07/25/ios-draw-base.html"><span class="pl__circle"></span><span class="pl__title">ios绘图基础</span><span class="pl__date">15/07/25</span></a>
+    
+      <a class="iOS pl__all" href="/2015/07/17/ios-BLE-1.html"><span class="pl__circle"></span><span class="pl__title">iOS蓝牙开发（一）蓝牙相关基础知识</span><span class="pl__date">15/07/17</span></a>
+    
+      <a class="专题 pl__all" href="/2015/07/17/ios-BLE-0.html"><span class="pl__circle"></span><span class="pl__title">iOS蓝牙的开发专题</span><span class="pl__date">15/07/17</span></a>
+    
+      <a class="技术 pl__all" href="/2015/07/07/mybatis.html"><span class="pl__circle"></span><span class="pl__title">MyBatis简单使用的demo</span><span class="pl__date">15/07/07</span></a>
+    
+      <a class="技术 pl__all" href="/2015/07/06/rabbitmq.html"><span class="pl__circle"></span><span class="pl__title">RabbitMQ使用</span><span class="pl__date">15/07/06</span></a>
+    
+      <a class="iOS pl__all" href="/2015/06/14/ios-library-masonry.html"><span class="pl__circle"></span><span class="pl__title">Masonry的使用</span><span class="pl__date">15/06/14</span></a>
+    
+      <a class="专题 pl__all" href="/2015/06/14/ios-library-0.html"><span class="pl__circle"></span><span class="pl__title">iOS中那些好用的第三方库</span><span class="pl__date">15/06/14</span></a>
+    
+      <a class="iOS pl__all" href="/2015/05/29/ios-develop-tool.html"><span class="pl__circle"></span><span class="pl__title">提高iOS开发效率的工具</span><span class="pl__date">15/05/29</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/spring-4.html"><span class="pl__circle"></span><span class="pl__title">Spring 文件上传</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/spring-3.html"><span class="pl__circle"></span><span class="pl__title">Spring- Hibernate数据基本操作</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/spring-2.html"><span class="pl__circle"></span><span class="pl__title">Spring RestController 请求参数详解</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/spring-1.html"><span class="pl__circle"></span><span class="pl__title">Spring和hibernate的maven配置</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/tomcat-domain-name.html"><span class="pl__circle"></span><span class="pl__title">tomcat部署绑定多个域名</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="专题 pl__all" href="/2015/05/28/spring-0.html"><span class="pl__circle"></span><span class="pl__title">Spring4+hibernate专题</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/04/29/css-selector.html"><span class="pl__circle"></span><span class="pl__title">css选择器的用法</span><span class="pl__date">15/04/29</span></a>
+    
+      <a class="技术 pl__all" href="/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html"><span class="pl__circle"></span><span class="pl__title">在Github上搭建Jekyll博客和创建主题</span><span class="pl__date">14/02/12</span></a>
+    
+      <a class="技术 pl__all" href="/2013/04/23/opensource-licenses.html"><span class="pl__circle"></span><span class="pl__title">五中常见的开源协议整理(BSD,Apache,GPL,LGPL,MIT)</span><span class="pl__date">13/04/23</span></a>
+    
+    </nav>
+  </div> <!-- end #posts-list -->
+</aside> <!-- end #sidebar -->
+    <div id="post">
+      <div id="pjax">
+        <article id="post__content">
+    <h1 id="post__title" data-identifier="20151006">swift5分钟语法速记</h1>
+    <blockquote>
+  <p>国庆在家,又把swift相关语法部分看了一遍，并整理了swift语法速记，帮助我们快速记住swift语法和查找对应语法。</p>
+</blockquote>
+
+<h1 id="一类型">(一)类型</h1>
+
+<h2 id="常见类型">常见类型</h2>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Int</span><span class="p">,</span><span class="kt">String</span><span class="p">,</span><span class="kt">Double</span><span class="p">,</span><span class="kd">struct</span><span class="p">,</span><span class="kd">enum</span><span class="p">,</span><span class="kd">class</span><span class="p">,</span><span class="n">tuple</span>
+
+<span class="c1">//typle 元组类型</span>
+<span class="c1">//声明</span>
+<span class="k">let</span> <span class="nv">someTuple</span><span class="p">:(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">23</span><span class="p">)</span>
+<span class="c1">//元组可以设置名称</span>
+<span class="k">var</span> <span class="nv">person</span> <span class="o">=</span> <span class="p">(</span><span class="nv">name</span><span class="p">:</span><span class="s">"liuyw"</span><span class="p">,</span><span class="nv">age</span><span class="p">:</span><span class="mi">30</span><span class="p">)</span>
+<span class="c1">//取值方式1</span>
+<span class="n">person</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">person</span><span class="o">.</span><span class="mi">1</span>
+<span class="c1">//取值方式2</span>
+<span class="n">person</span><span class="o">.</span><span class="n">age</span>
+<span class="n">person</span><span class="o">.</span><span class="n">name</span>
+<span class="c1">//取值方式3</span>
+<span class="k">var</span> <span class="p">(</span><span class="nv">personName</span><span class="p">,</span><span class="nv">personAge</span><span class="p">)</span> <span class="o">=</span> <span class="n">person</span>
+<span class="n">personName</span>
+<span class="n">personAge</span>
+
+<span class="n">someTuple</span><span class="o">.</span><span class="mi">0</span><span class="n">或者tuple</span><span class="o">.</span><span class="mi">1</span>
+
+<span class="c1">//typealias</span>
+<span class="c1">//类型的别名关键字</span>
+
+<span class="c1">//函数类型</span>
+<span class="kd">func</span>
+
+<span class="c1">//可选类型</span>
+<span class="k">var</span> <span class="nv">num</span><span class="p">:</span><span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="k">var</span> <span class="nv">num1</span><span class="p">:</span><span class="kt">Optional</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span> <span class="o">=</span> <span class="kc">nil</span>
+
+<span class="c1">//隐式解析可选</span>
+<span class="k">var</span> <span class="nv">num</span><span class="p">:</span><span class="kt">Int</span><span class="o">!</span>
+<span class="k">var</span> <span class="nv">num1</span><span class="p">:</span><span class="kt">ImplicitlyUnwrappedOptional</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span>
+
+<span class="c1">//协议合成类型</span>
+<span class="k">var</span> <span class="nv">someProtocol</span><span class="p">:</span><span class="kd">protocol</span><span class="o">&lt;</span><span class="n">protocol1</span><span class="p">,</span><span class="n">protocol2</span><span class="o">&gt;</span>
+
+</code></pre></div></div>
+
+<h2 id="array">Array</h2>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//声明</span>
+<span class="k">var</span> <span class="nv">array1</span><span class="p">:[</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">"0"</span><span class="p">,</span><span class="s">"1"</span><span class="p">,</span><span class="s">"2"</span><span class="p">,</span><span class="s">"3"</span><span class="p">]</span>
+<span class="k">var</span> <span class="nv">array</span> <span class="o">=</span> <span class="p">[</span><span class="kt">String</span><span class="p">]()</span>
+
+<span class="c1">//修改值</span>
+<span class="n">array1</span> <span class="o">+=</span> <span class="p">[</span><span class="s">"4"</span><span class="p">,</span><span class="s">"5"</span><span class="p">]</span>
+<span class="n">array1</span><span class="p">[</span><span class="mi">1</span><span class="o">...</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">"a"</span><span class="p">,</span><span class="s">"b"</span><span class="p">,</span><span class="s">"c"</span><span class="p">,</span><span class="s">"d"</span><span class="p">,</span><span class="s">"e"</span><span class="p">]</span>
+<span class="c1">//array1.append</span>
+<span class="c1">//array1.removeAtIndex(&lt;index:Int Int&gt;)</span>
+<span class="c1">//array1.insert(&lt;newElement:Element&gt;, atIndex:&lt;Int&gt;)</span>
+
+<span class="c1">//获取值</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">array1</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">array1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">array1</span><span class="o">.</span><span class="n">last</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">array1</span><span class="o">.</span><span class="n">first</span><span class="p">)</span>
+
+<span class="k">var</span> <span class="nv">str</span><span class="p">:</span><span class="kt">String</span> <span class="o">=</span> <span class="s">""</span>
+
+<span class="c1">//遍历</span>
+<span class="k">for</span> <span class="nv">item</span><span class="p">:</span><span class="kt">String</span> <span class="k">in</span> <span class="n">array1</span><span class="p">{</span>
+
+<span class="p">}</span>
+
+
+<span class="k">for</span> <span class="n">bgen</span> <span class="k">in</span> <span class="n">array1</span><span class="o">.</span><span class="nf">enumerate</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"元素下标:</span><span class="se">\(</span><span class="n">bgen</span><span class="o">.</span><span class="mi">0</span><span class="se">)</span><span class="s">  元素值:</span><span class="se">\(</span><span class="n">bgen</span><span class="o">.</span><span class="mi">1</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="dictionary">dictionary</h2>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">//声明</span>
+<span class="k">var</span> <span class="nv">dic</span><span class="p">:</span><span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="kt">String</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="s">"name"</span><span class="p">:</span><span class="s">"liu"</span><span class="p">,</span><span class="s">"age"</span><span class="p">:</span><span class="s">"30"</span><span class="p">]</span>
+<span class="k">var</span> <span class="nv">dic1</span> <span class="o">=</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">()</span>
+
+<span class="c1">//修改值</span>
+<span class="n">dic</span><span class="p">[</span><span class="s">"name"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"liuyanwei"</span>
+<span class="n">dic</span><span class="p">[</span><span class="s">"name1"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"liuyanwei1"</span>
+<span class="n">dic</span><span class="o">.</span><span class="nf">updateValue</span><span class="p">(</span><span class="s">"liuyw"</span><span class="p">,</span> <span class="nv">forKey</span><span class="p">:</span> <span class="s">"name"</span><span class="p">)</span><span class="c1">//返回原值</span>
+<span class="n">dic1</span><span class="o">.</span><span class="nf">indexForKey</span><span class="p">(</span><span class="s">"name1"</span><span class="p">)</span>
+<span class="n">dic</span><span class="o">.</span><span class="nf">removeValueForKey</span><span class="p">(</span><span class="s">"name"</span><span class="p">)</span>
+
+<span class="c1">//获取值</span>
+<span class="n">dic</span><span class="p">[</span><span class="s">"name"</span><span class="p">]</span>
+
+<span class="c1">//字典的循环</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="n">dictionary</span><span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"key is: </span><span class="se">\(</span><span class="n">key</span><span class="se">)</span><span class="s"> value is : </span><span class="se">\(</span><span class="n">value</span><span class="se">)</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+</code></pre></div></div>
+
+<h2 id="枚举enum">枚举enum</h2>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">//整形的枚举</span>
+<span class="kd">enum</span> <span class="kt">Sharp</span><span class="p">:</span><span class="kt">Int</span><span class="p">{</span>
+    <span class="k">case</span> <span class="kt">Rect</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="kt">Circle</span><span class="p">,</span><span class="kt">Star</span>
+    <span class="c1">//switch中的选项可以用.表示</span>
+    <span class="kd">func</span> <span class="nf">desc</span><span class="p">()</span><span class="o">-&gt;</span><span class="kt">String</span><span class="p">{</span>
+        <span class="k">switch</span> <span class="k">self</span><span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="kt">Rect</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">"this is rect"</span>
+        <span class="k">case</span> <span class="o">.</span><span class="kt">Circle</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">"this is circle"</span>
+        <span class="k">case</span> <span class="o">.</span><span class="kt">Star</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">"this is star"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">//enum的值</span>
+<span class="kt">Sharp</span><span class="o">.</span><span class="kt">RawValue</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">//调用枚举的方法</span>
+<span class="kt">Sharp</span><span class="o">.</span><span class="kt">Rect</span><span class="o">.</span><span class="nf">desc</span><span class="p">()</span>
+
+</code></pre></div></div>
+<h2 id="结构struct">结构struct</h2>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//结构</span>
+<span class="c1">//结构和类的最重要的区别就是架构是传值，类是传引用</span>
+<span class="kd">struct</span> <span class="kt">Sharp</span><span class="p">{</span>
+    <span class="c1">//属性</span>
+    <span class="k">var</span> <span class="nv">width</span><span class="p">:</span><span class="kt">Int</span>
+    <span class="k">var</span> <span class="nv">height</span><span class="p">:</span><span class="kt">Int</span>
+    <span class="c1">//方法</span>
+    <span class="kd">func</span> <span class="nf">area</span><span class="p">()</span><span class="o">-&gt;</span><span class="kt">Int</span><span class="p">{</span>
+        <span class="k">return</span> <span class="k">self</span><span class="o">.</span><span class="n">width</span><span class="o">*</span><span class="k">self</span><span class="o">.</span><span class="n">height</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">//允许修改属性的方法前缀 mutating</span>
+    <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">zoomIn</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">width</span> <span class="o">+=</span> <span class="mi">100</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">height</span> <span class="o">+=</span> <span class="mi">100</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="协议">协议</h2>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">//可以被class，struct，enum实现</span>
+<span class="kd">protocol</span> <span class="kt">Sharp</span><span class="p">{</span>
+    <span class="c1">//属性</span>
+    <span class="k">var</span> <span class="nv">width</span><span class="p">:</span><span class="kt">String</span><span class="p">{</span><span class="k">get</span><span class="p">}</span>
+    <span class="k">var</span> <span class="nv">heiht</span><span class="p">:</span><span class="kt">String</span><span class="p">{</span><span class="k">get</span> <span class="k">set</span><span class="p">}</span>
+    <span class="c1">//方法</span>
+    <span class="kd">func</span> <span class="nf">area</span><span class="p">()</span><span class="o">-&gt;</span><span class="kt">Int</span>
+
+<span class="p">}</span>
+
+<span class="c1">//swift 可选和必选协议</span>
+<span class="c1">//只能被class实现，无法给struct和enum实现</span>
+<span class="kd">@objc</span> <span class="kd">protocol</span> <span class="kt">OptionalProtocol</span> <span class="p">{</span>
+    <span class="c1">//可选协议</span>
+    <span class="kd">optional</span> <span class="kd">func</span> <span class="nf">optionalMethod</span><span class="p">()</span>
+    <span class="c1">//必选协议</span>
+    <span class="kd">func</span> <span class="nf">necessaryMethod</span><span class="p">()</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h2 id="对象">对象</h2>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">Card</span><span class="p">:</span> <span class="kt">NSObject</span> <span class="p">{</span>
+
+<span class="p">}</span>
+<span class="kd">class</span> <span class="kt">Person</span><span class="p">:</span> <span class="kt">NSObject</span> <span class="p">{</span>
+
+    <span class="c1">//私有对象</span>
+    <span class="kd">private</span> <span class="k">var</span> <span class="nv">_name</span><span class="p">:</span><span class="kt">String</span><span class="p">?</span>
+
+    <span class="k">var</span> <span class="nv">gender</span><span class="p">:</span><span class="kt">String</span>
+    <span class="k">var</span> <span class="nv">gender1</span><span class="p">:</span><span class="kt">String</span><span class="p">?</span>
+
+    <span class="c1">//arc</span>
+    <span class="cm">/*
+    weak 用于可空对象，unowned用于非空对象
+    weak 调用被释放的对象会返回nil，unowned 调用被释放的对象会出异常
+    建议 如果能够确定在访问时不会已被释放的话，尽量使用 unowned，如果存在被释放的可能，那就选择用 weak
+    */</span>
+    <span class="k">weak</span> <span class="k">var</span> <span class="nv">bastFriend</span><span class="p">:</span><span class="kt">Person</span><span class="p">?</span>
+    <span class="k">unowned</span> <span class="k">var</span> <span class="nv">identityCard</span><span class="p">:</span><span class="kt">Card</span>
+
+
+    <span class="c1">//构造函数</span>
+    <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">gender</span> <span class="o">=</span> <span class="s">"male"</span>
+        <span class="n">identityCard</span> <span class="o">=</span> <span class="kt">Card</span><span class="p">()</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">()</span>
+        <span class="c1">//初始化。。。</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="p">}</span>
+    <span class="c1">//便利构造函数</span>
+    <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span><span class="nv">gender</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">gender</span> <span class="o">=</span> <span class="n">gender</span>
+    <span class="p">}</span>
+
+    <span class="c1">//析构函数</span>
+    <span class="kd">deinit</span><span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="c1">//属性</span>
+    <span class="k">var</span> <span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">{</span>
+        <span class="k">get</span><span class="p">{</span>
+            <span class="k">return</span> <span class="n">_name</span><span class="o">!</span>
+        <span class="p">}</span>
+        <span class="k">set</span><span class="p">{</span>
+            <span class="n">_name</span> <span class="o">=</span> <span class="n">newValue</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">//可以自定newValue的名称</span>
+        <span class="c1">//set(newName){</span>
+        <span class="c1">//   _gender = newName</span>
+        <span class="c1">//}</span>
+    <span class="p">}</span>
+
+    <span class="c1">//观察者模式的属性</span>
+    <span class="c1">//newValue 和 oldValue</span>
+    <span class="k">var</span> <span class="nv">age</span><span class="p">:</span><span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">{</span>
+        <span class="k">willSet</span><span class="p">{}</span>
+        <span class="k">didSet</span><span class="p">{}</span>
+    <span class="p">}</span>
+
+    <span class="c1">//方法</span>
+    <span class="kd">func</span> <span class="nf">sayName</span><span class="p">(){</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"hello name"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">//静态方法</span>
+    <span class="kd">static</span> <span class="kd">func</span> <span class="nf">say</span><span class="p">(){</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"hello"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">//类方法</span>
+    <span class="kd">class</span> <span class="kd">func</span> <span class="nf">say1</span><span class="p">(){</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"hello1"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">//方法重载</span>
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">copy</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AnyObject</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">""</span>
+    <span class="p">}</span>
+
+    <span class="c1">//懒属性</span>
+    <span class="c1">//两种方式，方法加载和闭包加载</span>
+    <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">friends</span><span class="p">:[</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="nf">findfriends</span><span class="p">()</span>
+    <span class="kd">func</span> <span class="nf">findfriends</span><span class="p">()</span><span class="o">-&gt;</span><span class="p">[</span><span class="kt">String</span><span class="p">]{</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s">"bob"</span><span class="p">,</span><span class="s">"bill"</span><span class="p">,</span><span class="s">"jobs"</span><span class="p">]</span>
+    <span class="p">}</span>
+    <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">bastFirends</span><span class="p">:</span><span class="kt">String</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">" print bastFirends"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s">"liuyanwei"</span>
+        <span class="p">}()</span>
+    <span class="c1">//调用</span>
+    <span class="c1">//NSLog("bastFirends:%@ and friends is:[%@] ",p.bastFirends,p.friends)</span>
+
+    <span class="c1">//下标脚本</span>
+    <span class="nf">subscript</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">String</span><span class="p">{</span>
+        <span class="k">get</span><span class="p">{</span>
+            <span class="k">return</span> <span class="k">self</span><span class="o">.</span><span class="n">name</span>
+        <span class="p">}</span>
+        <span class="k">set</span><span class="p">{</span>
+            <span class="k">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">newValue</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="二语法">（二）语法</h1>
+
+<h2 id="流程控制">流程控制</h2>
+
+<h3 id="if语句">if语句</h3>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">//判断是Option类是否有值</span>
+<span class="k">if</span> <span class="k">let</span> <span class="nv">theStr</span> <span class="o">=</span> <span class="n">str2</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"ture"</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h3 id="switch">switch</h3>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//switch 数字区间</span>
+<span class="k">var</span> <span class="nv">condition1</span> <span class="o">=</span> <span class="mi">888_888_888</span><span class="p">;</span>
+<span class="k">switch</span> <span class="n">condition1</span><span class="p">{</span>
+    <span class="k">case</span> <span class="o">-</span><span class="mi">999_999</span><span class="o">...</span><span class="mi">38</span><span class="p">:</span> <span class="nf">print</span><span class="p">(</span><span class="s">"case1"</span><span class="p">);</span>
+    <span class="k">case</span> <span class="mi">40</span><span class="o">...</span><span class="mi">88</span><span class="p">:</span> <span class="nf">print</span><span class="p">(</span><span class="s">"case2"</span><span class="p">);</span>
+    <span class="k">case</span> <span class="mi">100</span><span class="o">...</span><span class="mi">188</span><span class="p">:</span> <span class="nf">print</span><span class="p">(</span><span class="s">"case3"</span><span class="p">);</span>
+    <span class="k">case</span> <span class="mi">200</span><span class="o">...</span><span class="mi">999_999_999_999</span><span class="p">:</span> <span class="nf">print</span><span class="p">(</span><span class="s">"case3"</span><span class="p">);</span>
+    <span class="k">default</span><span class="p">:</span><span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//switch  元组</span>
+<span class="k">var</span> <span class="nv">condition2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">88</span><span class="p">);</span>
+<span class="k">switch</span> <span class="n">condition2</span><span class="p">{</span>
+    <span class="k">case</span> <span class="p">(</span><span class="o">-</span><span class="mi">99999</span><span class="o">...</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">99999</span><span class="o">...</span><span class="mi">0</span><span class="p">),(</span><span class="mi">40</span><span class="o">...</span><span class="mi">88</span><span class="p">,</span><span class="mi">0</span><span class="o">..&lt;</span><span class="mi">100</span><span class="p">):</span> <span class="nf">print</span><span class="p">(</span><span class="s">"case1"</span><span class="p">)</span><span class="c1">//匹配多个条件</span>
+<span class="k">case</span> <span class="k">let</span> <span class="p">(</span><span class="nv">_</span><span class="p">,</span><span class="nv">y</span><span class="p">):</span> <span class="nf">print</span><span class="p">(</span><span class="n">y</span><span class="p">);</span> <span class="k">fallthrough</span> <span class="c1">// 值绑定,fallthrough 坠落下一个条件</span>
+    <span class="k">case</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span><span class="mi">0</span><span class="o">...</span><span class="mi">100</span><span class="p">):</span> <span class="nf">print</span><span class="p">(</span><span class="s">"case3"</span><span class="p">);</span><span class="c1">// “_” 匹配所有</span>
+    <span class="k">default</span><span class="p">:</span><span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//switch 值绑定和where语句</span>
+<span class="k">var</span> <span class="nv">condition3</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">switch</span> <span class="n">condition3</span><span class="p">{</span>
+    <span class="k">case</span> <span class="k">let</span> <span class="nv">i</span> <span class="k">where</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">50</span> <span class="p">:</span><span class="nf">print</span><span class="p">(</span><span class="s">"case1"</span><span class="p">)</span>
+    <span class="k">case</span> <span class="k">let</span> <span class="nv">i</span> <span class="k">where</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">120</span> <span class="o">&amp;&amp;</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">50</span> <span class="p">:</span><span class="nf">print</span><span class="p">(</span><span class="s">"case2"</span><span class="p">)</span>
+    <span class="k">default</span> <span class="p">:</span><span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//switch 枚举</span>
+<span class="kd">enum</span> <span class="kt">BarCode</span><span class="p">{</span>
+    <span class="k">case</span> <span class="kt">UPCA</span><span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span>
+    <span class="k">case</span> <span class="kt">QRCode</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">var</span> <span class="nv">condition4</span> <span class="o">=</span> <span class="kt">BarCode</span><span class="o">.</span><span class="kt">UPCA</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">switch</span> <span class="n">condition4</span><span class="p">{</span>
+    <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="kt">UPCA</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span> <span class="nf">print</span><span class="p">(</span><span class="s">"a:</span><span class="se">\(</span><span class="n">a</span><span class="se">)</span><span class="s">|b:</span><span class="se">\(</span><span class="n">b</span><span class="se">)</span><span class="s">|c:</span><span class="se">\(</span><span class="n">c</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+    <span class="k">case</span> <span class="o">.</span><span class="kt">QRCode</span><span class="p">:</span> <span class="nf">print</span><span class="p">(</span><span class="s">"case:2"</span><span class="p">)</span>
+<span class="c1">//    default: break</span>
+<span class="p">}</span>
+
+<span class="c1">//对option的判断</span>
+<span class="k">let</span> <span class="nv">num</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="k">switch</span> <span class="n">num</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nv">nil</span><span class="p">:</span> <span class="nf">println</span><span class="p">(</span><span class="s">"没值"</span><span class="p">)</span>
+    <span class="k">default</span><span class="p">:</span>  <span class="nf">println</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">num</span><span class="o">!</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h2 id="函数">函数</h2>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">//无参数</span>
+<span class="kd">func</span> <span class="nf">hello</span><span class="p">(){}</span>
+
+<span class="c1">//有参数</span>
+<span class="kd">func</span> <span class="nf">hello</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">){}</span>
+
+<span class="c1">//有参数和返回值</span>
+<span class="kd">func</span> <span class="nf">hello</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">String</span><span class="p">{}</span>
+
+<span class="c1">//多个参数</span>
+<span class="kd">func</span> <span class="nf">hello</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span><span class="nv">age</span><span class="p">:</span><span class="kt">Int</span><span class="p">){}</span>
+
+<span class="c1">//多个返回值</span>
+<span class="kd">func</span> <span class="nf">hello</span><span class="p">()</span><span class="o">-&gt;</span><span class="p">(</span><span class="kt">String</span><span class="p">,</span><span class="kt">Int</span><span class="p">){</span>
+    <span class="nf">return</span> <span class="p">(</span><span class="n">num1</span><span class="p">,</span><span class="n">num2</span><span class="p">,</span><span class="n">num3</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">//可变参数</span>
+<span class="kd">func</span> <span class="nf">hello</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="o">...</span><span class="p">){}</span>
+
+<span class="c1">//函数的嵌套</span>
+<span class="kd">func</span> <span class="nf">hello1</span><span class="p">(){</span>
+    <span class="kd">func</span> <span class="nf">hello2</span><span class="p">(){}</span>
+<span class="p">}</span>
+
+<span class="c1">//参数的默认值</span>
+<span class="kd">func</span> <span class="nf">hello1</span><span class="p">(</span><span class="nv">msg</span><span class="p">:</span><span class="kt">String</span> <span class="o">=</span> <span class="s">"defaultMsg"</span><span class="p">){}</span>
+
+<span class="c1">//返回值是函数</span>
+<span class="kd">func</span> <span class="nf">hello</span><span class="p">()</span><span class="o">-&gt;</span><span class="p">(</span><span class="kt">String</span><span class="o">-&gt;</span><span class="kt">String</span><span class="p">){</span>
+     <span class="kd">func</span> <span class="nf">hello1</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">String</span><span class="p">{}</span>
+     <span class="k">return</span> <span class="n">hello1</span>
+<span class="p">}</span>
+
+
+<span class="c1">//参数是函数</span>
+<span class="n">fun</span> <span class="nf">hello</span><span class="p">(</span><span class="nv">msg</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span><span class="nf">callback</span><span class="p">(</span><span class="kt">Void</span><span class="o">-&gt;</span><span class="kt">Void</span><span class="p">)){</span>
+    <span class="nf">callback</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="c1">//函数参数是变量</span>
+<span class="c1">//若不声明var ，默认参数类型是let，就无法修改参数的值</span>
+<span class="kd">func</span> <span class="nf">hello</span><span class="p">(</span><span class="k">var</span> <span class="nv">msg</span><span class="p">:</span><span class="kt">String</span><span class="p">){</span>
+    <span class="n">msg</span> <span class="o">+=</span> <span class="s">"hello"</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">//函数参数的命名</span>
+<span class="kd">func</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span> <span class="nv">name</span><span class="p">:</span><span class="kt">String</span> <span class="p">,</span><span class="n">withAge</span> <span class="nv">age</span><span class="p">:</span><span class="kt">Int</span><span class="p">){}</span>
+<span class="kd">func</span> <span class="nf">hello1</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span><span class="kt">String</span> <span class="p">,</span><span class="nv">age</span><span class="p">:</span><span class="kt">Int</span><span class="p">){}</span>
+<span class="c1">//调用</span>
+<span class="nf">hello</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">withAge</span><span class="p">:</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span><span class="c1">//默认的参数命名</span>
+<span class="nf">hello1</span><span class="p">(</span><span class="o">&lt;</span><span class="nv">name</span><span class="p">:</span><span class="kt">String</span>  <span class="kt">String</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">age</span><span class="p">:</span> <span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span><span class="c1">//指定的参数命名</span>
+
+<span class="c1">//匿名函数</span>
+<span class="c1">//{}可以作为匿名函数</span>
+<span class="c1">//例如调用上面的hello方法（参数是函数）</span>
+<span class="nf">hello</span><span class="p">(</span><span class="s">"hi"</span><span class="p">,</span>
+    <span class="p">{</span>
+     <span class="c1">//dosthing</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="c1">//有参数的匿名函数</span>
+<span class="p">{</span>
+    <span class="p">(</span><span class="nv">msg</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">String</span> <span class="k">in</span>
+    <span class="k">return</span> <span class="n">msg</span>
+<span class="p">}</span>
+
+<span class="c1">//泛型参数</span>
+<span class="c1">//输入输出参数的函数</span>
+<span class="kd">func</span> <span class="n">myswap</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">inout</span> <span class="nv">obj1</span><span class="p">:</span><span class="kt">T</span><span class="p">,</span><span class="k">inout</span> <span class="n">_</span> <span class="nv">obj2</span><span class="p">:</span><span class="kt">T</span><span class="p">){</span>
+    <span class="k">let</span> <span class="nv">temp</span><span class="p">:</span><span class="kt">T</span> <span class="o">=</span> <span class="n">obj1</span>
+    <span class="n">obj1</span> <span class="o">=</span> <span class="n">obj2</span>
+    <span class="n">obj2</span> <span class="o">=</span> <span class="n">temp</span>
+<span class="p">}</span>
+
+
+</code></pre></div></div>
+
+<h2 id="闭包">闭包</h2>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">var</span> <span class="nv">array</span> <span class="o">=</span> <span class="p">[</span><span class="s">"f"</span><span class="p">,</span><span class="s">"a"</span><span class="p">,</span><span class="s">"c"</span><span class="p">,</span><span class="s">"d"</span><span class="p">,</span><span class="s">"e"</span><span class="p">]</span>
+
+<span class="c1">//完整写法</span>
+<span class="c1">//{ (参数:类型) in 执行方法 return 返回值}</span>
+<span class="n">array</span><span class="o">.</span><span class="nf">sort</span><span class="p">({</span>
+    <span class="p">(</span><span class="nv">s1</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span><span class="nv">s2</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="k">in</span>
+    <span class="k">return</span> <span class="n">s2</span> <span class="o">&gt;</span> <span class="n">s1</span><span class="p">;</span>
+<span class="p">})</span>
+
+<span class="c1">//省略参数类型和括号</span>
+<span class="c1">//{ 参数$1,$2 in 执行方法 return 返回值}</span>
+<span class="n">array</span><span class="o">.</span><span class="nf">sort</span><span class="p">({</span>
+    <span class="n">s1</span><span class="p">,</span><span class="n">s2</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="k">in</span>
+    <span class="k">return</span> <span class="n">s1</span> <span class="o">&gt;</span> <span class="n">s2</span><span class="p">;</span>
+<span class="p">})</span>
+
+<span class="c1">//省略参数类型和return关键字</span>
+<span class="c1">//{ 参数$1,$2 in 返回值}</span>
+<span class="n">array</span><span class="o">.</span><span class="nf">sort</span><span class="p">({</span>
+    <span class="n">s1</span><span class="p">,</span><span class="n">s2</span> <span class="o">-&gt;</span><span class="kt">Bool</span> <span class="k">in</span>
+    <span class="n">s1</span> <span class="o">&lt;</span> <span class="n">s2</span>
+<span class="p">})</span>
+
+<span class="c1">//省略参数名</span>
+<span class="n">array</span><span class="o">.</span><span class="nf">sort</span><span class="p">({</span>
+    <span class="nv">$1</span> <span class="o">&lt;</span> <span class="nv">$0</span>
+<span class="p">})</span>
+
+<span class="c1">//尾随闭包</span>
+<span class="n">array</span><span class="o">.</span><span class="nf">sort</span><span class="p">(){</span>
+    <span class="nv">$1</span> <span class="o">&lt;</span> <span class="nv">$0</span>
+<span class="p">}</span>
+
+
+<span class="c1">//上面的几个其实只是匿名函数，不是真正的闭包。swift里面称他们是闭包，那就算是吧。真正的闭包是下面这个</span>
+<span class="c1">//闭包（closure）就是封闭的意思</span>
+<span class="c1">//闭包的概念,闭包概念有很多，我觉得比较好理解的的是松本行弘给的定义：将局部变量这一环境封闭起来的结构，叫做闭包</span>
+<span class="kd">func</span> <span class="nf">count</span><span class="p">()</span><span class="o">-&gt;</span><span class="p">(()</span><span class="o">-&gt;</span><span class="kt">Int</span><span class="p">){</span>
+    <span class="k">var</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="p">()</span><span class="o">-&gt;</span><span class="kt">Int</span> <span class="k">in</span>
+        <span class="k">return</span> <span class="o">++</span><span class="n">i</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">//测试使用</span>
+<span class="k">var</span> <span class="nv">touch</span> <span class="o">=</span> <span class="nf">count</span><span class="p">()</span>
+<span class="nf">touch</span><span class="p">()</span><span class="c1">//1</span>
+<span class="nf">touch</span><span class="p">()</span><span class="c1">//2</span>
+<span class="nf">touch</span><span class="p">()</span><span class="c1">//3</span>
+<span class="nf">touch</span><span class="p">()</span><span class="c1">//4</span>
+
+</code></pre></div></div>
+
+<h2 id="异常处理">异常处理</h2>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">enum</span> <span class="kt">AwfulError</span><span class="p">:</span> <span class="kt">ErrorType</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="kt">Bad</span>
+    <span class="k">case</span> <span class="kt">Worse</span>
+    <span class="k">case</span> <span class="kt">Terrible</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">hello</span> <span class="p">()</span> <span class="k">throws</span><span class="p">{</span>
+    <span class="k">throw</span> <span class="kt">AwfulError</span><span class="o">.</span><span class="kt">Bad</span>
+<span class="p">}</span>
+
+<span class="k">do</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="nf">hello</span><span class="p">()</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"final"</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="kt">AwfulError</span><span class="o">.</span><span class="kt">Bad</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"Bad"</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="kt">AwfulError</span><span class="o">.</span><span class="kt">Worse</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"Worse"</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="kt">AwfulError</span><span class="o">.</span><span class="kt">Terrible</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"Terrible"</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">catch</span>  <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"all error"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="断言">断言</h2>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">assert</span><span class="p">(</span><span class="nf">assert</span><span class="p">(</span><span class="o">&lt;</span><span class="nv">condition</span><span class="p">:</span><span class="kt">Bool</span> <span class="kt">Bool</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="nf">assert</span><span class="p">(</span><span class="o">&lt;</span><span class="nv">condition</span><span class="p">:</span> <span class="kt">Bool</span> <span class="kt">Bool</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span> <span class="kt">String</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="nf">assertionFailure</span><span class="p">()</span>
+<span class="nf">assertionFailure</span><span class="p">(</span><span class="o">&lt;</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span> <span class="kt">String</span><span class="o">&gt;</span><span class="p">)</span>
+</code></pre></div></div>
+<h2 id="typealias">typealias</h2>
+<blockquote>
+  <p>这个关键字可以给类，结构，枚举等增加别名，也常常用于合并协议后的别名
+typealias PetLike = protocol&lt;KittenLike, DogLike&gt;</p>
+</blockquote>
+
+<h2 id="编译标记">编译标记</h2>
+<p>//MARK :
+//MARK -:
+// TODO:
+// FIXME:</p>
+
+<h2 id="selector">Selector</h2>
+<blockquote>
+  <p>objc里面有@Selector(),在swift可以使用 let someMethod = Selector(“someMethodName”)得到。大多数情况无需这样</p>
+</blockquote>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="kd">func</span> <span class="nf">callMe</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kt">NSLog</span><span class="p">(</span><span class="s">"this is callMe"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">callMeWithParam</span><span class="p">(</span><span class="nv">timer</span><span class="p">:</span><span class="kt">NSTimer</span><span class="p">)</span> <span class="p">{</span>
+       <span class="kt">NSLog</span><span class="p">(</span><span class="s">"this is callMeWithParam,prarm is :</span><span class="se">\(</span><span class="n">timer</span><span class="o">.</span><span class="n">userInfo</span> <span class="k">as!</span> <span class="kt">String</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">//无参数</span>
+    <span class="kt">NSTimer</span><span class="o">.</span><span class="nf">scheduledTimerWithTimeInterval</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nv">target</span><span class="p">:</span><span class="k">self</span><span class="p">,</span> <span class="nv">selector</span><span class="p">:</span><span class="s">"callMe"</span><span class="p">,</span> <span class="nv">userInfo</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">repeats</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+    <span class="c1">//带参数,不使用Selector</span>
+    <span class="kt">NSTimer</span><span class="o">.</span><span class="nf">scheduledTimerWithTimeInterval</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nv">target</span><span class="p">:</span><span class="k">self</span><span class="p">,</span> <span class="nv">selector</span><span class="p">:</span> <span class="s">"callMeWithParam:"</span><span class="p">,</span> <span class="nv">userInfo</span><span class="p">:</span> <span class="s">"i'm prarm"</span><span class="p">,</span> <span class="nv">repeats</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h2 id="扩展">扩展</h2>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">Person</span><span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">anotherHello</span><span class="p">(){</span>
+        <span class="kt">NSLog</span><span class="p">(</span><span class="s">"another hello"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="optionsettype">OptionSetType</h2>
+
+<p>OptionSetType是NSOption在swift的替代</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">UIViewAutoresizing</span> <span class="p">:</span> <span class="kt">OptionSetType</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">rawValue</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">None</span><span class="p">:</span> <span class="kt">UIViewAutoresizing</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">FlexibleLeftMargin</span><span class="p">:</span> <span class="kt">UIViewAutoresizing</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">FlexibleWidth</span><span class="p">:</span> <span class="kt">UIViewAutoresizing</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">FlexibleRightMargin</span><span class="p">:</span> <span class="kt">UIViewAutoresizing</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">FlexibleTopMargin</span><span class="p">:</span> <span class="kt">UIViewAutoresizing</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">FlexibleHeight</span><span class="p">:</span> <span class="kt">UIViewAutoresizing</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">FlexibleBottomMargin</span><span class="p">:</span> <span class="kt">UIViewAutoresizing</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">//使用,选择多个</span>
+<span class="p">[</span><span class="kt">FlexibleLeftMargin</span><span class="p">,</span><span class="kt">FlexibleWidth</span><span class="p">]</span>
+
+
+</code></pre></div></div>
+
+<h1 id="三高级">（三）高级</h1>
+
+<h2 id="柯里化-currying">柯里化 (Currying)</h2>
+<blockquote>
+  <p>柯里化是一种量产类似方法的好办法，可以通过柯里化一个方法模板来避免写出很多重复代码</p>
+</blockquote>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">addTwoNumbers</span><span class="p">(</span><span class="nv">a</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)(</span><span class="nv">num</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">num</span>
+<span class="p">}</span>
+<span class="k">let</span> <span class="nv">addToFour</span> <span class="o">=</span> <span class="nf">addTwoNumbers</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>    <span class="c1">// addToFour 是一个 Int -&gt; Int</span>
+<span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="nf">addToFour</span><span class="p">(</span><span class="nv">num</span><span class="p">:</span> <span class="mi">6</span><span class="p">)</span>      <span class="c1">// result = 10</span>
+</code></pre></div></div>
+
+<h2 id="封装局部变量">封装局部变量</h2>
+<blockquote>
+  <p>封装局部变量可以减少变量之间的冲突</p>
+</blockquote>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">str</span><span class="p">:</span><span class="kt">String</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">//局部变量被封装</span>
+    <span class="k">let</span> <span class="nv">str1</span> <span class="o">=</span> <span class="s">"hello"</span><span class="p">,</span><span class="n">str2</span> <span class="o">=</span> <span class="s">"world"</span>
+    <span class="k">return</span> <span class="s">"</span><span class="se">\(</span><span class="n">str1</span><span class="se">)</span><span class="s"> </span><span class="se">\(</span><span class="n">str2</span><span class="se">)</span><span class="s"> !"</span>
+<span class="p">}()</span>
+</code></pre></div></div>
+
+<h2 id="方法调用的另一种方式">方法调用的另一种方式</h2>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">class</span> <span class="kt">Person</span> <span class="p">{</span>
+
+    <span class="c1">//普通方法</span>
+    <span class="kd">func</span> <span class="nf">hi</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">{</span>
+        <span class="k">return</span> <span class="s">"hi </span><span class="se">\(</span><span class="n">name</span><span class="se">)</span><span class="s">"</span>
+    <span class="p">}</span>
+
+    <span class="c1">//静态方法</span>
+    <span class="kd">class</span> <span class="kd">func</span> <span class="nf">hello</span><span class="p">(){</span>
+        <span class="kt">NSLog</span><span class="p">(</span><span class="s">"hello"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">let</span> <span class="nv">person</span> <span class="o">=</span> <span class="kt">Person</span><span class="p">()</span>
+
+<span class="c1">//常规方法调用</span>
+<span class="n">person</span><span class="o">.</span><span class="nf">hi</span><span class="p">(</span><span class="s">"liuyanwei"</span><span class="p">)</span>
+<span class="kt">Person</span><span class="o">.</span><span class="nf">hello</span><span class="p">()</span>
+
+<span class="c1">//利用方法名调用</span>
+<span class="k">let</span> <span class="nv">funcOnPerson1</span> <span class="o">=</span> <span class="kt">Person</span><span class="o">.</span><span class="n">hi</span>
+<span class="nf">funcOnPerson1</span><span class="p">(</span><span class="n">person</span><span class="p">)(</span><span class="s">"liuyanwei"</span><span class="p">)</span>
+
+<span class="c1">//调用静态方法</span>
+<span class="k">let</span> <span class="nv">funcOnPerson2</span> <span class="o">=</span> <span class="kt">Person</span><span class="o">.</span><span class="n">hello</span>
+<span class="nf">funcOnPerson2</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<h2 id="swift单例标准写法">swift单例标准写法</h2>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">class</span> <span class="kt">MyManager</span>  <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">private</span> <span class="k">let</span> <span class="nv">sharedInstance</span> <span class="o">=</span> <span class="kt">MyManager</span><span class="p">()</span>
+    <span class="kd">class</span> <span class="k">var</span> <span class="nv">sharedManager</span> <span class="p">:</span> <span class="kt">MyManager</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">sharedInstance</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h1 id="最后">最后</h1>
+
+<p>此速记已经收录在<a href="https://github.com/coolnameismy/ios-tips">ios-tips</a>中。</p>
+
+<p><a href="https://github.com/coolnameismy/ios-tips">ios-tips</a>是ios开发当中常用遇到的问题和解决方法的收集，包括ios和swif。
+一共包括4个部分</p>
+
+<ul>
+  <li>0_Foundation</li>
+  <li>1_UIKit</li>
+  <li>2_ThirdParty</li>
+  <li>3_Other</li>
+</ul>
+
+<p>目前已经整理完0_Foundation，开始整理UIKit。也欢迎大家给ios-tips补充内容。</p>
+
+<h2 id="补充要求">补充要求</h2>
+<ol>
+  <li>格式是md</li>
+  <li>tips都很简短，不要涉及复杂的原理和方法</li>
+</ol>
+
+<p>感谢收看，如果对大家有帮助，请<a href="https://github.com/coolnameismy">github上follow和star</a>，本文发布在<a href="https://zsmsimon.github.io/">刘彦玮的技术博客</a>，转载请注明出处</p>
+
+<p>===========</p>
+
+<p>参考文章：</p>
+<ol>
+  <li>The Swift Programming Language</li>
+  <li><a href="http://swifter.tips/">swifter</a></li>
+</ol>
+
+    <div class="declare">
+        <div>
+
+        </div>
+    </div>
+</article>
+<!-- end #post__content -->
+
+<div id="post__share">
+  <a id="icon-twitter" class="fontello" href="https://twitter.com/intent/tweet?url=http://localhost:4000/2015/10/06/ios-swift-quick.html&text=swift5分钟语法速记" target="_blank"></a>
+  <a id="icon-cc" class="fontello" href="http://github.com/ZSMSimon" target="_blank"></a>
+  <a id="icon-weibo" class="fontello" href="http://v.t.sina.com.cn/share/share.php?url=http://localhost:4000/2015/10/06/ios-swift-quick.html&title=swift5分钟语法速记" target="_blank"></a>
+    <!-- <div class="share-info">分享一下~</div> -->
+</div>
+<div id="qrcode" >
+	<img src="http://localhost:4000/assets/images/qrcode.jpg" style="margin: 0 auto;display: block;" width="200" height="200" alt="">
+</div>
+<!-- end #post__share -->
+<div id="disqus_thread" name="coolnameismy">
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink" target="_blank">Loading Disqus comments...</a>
+</div>
+
+
+            <!---->
+    <!--<p id="copyright">Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>-->
+    <!--&nbsp;&nbsp;|&nbsp;&nbsp;Theme <a href="https://github.com/P233/3-Jekyll" target="_blank">3-Jekyll</a>-->
+    <!--&nbsp;&nbsp;|&nbsp;&nbsp;Hosted on <a href="https://pages.github.com" target="_blank">Github</a></p>-->
+      </div> <!-- end #pjax -->
+
+      <div id="post__toc-trigger">
+        <div id="post__toc">
+          <span id="post__toc-title">Table of Contents</span>
+          <ul id="post__toc-ul"></ul>
+        </div>
+      </div>
+    </div> <!-- end #post -->
+
+    <button id="js-fullscreen"><span id="icon-arrow" class="fontello"></span></button>
+
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.pjax.js"></script>
+<script src="/assets/js/nprogress.js"></script>
+<script src="/assets/js/searchbox.js"></script>
+<script src="/assets/js/script.js"></script>
+
+
+    <script>
+    //百度站点统计,排除localhost
+    if(window.location.host.indexOf("localhost") ==-1 &&  window.location.host.indexOf("127.0.0.1") == -1){
+
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?2c1583237ca3f5343d8dab0140019ca7";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    }
+</script>
+   </body>
+ </html>

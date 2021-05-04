@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="baidu-site-verification" content="w9Akh6dPe4" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<!--[if lte IE 8]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
+
+<title>iOS动画和特效（四）controller间的自定义过渡效果 | 曾绍明的博客</title>
+<meta name="author" content="曾绍明">
+
+
+
+
+<link rel="shortcut icon" href="" />
+
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
+<link href="/pages/rss.xml" rel="alternate" title="曾绍明的博客" type="application/atom+xml">
+
+
+
+  </head>
+  <body>
+        <aside id="sidebar">
+  <nav id="tags">
+    <a href="/index.html" id="avatar" style="background-image:url(https://avatars1.githubusercontent.com/u/15245912)"></a>
+
+    <ul id="tags__ul">
+      <li id="pl__all" class="tags__li tags-btn active">所有文章</li>
+       
+        <li id="技术" class="tags__li tags-btn">技术</li>
+       
+        <li id="web前端" class="tags__li tags-btn">web前端</li>
+       
+        <li id="专题" class="tags__li tags-btn">专题</li>
+       
+        <li id="iOS" class="tags__li tags-btn">iOS</li>
+       
+        <li id="生活" class="tags__li tags-btn">生活</li>
+       
+        <li id="react-native" class="tags__li tags-btn">react-native</li>
+       
+        <li id="其他" class="tags__li tags-btn">其他</li>
+       
+        <li id="IoT" class="tags__li tags-btn">IoT</li>
+      
+    </ul>
+
+    <div id="tags__bottom">
+      <a href="http://github.com/ZSMSimon" id="icon-github" class="tags-btn fontello" target="_blank"></a>
+      <a href="/pages/rss.xml" id="icon-feed" class="tags-btn fontello" target="_blank"></a>
+      <a href="mailto:ZSMSimon@163.com" id="icon-email" class="tags-btn fontello"></a>
+    </div>
+  </nav> <!-- end #tags -->
+
+  <div id="posts-list">
+    <form action="" id="search-form">
+      <a href="/index.html" id="mobile-avatar" style="background-image:url(https://avatars1.githubusercontent.com/u/15245912)"></a>
+      <!-- NOTE: input field is disabled by default -->
+      <input id="search-input" type="text" placeholder="Search..." >
+    </form>
+
+    <nav id="pl__container">
+    
+      <a class="IoT pl__all" href="/2017/05/16/JavaScript-mqtt-temperaturedemo.html"><span class="pl__circle"></span><span class="pl__title">IoT技术选型及模型设计的思考</span><span class="pl__date">17/05/16</span></a>
+    
+      <a class="IoT pl__all" href="/2017/05/02/hello-nodemcu.html"><span class="pl__circle"></span><span class="pl__title">hello nodemcu</span><span class="pl__date">17/05/02</span></a>
+    
+      <a class="其他 pl__all" href="/2017/03/16/Recruitment.html"><span class="pl__circle"></span><span class="pl__title">阿里云iot事业部招聘信息</span><span class="pl__date">17/03/16</span></a>
+    
+      <a class="技术 pl__all" href="/2017/01/23/zhihu-live-a-hour-for-bluetooth-0.html"><span class="pl__circle"></span><span class="pl__title">知乎live：一小时蓝牙科普 文字整理版</span><span class="pl__date">17/01/23</span></a>
+    
+      <a class="web前端 pl__all" href="/2016/12/08/eslint-guide.html"><span class="pl__circle"></span><span class="pl__title">ESLint使用</span><span class="pl__date">16/12/08</span></a>
+    
+      <a class="其他 pl__all" href="/2016/12/06/how-to-fupan.html"><span class="pl__circle"></span><span class="pl__title">柳传志：我的复盘方法论</span><span class="pl__date">16/12/06</span></a>
+    
+      <a class="react-native pl__all" href="/2016/11/14/react-native-flux%E6%95%B0%E6%8D%AE%E6%B5%81.html"><span class="pl__circle"></span><span class="pl__title">flux数据流在rn中的使用</span><span class="pl__date">16/11/14</span></a>
+    
+      <a class="专题 pl__all" href="/2016/05/09/iOS-networking-0.html"><span class="pl__circle"></span><span class="pl__title">iOS 网络请求专题</span><span class="pl__date">16/05/09</span></a>
+    
+      <a class="iOS pl__all" href="/2016/04/03/iOS-JavaScriptCore.html"><span class="pl__circle"></span><span class="pl__title">iOS JavaScriptCore使用</span><span class="pl__date">16/04/03</span></a>
+    
+      <a class="iOS pl__all" href="/2016/04/02/iOS-3DTouch-3.html"><span class="pl__circle"></span><span class="pl__title">iOS 3D touch开发(三) Force Properties-按压力度</span><span class="pl__date">16/04/02</span></a>
+    
+      <a class="iOS pl__all" href="/2016/04/01/iOS-3DTouch-2.html"><span class="pl__circle"></span><span class="pl__title">iOS 3D touch开发(二) peek and pop - 预览和弹出</span><span class="pl__date">16/04/01</span></a>
+    
+      <a class="iOS pl__all" href="/2016/03/21/iOS-3DTouch-1.html"><span class="pl__circle"></span><span class="pl__title">iOS 3D touch开发(一) Home Screen Quick Actions</span><span class="pl__date">16/03/21</span></a>
+    
+      <a class="iOS pl__all" href="/2016/03/10/iOS-unit-test.html"><span class="pl__circle"></span><span class="pl__title">iOS单元测试</span><span class="pl__date">16/03/10</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/29/iOS-objc-styleguide.html"><span class="pl__circle"></span><span class="pl__title">iOS objc编程规范</span><span class="pl__date">16/02/29</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/13/ios-networking-5.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（五）网络请求中的cookie</span><span class="pl__date">16/02/13</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/09/ios-networking-4.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（四） http异步文件上传和下载以及进度指示</span><span class="pl__date">16/02/09</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/04/ios-networking-3.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（三） http异步请求和https认证</span><span class="pl__date">16/02/04</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/03/ios-networking-2.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（二） http异步队列请求</span><span class="pl__date">16/02/03</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/03/ios-networking-1.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（一） http同步请求</span><span class="pl__date">16/02/03</span></a>
+    
+      <a class="react-native pl__all" href="/2016/02/02/react-native-demo.html"><span class="pl__circle"></span><span class="pl__title">react-native（二） 自己写的react-native学习demo和整理的tips</span><span class="pl__date">16/02/02</span></a>
+    
+      <a class="react-native pl__all" href="/2016/01/11/react-native-helloworld.html"><span class="pl__circle"></span><span class="pl__title">react-native（一） hello world</span><span class="pl__date">16/01/11</span></a>
+    
+      <a class="iOS pl__all" href="/2016/01/06/iOS-app-versions.html"><span class="pl__circle"></span><span class="pl__title">api如何设计才能支撑多个不同版本的app共存</span><span class="pl__date">16/01/06</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/31/playwith-imageToAscii.html"><span class="pl__circle"></span><span class="pl__title">那些好玩的nodejs插件 - 把图片转为ascii</span><span class="pl__date">15/12/31</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/10/fe-componentization.html"><span class="pl__circle"></span><span class="pl__title">前端开发框架 - seajs+handlebars模块化开发</span><span class="pl__date">15/12/10</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/06/fe-nginx-usage.html"><span class="pl__circle"></span><span class="pl__title">mac环境nginx的安装和使用</span><span class="pl__date">15/12/06</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/03/fe-js-handlebars.html"><span class="pl__circle"></span><span class="pl__title">handlerbars的使用及模板预编译</span><span class="pl__date">15/12/03</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/01/fe-engineering-gulp.html"><span class="pl__circle"></span><span class="pl__title">gulp自动构建工具教程</span><span class="pl__date">15/12/01</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/11/27/fe-environment.html"><span class="pl__circle"></span><span class="pl__title">前端开发工具和环境搭建</span><span class="pl__date">15/11/27</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/11/26/rem-em-px.html"><span class="pl__circle"></span><span class="pl__title">css3属性rem的使用</span><span class="pl__date">15/11/26</span></a>
+    
+      <a class="生活 pl__all" href="/2015/11/26/mylift-github.html"><span class="pl__circle"></span><span class="pl__title">我每天都在github上做些什么</span><span class="pl__date">15/11/26</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/24/iOS-affine-transfermation-animation.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（七）仿射变换-CGAffineTransform</span><span class="pl__date">15/11/24</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/22/iOS-library-spring.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（六）swift动画库spring使用和代码拆解</span><span class="pl__date">15/11/22</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/16/iOS-Implicit-Animation.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（五）layer隐式动画</span><span class="pl__date">15/11/16</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/06/iOS-controller-transitioning.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（四）controller间的自定义过渡效果</span><span class="pl__date">15/11/06</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/01/iOS-MotionEffects.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（三）MotionEffects</span><span class="pl__date">15/11/01</span></a>
+    
+      <a class="iOS pl__all" href="/2015/10/30/iOS-UIKit-Dynamics.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（二）UIKit力学行为</span><span class="pl__date">15/10/30</span></a>
+    
+      <a class="iOS pl__all" href="/2015/10/30/iOS-Animation-UIViewAndCoreAnimation.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（一）UIView动画和CoreAnimation</span><span class="pl__date">15/10/30</span></a>
+    
+      <a class="专题 pl__all" href="/2015/10/29/iOS-animation-0.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效专题（零）- 大纲和计划</span><span class="pl__date">15/10/29</span></a>
+    
+      <a class="iOS pl__all" href="/2015/10/17/ios-webView.html"><span class="pl__circle"></span><span class="pl__title">UIWebView和WKWebView的使用及js交互</span><span class="pl__date">15/10/17</span></a>
+    
+      <a class="iOS pl__all" href="/2015/10/06/ios-swift-quick.html"><span class="pl__circle"></span><span class="pl__title">swift5分钟语法速记</span><span class="pl__date">15/10/06</span></a>
+    
+      <a class="iOS pl__all" href="/2015/09/20/ios-macro.html"><span class="pl__circle"></span><span class="pl__title">ios宏的使用和技巧</span><span class="pl__date">15/09/20</span></a>
+    
+      <a class="iOS pl__all" href="/2015/09/11/ios-BLE-4.html"><span class="pl__circle"></span><span class="pl__title">ios蓝牙开发（四）BabyBluetooth蓝牙库介绍</span><span class="pl__date">15/09/11</span></a>
+    
+      <a class="iOS pl__all" href="/2015/09/07/ios-BLE-3.html"><span class="pl__circle"></span><span class="pl__title">ios蓝牙开发（三）app作为外设被连接的实现</span><span class="pl__date">15/09/07</span></a>
+    
+      <a class="iOS pl__all" href="/2015/09/02/ios-draw-Graffiti-2.html"><span class="pl__circle"></span><span class="pl__title">ios绘图demo,做一个涂鸦板(下)</span><span class="pl__date">15/09/02</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/08/29/go-deep-into-unsilder.js.html"><span class="pl__circle"></span><span class="pl__title">深入理解unslider.js源码</span><span class="pl__date">15/08/29</span></a>
+    
+      <a class="生活 pl__all" href="/2015/08/23/life-keyboardAndHHKB.html"><span class="pl__circle"></span><span class="pl__title">键盘那些事，hhkb开箱</span><span class="pl__date">15/08/23</span></a>
+    
+      <a class="技术 pl__all" href="/2015/08/22/github-ImagesUploadWebSite.html"><span class="pl__circle"></span><span class="pl__title">自己markdown博客的图床程序</span><span class="pl__date">15/08/22</span></a>
+    
+      <a class="iOS pl__all" href="/2015/08/19/ios-ThreadAndAsynchronization.html"><span class="pl__circle"></span><span class="pl__title">ios的线程和同步异步操作</span><span class="pl__date">15/08/19</span></a>
+    
+      <a class="iOS pl__all" href="/2015/08/14/ios-BLE-2.html"><span class="pl__circle"></span><span class="pl__title">ios蓝牙开发（二）ios连接外设的代码实现</span><span class="pl__date">15/08/14</span></a>
+    
+      <a class="iOS pl__all" href="/2015/07/26/ios-draw-Graffiti.html"><span class="pl__circle"></span><span class="pl__title">ios绘图demo,做一个涂鸦板(上)</span><span class="pl__date">15/07/26</span></a>
+    
+      <a class="iOS pl__all" href="/2015/07/25/ios-draw-base.html"><span class="pl__circle"></span><span class="pl__title">ios绘图基础</span><span class="pl__date">15/07/25</span></a>
+    
+      <a class="iOS pl__all" href="/2015/07/17/ios-BLE-1.html"><span class="pl__circle"></span><span class="pl__title">iOS蓝牙开发（一）蓝牙相关基础知识</span><span class="pl__date">15/07/17</span></a>
+    
+      <a class="专题 pl__all" href="/2015/07/17/ios-BLE-0.html"><span class="pl__circle"></span><span class="pl__title">iOS蓝牙的开发专题</span><span class="pl__date">15/07/17</span></a>
+    
+      <a class="技术 pl__all" href="/2015/07/07/mybatis.html"><span class="pl__circle"></span><span class="pl__title">MyBatis简单使用的demo</span><span class="pl__date">15/07/07</span></a>
+    
+      <a class="技术 pl__all" href="/2015/07/06/rabbitmq.html"><span class="pl__circle"></span><span class="pl__title">RabbitMQ使用</span><span class="pl__date">15/07/06</span></a>
+    
+      <a class="iOS pl__all" href="/2015/06/14/ios-library-masonry.html"><span class="pl__circle"></span><span class="pl__title">Masonry的使用</span><span class="pl__date">15/06/14</span></a>
+    
+      <a class="专题 pl__all" href="/2015/06/14/ios-library-0.html"><span class="pl__circle"></span><span class="pl__title">iOS中那些好用的第三方库</span><span class="pl__date">15/06/14</span></a>
+    
+      <a class="iOS pl__all" href="/2015/05/29/ios-develop-tool.html"><span class="pl__circle"></span><span class="pl__title">提高iOS开发效率的工具</span><span class="pl__date">15/05/29</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/spring-4.html"><span class="pl__circle"></span><span class="pl__title">Spring 文件上传</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/spring-3.html"><span class="pl__circle"></span><span class="pl__title">Spring- Hibernate数据基本操作</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/spring-2.html"><span class="pl__circle"></span><span class="pl__title">Spring RestController 请求参数详解</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/spring-1.html"><span class="pl__circle"></span><span class="pl__title">Spring和hibernate的maven配置</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/tomcat-domain-name.html"><span class="pl__circle"></span><span class="pl__title">tomcat部署绑定多个域名</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="专题 pl__all" href="/2015/05/28/spring-0.html"><span class="pl__circle"></span><span class="pl__title">Spring4+hibernate专题</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/04/29/css-selector.html"><span class="pl__circle"></span><span class="pl__title">css选择器的用法</span><span class="pl__date">15/04/29</span></a>
+    
+      <a class="技术 pl__all" href="/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html"><span class="pl__circle"></span><span class="pl__title">在Github上搭建Jekyll博客和创建主题</span><span class="pl__date">14/02/12</span></a>
+    
+      <a class="技术 pl__all" href="/2013/04/23/opensource-licenses.html"><span class="pl__circle"></span><span class="pl__title">五中常见的开源协议整理(BSD,Apache,GPL,LGPL,MIT)</span><span class="pl__date">13/04/23</span></a>
+    
+    </nav>
+  </div> <!-- end #posts-list -->
+</aside> <!-- end #sidebar -->
+    <div id="post">
+      <div id="pjax">
+        <article id="post__content">
+    <h1 id="post__title" data-identifier="20151106">iOS动画和特效（四）controller间的自定义过渡效果</h1>
+    <blockquote>
+  <p>前面动画和特效系类文章中有一篇写了UIView的过渡效果，而这一篇主要说的是UIViewController的自定义过渡效果和过渡交互</p>
+</blockquote>
+
+<p>先看看完成后的效果图</p>
+
+<ul>
+  <li>点击模态controller，会弹出一个新的绿色UIViewController，手指下滑可以dismiss这个controller</li>
+  <li>四个角的按钮可以自定义圆形切换的过渡效果切换的一个红色的UIViewController，点击返回用同样的方式切换回来</li>
+</ul>
+
+<p><img src="http://localhost:4000/assets/uploads/ControllerTransitioning1.gif" alt="" /></p>
+
+<h2 id="出场人物介绍">出场人物介绍</h2>
+<blockquote>
+  <p>介绍下Controller过渡和交互用到的类</p>
+</blockquote>
+
+<h3 id="presention-and-presented">presention and presented</h3>
+
+<p>A中模态显示B,那么A就是presention，b就是presented，后续内容会使用这种叫法称呼Modal下的2个controller</p>
+
+<h3 id="uiviewcontrollertransitioningdelegate">UIViewControllerTransitioningDelegate</h3>
+
+<p>controller modal过渡的presented和dismiss的动画交互协议，你需要实现协议，它会询问你：</p>
+
+<ul>
+  <li>当PresentedController时，你要使用怎样的动画类（UIViewControllerAnimatedTransitioning）展示过渡效果？</li>
+  <li>当DismissedController时，你要使用怎样的动画类（UIViewControllerAnimatedTransitioning）展示过渡效果？</li>
+  <li>当PresentedController时，你要使用怎样的过渡交互类（UIViewControllerInteractiveTransitioning）处理过渡交互？</li>
+  <li>当DismissedController时，你要使用怎样的过渡交互类（UIViewControllerInteractiveTransitioning）处理过渡交互？</li>
+  <li>presentationControllerForPresentedViewController：这篇文章没有用到，应该是自定义modal状态呈现和被呈现的controller，类似于controller的PresentationStyle，想了解的可以参考下面两篇文章
+<a href="http://www.cnblogs.com/smileEvday/archive/2012/05/29/presentModalViewController.html">Present ViewController Modally </a> 和
+<a href="http://www.cocoachina.com/industry/20140707/9053.html">iOS 8的PresentationController </a></li>
+</ul>
+
+<h3 id="uiviewcontrolleranimatedtransitioning">UIViewControllerAnimatedTransitioning</h3>
+
+<p>过渡动画效果的具体实现的接口，需要实现它的3个方法，即可完成一个controller过渡动画效果</p>
+
+<ul>
+  <li><code class="highlighter-rouge">func animationEnded </code> ：过渡动画完成后要执行的代码可以写到这个方法中</li>
+  <li><code class="highlighter-rouge">func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -&gt; NSTimeInterval</code> ：给定一个过渡动画的执行时间</li>
+  <li><code class="highlighter-rouge">func animateTransition(transitionContext: UIViewControllerContextTransitioning)</code> ：具体过渡动画都在这个方法里面实现，在这个方法中可以通过transitionContext拿到一切你需要的对象，后面会有讲到</li>
+</ul>
+
+<h3 id="uinavigationcontrollerdelegate">UINavigationControllerDelegate</h3>
+
+<p>controller 非模态状态下的的过渡动画，就不能使用之前说的那个<code class="highlighter-rouge">UIViewControllerTransitioningDelegate</code>委托解决了，就需要用<code class="highlighter-rouge">UINavigationControllerDelegate</code>，接口方法比较类似，但也不完全一样</p>
+
+<ul>
+  <li>你要使用怎样的动画类（UIViewControllerAnimatedTransitioning）展示过渡效果？</li>
+  <li>你要使用怎样的过渡交互类（UIViewControllerInteractiveTransitioning）处理过渡交互？</li>
+  <li>willShowViewController，didShowViewController ： 生命周期事件</li>
+  <li>navigationControllerSupportedInterfaceOrientations: 屏幕支持的方向</li>
+</ul>
+
+<h3 id="uiviewcontrollerinteractivetransitioning">UIViewControllerInteractiveTransitioning</h3>
+
+<p>这个类用于实现在转场过路效果中的交互，比如在demo中，用它实现了一个手指下滑解除modal状态的效果</p>
+
+<h3 id="uiviewcontrollercontexttransitioning">UIViewControllerContextTransitioning</h3>
+
+<p>UIViewControllerAnimatedTransitioning协议的关键方法<code class="highlighter-rouge">animateTransition(transitionContext: UIViewControllerContextTransitioning)</code>里面可以得到，使用transitionContext可以获取一些重要的上下文信息，比如前后的controller，转换时的容器等，示例如下</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="c1">//拿到前后的两个controller</span>
+        <span class="k">let</span> <span class="nv">fromVC</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">viewControllerForKey</span><span class="p">(</span><span class="kt">UITransitionContextFromViewControllerKey</span><span class="p">)</span><span class="o">!</span>
+        <span class="k">let</span> <span class="nv">toVC</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">viewControllerForKey</span><span class="p">(</span><span class="kt">UITransitionContextToViewControllerKey</span><span class="p">)</span><span class="o">!</span>
+        <span class="c1">//拿到Presenting的最终Frame</span>
+        <span class="k">let</span> <span class="nv">finalFrameForVC</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">finalFrameForViewController</span><span class="p">(</span><span class="n">toVC</span><span class="p">)</span>
+        <span class="c1">//拿到转换的容器view</span>
+        <span class="k">let</span> <span class="nv">containerView</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">containerView</span><span class="p">()</span>
+        <span class="c1">//拿到过渡动画执行时间</span>
+        <span class="nf">transitionDuration</span><span class="p">(</span><span class="n">transitionContext</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="controller-modal过渡效果">controller modal过渡效果</h2>
+
+<p>我们先来实现一个简单的示例，点击一个按钮，出现一个modal controller，自定义从下往上弹出并且有些回弹效果的过渡动画。从这个例子中我们可以了解</p>
+
+<ul>
+  <li>如何实现UIViewControllerTransitioningDelegate</li>
+  <li>如何实现UIViewControllerAnimatedTransitioning</li>
+  <li>如何组合在一起完成功能</li>
+</ul>
+
+<p>示例效果见demo点击后，弹出的绿色界</p>
+
+<p><img src="http://localhost:4000/assets/uploads/ControllerTransitioning1.gif" alt="" /></p>
+
+<h3 id="步骤1界面画出按钮点击之后用-modal-显示-to2viewcontroller并设置transitioningdelegate指向自己">步骤1：界面画出按钮，点击之后用 modal 显示 To2ViewController，并设置transitioningDelegate指向自己</h3>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="c1">//模态视图切换效果</span>
+    <span class="kd">@IBAction</span> <span class="kd">func</span> <span class="kt">Transitioning2</span><span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">toVC</span> <span class="o">=</span> <span class="kt">To2ViewController</span><span class="p">()</span>
+        <span class="c1">//设置transitioning委托为自己</span>
+        <span class="n">toVC</span><span class="o">.</span><span class="n">transitioningDelegate</span> <span class="o">=</span> <span class="k">self</span>
+        <span class="n">navigationController</span><span class="p">?</span><span class="o">.</span><span class="nf">presentViewController</span><span class="p">(</span><span class="n">toVC</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+    <span class="p">}</span>
+
+
+</code></pre></div></div>
+
+<h3 id="步骤2controller-实现-uiviewcontrollertransitioningdelegate">步骤2：controller 实现 UIViewControllerTransitioningDelegate</h3>
+
+<p>demo中使用了extension的方式继承UIViewControllerTransitioningDelegate，好处是代码逻辑分离</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">//模态视图切换效果</span>
+<span class="kd">extension</span> <span class="kt">ControllerTransitioningDemoViewController</span><span class="p">:</span><span class="kt">UIViewControllerTransitioningDelegate</span><span class="p">{</span>
+
+    <span class="c1">//返回Presented使用的UIViewControllerAnimatedTransitioning类</span>
+    <span class="kd">func</span> <span class="nf">animationControllerForPresentedController</span><span class="p">(</span><span class="nv">presented</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="n">presentingController</span> <span class="nv">presenting</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="n">sourceController</span> <span class="nv">source</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewControllerAnimatedTransitioning</span><span class="p">?{</span>
+        <span class="k">return</span> <span class="kt">PresentedAnimation</span><span class="p">()</span> <span class="c1">// PresentedAnimation 是自定义的过渡动画效果的实现类，继承自UIViewControllerAnimatedTransitioning 步骤3中介绍它</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h3 id="步骤3-实现一个过渡效果为自下而上弹出并有些晃动的uiviewcontrolleranimatedtransitioning类">步骤3: 实现一个过渡效果为自下而上弹出并有些晃动的UIViewControllerAnimatedTransitioning类</h3>
+
+<p>就如之前对UIViewControllerAnimatedTransitioning介绍的那样，需要继承自UIViewControllerAnimatedTransitioning，然后实现它的三个委托方法，具体实现请看代码注释</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">import</span> <span class="kt">UIKit</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="kt">PresentedAnimation</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span><span class="kt">UIViewControllerAnimatedTransitioning</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">func</span> <span class="nf">transitionDuration</span><span class="p">(</span><span class="nv">transitionContext</span><span class="p">:</span> <span class="kt">UIViewControllerContextTransitioning</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">NSTimeInterval</span><span class="p">{</span>
+        <span class="c1">//转场过渡动画的执行时间</span>
+        <span class="k">return</span> <span class="mf">0.6</span>
+    <span class="p">}</span>
+
+    <span class="c1">// This method can only  be a nop if the transition is interactive and not a percentDriven interactive transition.</span>
+    <span class="c1">//在进行切换的时候将调用该方法，我们对于切换时的UIView的设置和动画都在这个方法中完成。</span>
+    <span class="kd">public</span> <span class="kd">func</span> <span class="nf">animateTransition</span><span class="p">(</span><span class="nv">transitionContext</span><span class="p">:</span> <span class="kt">UIViewControllerContextTransitioning</span><span class="p">){</span>
+        <span class="c1">//拿到前后的两个controller</span>
+        <span class="k">let</span> <span class="nv">fromVC</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">viewControllerForKey</span><span class="p">(</span><span class="kt">UITransitionContextFromViewControllerKey</span><span class="p">)</span><span class="o">!</span>
+        <span class="k">let</span> <span class="nv">toVC</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">viewControllerForKey</span><span class="p">(</span><span class="kt">UITransitionContextToViewControllerKey</span><span class="p">)</span><span class="o">!</span>
+        <span class="c1">//拿到Presenting的最终Frame</span>
+        <span class="k">let</span> <span class="nv">finalFrameForVC</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">finalFrameForViewController</span><span class="p">(</span><span class="n">toVC</span><span class="p">)</span>
+        <span class="c1">//拿到转换的容器view</span>
+        <span class="k">let</span> <span class="nv">containerView</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">containerView</span><span class="p">()</span>
+        <span class="k">let</span> <span class="nv">bounds</span> <span class="o">=</span> <span class="kt">UIScreen</span><span class="o">.</span><span class="nf">mainScreen</span><span class="p">()</span><span class="o">.</span><span class="n">bounds</span>
+        <span class="n">toVC</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">CGRectOffset</span><span class="p">(</span><span class="n">finalFrameForVC</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">bounds</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+        <span class="n">containerView</span><span class="o">!.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">toVC</span><span class="o">.</span><span class="n">view</span><span class="p">)</span>
+
+        <span class="c1">//自下而上弹出toVC的动画</span>
+        <span class="kt">UIView</span><span class="o">.</span><span class="nf">animateWithDuration</span><span class="p">(</span><span class="nf">transitionDuration</span><span class="p">(</span><span class="n">transitionContext</span><span class="p">),</span>
+                                    <span class="nv">delay</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                                    <span class="nv">usingSpringWithDamping</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+                                    <span class="nv">initialSpringVelocity</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                                    <span class="nv">options</span><span class="p">:</span> <span class="o">.</span><span class="kt">CurveLinear</span><span class="p">,</span>
+                                    <span class="nv">animations</span><span class="p">:</span> <span class="p">{</span>
+                                    <span class="n">fromVC</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span>
+                                    <span class="n">toVC</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">finalFrameForVC</span>
+                                    <span class="p">},</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">{</span>
+                                        <span class="n">finished</span> <span class="k">in</span>
+                                        <span class="n">transitionContext</span><span class="o">.</span><span class="nf">completeTransition</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+                                        <span class="n">fromVC</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span>
+                                    <span class="p">})</span>
+         <span class="kt">NSLog</span><span class="p">(</span><span class="s">"animateTransition"</span><span class="p">)</span>
+
+    <span class="p">}</span>
+
+    <span class="c1">//执行完成后的回调</span>
+    <span class="kd">public</span> <span class="kd">func</span> <span class="nf">animationEnded</span><span class="p">(</span><span class="nv">transitionCompleted</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">){</span>
+            <span class="kt">NSLog</span><span class="p">(</span><span class="s">"animation ended"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+</code></pre></div></div>
+
+<p>madal的转场动画分为2类，present和dismiss，刚才我们实现的是animationControllerForPresentedController，这是present类，下节我们实现dissmiss的转场过渡效果</p>
+
+<h2 id="controller-dismiss过渡效果">controller dismiss过渡效果</h2>
+
+<p>present的过渡效果实现和modal过渡效果类似，也是设置委托、实现委托、实现动画，就不详细说明了，大家可以参考demo。这里我们只说说和present过渡的区别</p>
+
+<h3 id="区别1-委托入口不同">区别1 委托入口不同</h3>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="c1">//Presented使用的委托</span>
+    <span class="kd">func</span> <span class="nf">animationControllerForPresentedController</span><span class="p">(</span><span class="nv">presented</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="n">presentingController</span> <span class="nv">presenting</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="n">sourceController</span> <span class="nv">source</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewControllerAnimatedTransitioning</span><span class="p">?{</span>
+
+    <span class="p">}</span>
+
+    <span class="c1">//Dismiss使用的委托</span>
+    <span class="kd">func</span> <span class="nf">animationControllerForDismissedController</span><span class="p">(</span><span class="nv">dismissed</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewControllerAnimatedTransitioning</span><span class="p">?</span> <span class="p">{</span>
+        <span class="c1">//返回一个UIViewControllerAnimatedTransitioning类型</span>
+        <span class="k">return</span> <span class="kt">DismissAnimation</span><span class="p">()</span>
+    <span class="p">}</span>
+
+</code></pre></div></div>
+
+<h3 id="区别2-动画效果区别这点其实不算真正的区别因为你也可以设置为相同的效果demo中present动画是从下而上而dismiss的动画是自上而下">区别2 动画效果区别（这点其实不算真正的区别，因为你也可以设置为相同的效果）：demo中present动画是从下而上，而dismiss的动画是自上而下。</h3>
+
+<p>DismissAnimation的实现</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">import</span> <span class="kt">UIKit</span>
+
+<span class="kd">class</span> <span class="kt">DismissAnimation</span><span class="p">:</span><span class="kt">NSObject</span><span class="p">,</span><span class="kt">UIViewControllerAnimatedTransitioning</span> <span class="p">{</span>
+
+    <span class="kd">func</span> <span class="nf">transitionDuration</span><span class="p">(</span><span class="nv">transitionContext</span><span class="p">:</span> <span class="kt">UIViewControllerContextTransitioning</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">NSTimeInterval</span><span class="p">{</span>
+        <span class="k">return</span> <span class="mf">0.6</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">animateTransition</span><span class="p">(</span><span class="nv">transitionContext</span><span class="p">:</span> <span class="kt">UIViewControllerContextTransitioning</span><span class="p">){</span>
+
+        <span class="k">let</span> <span class="nv">fromVC</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">viewControllerForKey</span><span class="p">(</span><span class="kt">UITransitionContextFromViewControllerKey</span><span class="p">)</span><span class="o">!</span>
+        <span class="k">let</span> <span class="nv">toVC</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">viewControllerForKey</span><span class="p">(</span><span class="kt">UITransitionContextToViewControllerKey</span><span class="p">)</span><span class="o">!</span>
+
+        <span class="k">let</span> <span class="nv">screenBounds</span> <span class="o">=</span> <span class="kt">UIScreen</span><span class="o">.</span><span class="nf">mainScreen</span><span class="p">()</span><span class="o">.</span><span class="n">bounds</span>
+        <span class="k">let</span> <span class="nv">initFrame</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">initialFrameForViewController</span><span class="p">(</span><span class="n">fromVC</span><span class="p">)</span>
+        <span class="k">let</span> <span class="nv">finalFrame</span> <span class="o">=</span> <span class="kt">CGRectOffset</span><span class="p">(</span><span class="n">initFrame</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">screenBounds</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+
+        <span class="k">let</span> <span class="nv">containerView</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">containerView</span><span class="p">()</span><span class="o">!</span>
+        <span class="n">containerView</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">toVC</span><span class="o">.</span><span class="n">view</span><span class="p">)</span>
+        <span class="n">containerView</span><span class="o">.</span><span class="nf">sendSubviewToBack</span><span class="p">(</span><span class="n">toVC</span><span class="o">.</span><span class="n">view</span><span class="p">)</span>
+
+        <span class="k">let</span> <span class="nv">duration</span><span class="p">:</span> <span class="kt">NSTimeInterval</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="nf">transitionDuration</span><span class="p">(</span><span class="n">transitionContext</span><span class="p">)</span>
+        <span class="kt">UIView</span><span class="o">.</span><span class="nf">animateWithDuration</span><span class="p">(</span><span class="n">duration</span><span class="p">,</span> <span class="nv">animations</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">fromVC</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">finalFrame</span>
+            <span class="p">},</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">{</span>
+                <span class="p">(</span><span class="nv">finished</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="k">in</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">completeTransition</span><span class="p">(</span><span class="o">!</span><span class="n">transitionContext</span><span class="o">.</span><span class="nf">transitionWasCancelled</span><span class="p">())</span>
+        <span class="p">})</span>
+
+     <span class="p">}</span>
+<span class="p">}</span>
+
+
+</code></pre></div></div>
+
+<h2 id="controller-pushpop过渡效果">controller push、pop过渡效果</h2>
+
+<p>push、pop和present、dismiss的过渡走的是两个完全不同的委托，委托里面的方法有相似之处，比如都可以分为过渡和交互两类。交互的内容后面再说，先说过渡效果的区别。</p>
+
+<p><strong>实现的委托不同:</strong>  push、pop自定义过渡动画，需要实现UINavigationControllerDelegate，而present、dismiss实现的是UIViewControllerTransitioningDelegate</p>
+
+<p><strong>区分类型方式不同:</strong> UIViewControllerTransitioningDelegate通过2个委托present和dismiss区分开来，而在UINavigationControllerDelegate中，对应转场过渡动画只有一个委托，通过委托中的参数operation: UINavigationControllerOperation 区分pop和push</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">//push、pop视图切换</span>
+<span class="kd">extension</span> <span class="kt">ControllerTransitioningDemoViewController</span><span class="p">:</span><span class="kt">UINavigationControllerDelegate</span><span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">navigationController</span><span class="p">(</span><span class="nv">navigationController</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">,</span> <span class="n">animationControllerForOperation</span> <span class="nv">operation</span><span class="p">:</span> <span class="kt">UINavigationControllerOperation</span><span class="p">,</span> <span class="n">fromViewController</span> <span class="nv">fromVC</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="n">toViewController</span> <span class="nv">toVC</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewControllerAnimatedTransitioning</span><span class="p">?{</span>
+
+        <span class="k">let</span> <span class="nv">transitioningAnimation</span> <span class="o">=</span> <span class="kt">ExpandAnimation</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span><span class="n">operation</span><span class="p">)</span>
+        <span class="n">transitioningAnimation</span><span class="o">.</span><span class="n">sender</span> <span class="o">=</span> <span class="n">transitioningSender</span>
+        <span class="c1">//返回动画的实现类</span>
+        <span class="k">return</span> <span class="n">transitioningAnimation</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h2 id="uiviewcontrolleranimatedtransitioning动画类的实现完成点击后圆形区域放大过渡的动画效果">UIViewControllerAnimatedTransitioning动画类的实现，完成点击后圆形区域放大过渡的动画效果</h2>
+
+<h3 id="步骤1添加一个按钮点击使用push的方式跳转到页面to1viewcontroller并设置委托">步骤1添加一个按钮，点击使用push的方式跳转到页面To1ViewController，并设置委托</h3>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="c1">//推出视图切换效果</span>
+    <span class="kd">@IBAction</span> <span class="kd">func</span> <span class="kt">Transitioning1</span><span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">toVC</span> <span class="o">=</span> <span class="kt">To1ViewController</span><span class="p">()</span>
+        <span class="c1">//设置委托</span>
+        <span class="n">navigationController</span><span class="p">?</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+        <span class="c1">//主要是动画实现圆形扩大效果，需要知道一个初始园的位置，所以把uiview传过去。这种方式传递uiview不是一个很好的方式，这里为了demo能尽量的简单，所以这么做了</span>
+        <span class="n">transitioningSender</span> <span class="o">=</span> <span class="n">sender</span> <span class="k">as!</span> <span class="kt">UIView</span>
+        <span class="n">navigationController</span><span class="p">?</span><span class="o">.</span><span class="nf">pushViewController</span><span class="p">(</span><span class="n">toVC</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+    <span class="p">}</span>
+
+
+</code></pre></div></div>
+
+<h3 id="步骤2实现uinavigationcontrollerdelegate">步骤2实现UINavigationControllerDelegate</h3>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">//push、pop视图切换</span>
+<span class="kd">extension</span> <span class="kt">ControllerTransitioningDemoViewController</span><span class="p">:</span><span class="kt">UINavigationControllerDelegate</span><span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">navigationController</span><span class="p">(</span><span class="nv">navigationController</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">,</span> <span class="n">animationControllerForOperation</span> <span class="nv">operation</span><span class="p">:</span> <span class="kt">UINavigationControllerOperation</span><span class="p">,</span> <span class="n">fromViewController</span> <span class="nv">fromVC</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="n">toViewController</span> <span class="nv">toVC</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewControllerAnimatedTransitioning</span><span class="p">?{</span>
+
+        <span class="k">let</span> <span class="nv">transitioningAnimation</span> <span class="o">=</span> <span class="kt">ExpandAnimation</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span><span class="n">operation</span><span class="p">)</span>
+        <span class="n">transitioningAnimation</span><span class="o">.</span><span class="n">sender</span> <span class="o">=</span> <span class="n">transitioningSender</span>
+        <span class="c1">//返回动画的实现类</span>
+        <span class="k">return</span> <span class="n">transitioningAnimation</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h3 id="步骤3-完成点击后圆形区域放大过渡的动画效果的实现类expandanimation">步骤3 完成点击后圆形区域放大过渡的动画效果的实现类ExpandAnimation</h3>
+
+<p>这个动画效果我就简单说说实现步骤，其余的大家看看代码。下面的参考文章中，有一篇对这个效果说的比较详细，大家可以去阅读</p>
+
+<p>实现这样一个效果，基本原理是使用遮罩层，罩住presenting，有一个小圆是初始按钮点击的圆形路径，一个大圆是大于presenting的圆形路径。大圆和小圆作为遮罩的路径。判断过渡类型是presention -》 presenting还是presenting -》 presention，分别做不同的处理</p>
+
+<p>presention -》 presenting ： 小圆作为初始遮罩层路径，罩住presenting，使用baseAnimation动画把遮罩层的路径从小圆路径变为大圆路径，presenting即可显示出来，完成过渡效果。
+小圆的位置是通过跳转点击按钮决定的，小圆位置不同会影响到大圆结束的位置，所以分了左上、左下、右上、右下四个位置分别处理。这个步骤由于偷懒在presenting -》 presention这个过程里面被省略了，每次都指定了固定的小圆位置</p>
+
+<p>presenting -》 presention ： 使用大圆遮住presenting，使用baseAnimation动画把遮罩层的路径从大圆路径变为小圆路径，presenting慢慢变小到看不见，presention慢慢即可显示出来，完成过渡效果。</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">import</span> <span class="kt">UIKit</span>
+
+<span class="kd">class</span> <span class="kt">ExpandAnimation</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UIViewControllerAnimatedTransitioning</span> <span class="p">{</span>
+
+    <span class="c1">//保存上下文</span>
+    <span class="k">var</span> <span class="nv">transitionContext</span><span class="p">:</span><span class="kt">UIViewControllerContextTransitioning</span><span class="o">!</span>
+    <span class="c1">//Pop or push</span>
+    <span class="k">var</span> <span class="nv">type</span><span class="p">:</span><span class="kt">UINavigationControllerOperation</span><span class="o">!</span>
+    <span class="c1">//初始点击的uiview对象，需要他的frame作为初始位置</span>
+    <span class="k">var</span> <span class="nv">sender</span><span class="p">:</span><span class="kt">UIView</span><span class="p">?</span>
+
+    <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span><span class="kt">UINavigationControllerOperation</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="nf">init</span><span class="p">()</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">type</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">transitionDuration</span><span class="p">(</span><span class="nv">transitionContext</span><span class="p">:</span> <span class="kt">UIViewControllerContextTransitioning</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">NSTimeInterval</span><span class="p">{</span>
+        <span class="k">return</span> <span class="mf">0.5</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">animateTransition</span><span class="p">(</span><span class="nv">transitionContext</span><span class="p">:</span> <span class="kt">UIViewControllerContextTransitioning</span><span class="p">){</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">transitionContext</span> <span class="o">=</span> <span class="n">transitionContext</span>
+        <span class="kt">NSLog</span><span class="p">(</span><span class="s">"animateTransition"</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="o">.</span><span class="kt">Push</span><span class="p">){</span>
+            <span class="kt">PushTransition</span><span class="p">(</span><span class="n">transitionContext</span><span class="p">)</span>
+        <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="o">.</span><span class="kt">Pop</span><span class="p">){</span>
+            <span class="kt">PopTransition</span><span class="p">(</span><span class="n">transitionContext</span><span class="p">)</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">animationEnded</span><span class="p">(</span><span class="nv">transitionCompleted</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">){</span>
+        <span class="kt">NSLog</span><span class="p">(</span><span class="s">"animation ended"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">//弹出效果 在固定位置进行的动画，可以根据需要改成动态位置触发</span>
+    <span class="kd">func</span> <span class="kt">PopTransition</span><span class="p">(</span><span class="nv">transitionContext</span><span class="p">:</span> <span class="kt">UIViewControllerContextTransitioning</span><span class="p">){</span>
+
+        <span class="k">let</span> <span class="nv">fromVC</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">viewControllerForKey</span><span class="p">(</span><span class="kt">UITransitionContextFromViewControllerKey</span><span class="p">)</span><span class="o">!</span>
+        <span class="k">let</span> <span class="nv">toVC</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">viewControllerForKey</span><span class="p">(</span><span class="kt">UITransitionContextToViewControllerKey</span><span class="p">)</span><span class="o">!</span>
+        <span class="k">let</span> <span class="nv">containerView</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">containerView</span><span class="p">()</span>
+        <span class="k">let</span> <span class="nv">view</span> <span class="o">=</span> <span class="n">toVC</span><span class="o">.</span><span class="n">view</span><span class="o">!</span>
+
+        <span class="n">containerView</span><span class="o">!.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">toVC</span><span class="o">.</span><span class="n">view</span><span class="p">)</span>
+        <span class="n">containerView</span><span class="o">!.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">fromVC</span><span class="o">.</span><span class="n">view</span><span class="p">)</span>
+
+        <span class="c1">//遮罩层</span>
+        <span class="k">let</span> <span class="nv">mask</span> <span class="o">=</span> <span class="kt">CAShapeLayer</span><span class="p">()</span>
+        <span class="n">fromVC</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span>
+
+        <span class="c1">//画出小圆</span>
+        <span class="k">let</span> <span class="nv">s_center</span> <span class="o">=</span> <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">50</span><span class="p">)</span>
+        <span class="k">let</span> <span class="nv">s_radius</span><span class="p">:</span><span class="kt">CGFloat</span> <span class="o">=</span>  <span class="nf">sqrt</span><span class="p">(</span><span class="mi">800</span><span class="p">)</span>
+        <span class="k">let</span> <span class="nv">s_maskPath</span> <span class="o">=</span> <span class="kt">UIBezierPath</span><span class="p">(</span><span class="nv">ovalInRect</span><span class="p">:</span><span class="kt">CGRectInset</span><span class="p">(</span><span class="kt">CGRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="n">s_center</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="n">s_center</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="n">s_radius</span><span class="p">,</span> <span class="o">-</span><span class="n">s_radius</span><span class="p">))</span>
+        <span class="c1">//        mask.path = s_maskPath.CGPath</span>
+
+        <span class="c1">//画出大圆</span>
+        <span class="k">let</span> <span class="nv">l_center</span> <span class="o">=</span> <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">50</span><span class="p">)</span>
+        <span class="k">let</span> <span class="nv">l_radius</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span> <span class="nf">pow</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="n">l_center</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nf">pow</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">l_center</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">150</span>
+        <span class="k">let</span> <span class="nv">l_maskPath</span> <span class="o">=</span> <span class="kt">UIBezierPath</span><span class="p">(</span><span class="nv">ovalInRect</span><span class="p">:</span><span class="kt">CGRectInset</span><span class="p">(</span><span class="kt">CGRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="n">l_center</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="n">l_center</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="n">l_radius</span><span class="p">,</span> <span class="o">-</span><span class="n">l_radius</span><span class="p">))</span>
+
+        <span class="k">let</span> <span class="nv">baseAnimation</span> <span class="o">=</span> <span class="kt">CABasicAnimation</span><span class="p">(</span><span class="nv">keyPath</span><span class="p">:</span> <span class="s">"path"</span><span class="p">)</span>
+        <span class="n">baseAnimation</span><span class="o">.</span><span class="n">duration</span> <span class="o">=</span> <span class="nf">transitionDuration</span><span class="p">(</span><span class="n">transitionContext</span><span class="p">)</span>
+
+        <span class="n">baseAnimation</span><span class="o">.</span><span class="n">fromValue</span> <span class="o">=</span> <span class="n">l_maskPath</span><span class="o">.</span><span class="kt">CGPath</span>
+        <span class="n">baseAnimation</span><span class="o">.</span><span class="n">toValue</span> <span class="o">=</span> <span class="n">s_maskPath</span><span class="o">.</span><span class="kt">CGPath</span>
+
+        <span class="n">baseAnimation</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+        <span class="n">baseAnimation</span><span class="o">.</span><span class="n">timingFunction</span> <span class="o">=</span> <span class="kt">CAMediaTimingFunction</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="n">kCAMediaTimingFunctionEaseIn</span><span class="p">)</span>
+        <span class="n">mask</span><span class="o">.</span><span class="nf">addAnimation</span><span class="p">(</span><span class="n">baseAnimation</span><span class="p">,</span> <span class="nv">forKey</span><span class="p">:</span> <span class="s">"path"</span><span class="p">)</span>
+
+    <span class="p">}</span>
+
+    <span class="c1">//present 动画，根据触发点的位置开始启动动画</span>
+    <span class="kd">func</span> <span class="kt">PushTransition</span><span class="p">(</span><span class="nv">transitionContext</span><span class="p">:</span> <span class="kt">UIViewControllerContextTransitioning</span><span class="p">){</span>
+
+        <span class="k">let</span> <span class="nv">fromVC</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">viewControllerForKey</span><span class="p">(</span><span class="kt">UITransitionContextFromViewControllerKey</span><span class="p">)</span><span class="o">!</span>
+        <span class="k">let</span> <span class="nv">toVC</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">viewControllerForKey</span><span class="p">(</span><span class="kt">UITransitionContextToViewControllerKey</span><span class="p">)</span><span class="o">!</span>
+        <span class="k">let</span> <span class="nv">finalFrame</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">finalFrameForViewController</span><span class="p">(</span><span class="n">toVC</span><span class="p">)</span>
+        <span class="k">let</span> <span class="nv">containerView</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">containerView</span><span class="p">()</span>
+        <span class="k">let</span> <span class="nv">view</span> <span class="o">=</span> <span class="n">toVC</span><span class="o">.</span><span class="n">view</span><span class="o">!</span>
+
+        <span class="n">containerView</span><span class="o">!.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">toVC</span><span class="o">.</span><span class="n">view</span><span class="p">)</span>
+
+        <span class="c1">//小圆路径</span>
+        <span class="k">let</span> <span class="nv">s_maskPath</span> <span class="o">=</span> <span class="kt">UIBezierPath</span><span class="p">(</span><span class="nv">ovalInRect</span><span class="p">:(</span><span class="n">sender</span><span class="p">?</span><span class="o">.</span><span class="n">frame</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
+
+        <span class="c1">//大圆路径</span>
+        <span class="k">let</span> <span class="nv">l_center</span> <span class="o">=</span>  <span class="p">(</span><span class="n">sender</span><span class="p">?</span><span class="o">.</span><span class="n">center</span><span class="p">)</span><span class="o">!</span>
+
+        <span class="k">var</span> <span class="nv">l_radius</span><span class="p">:</span><span class="kt">CGFloat</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">sender</span><span class="o">!.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">x</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">toVC</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)){</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">sender</span><span class="o">!.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">toVC</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span> <span class="p">{</span>
+                <span class="c1">//右上角</span>
+                <span class="n">l_radius</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span> <span class="nf">pow</span><span class="p">(</span><span class="mi">0</span> <span class="o">-</span> <span class="n">l_center</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nf">pow</span><span class="p">(</span><span class="kt">CGRectGetMaxY</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="p">)</span> <span class="o">-</span> <span class="n">l_center</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="c1">//右下角</span>
+                <span class="n">l_radius</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span> <span class="nf">pow</span><span class="p">(</span><span class="mi">0</span> <span class="o">-</span> <span class="n">l_center</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nf">pow</span><span class="p">(</span><span class="mi">0</span> <span class="o">-</span> <span class="n">l_center</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">sender</span><span class="o">!.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">toVC</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span> <span class="p">{</span>
+                <span class="c1">//左上角</span>
+                <span class="n">l_radius</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span> <span class="nf">pow</span><span class="p">(</span><span class="kt">CGRectGetMaxX</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="p">)</span> <span class="o">-</span> <span class="n">l_center</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nf">pow</span><span class="p">(</span><span class="kt">CGRectGetMaxY</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="p">)</span> <span class="o">-</span> <span class="n">l_center</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="c1">//左下角</span>
+                <span class="n">l_radius</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span> <span class="nf">pow</span><span class="p">(</span><span class="kt">CGRectGetMaxX</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="p">)</span> <span class="o">-</span> <span class="n">l_center</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nf">pow</span><span class="p">(</span><span class="mi">0</span> <span class="o">-</span> <span class="n">l_center</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">l_radius</span> <span class="o">+=</span> <span class="mi">50</span> <span class="c1">//稍微增加一些位置</span>
+        <span class="k">let</span> <span class="nv">l_maskPath</span> <span class="o">=</span> <span class="kt">UIBezierPath</span><span class="p">(</span><span class="nv">ovalInRect</span><span class="p">:</span><span class="kt">CGRectInset</span><span class="p">(</span><span class="kt">CGRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="n">l_center</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="n">l_center</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="n">l_radius</span><span class="p">,</span> <span class="o">-</span><span class="n">l_radius</span><span class="p">))</span>
+
+        <span class="c1">//遮罩层</span>
+        <span class="k">let</span> <span class="nv">mask</span> <span class="o">=</span> <span class="kt">CAShapeLayer</span><span class="p">()</span>
+        <span class="n">mask</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">l_maskPath</span><span class="o">.</span><span class="kt">CGPath</span>
+        <span class="n">view</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span>
+
+
+        <span class="c1">////错误用法，animationWithDuration不能通过操作layer产生动画</span>
+        <span class="c1">//UIView.animateWithDuration(5) { () -&gt; Void in</span>
+        <span class="c1">//     mask.path = b_maskPath.CGPath</span>
+        <span class="c1">//}</span>
+
+        <span class="k">let</span> <span class="nv">baseAnimation</span> <span class="o">=</span> <span class="kt">CABasicAnimation</span><span class="p">(</span><span class="nv">keyPath</span><span class="p">:</span> <span class="s">"path"</span><span class="p">)</span>
+        <span class="n">baseAnimation</span><span class="o">.</span><span class="n">duration</span> <span class="o">=</span> <span class="nf">transitionDuration</span><span class="p">(</span><span class="n">transitionContext</span><span class="p">)</span>
+
+        <span class="n">baseAnimation</span><span class="o">.</span><span class="n">fromValue</span> <span class="o">=</span> <span class="n">s_maskPath</span><span class="o">.</span><span class="kt">CGPath</span>
+        <span class="n">baseAnimation</span><span class="o">.</span><span class="n">toValue</span> <span class="o">=</span> <span class="n">l_maskPath</span><span class="o">.</span><span class="kt">CGPath</span>
+
+        <span class="n">baseAnimation</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+        <span class="n">baseAnimation</span><span class="o">.</span><span class="n">timingFunction</span> <span class="o">=</span> <span class="kt">CAMediaTimingFunction</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="n">kCAMediaTimingFunctionEaseInEaseOut</span><span class="p">)</span>
+        <span class="n">mask</span><span class="o">.</span><span class="nf">addAnimation</span><span class="p">(</span><span class="n">baseAnimation</span><span class="p">,</span> <span class="nv">forKey</span><span class="p">:</span> <span class="s">"path"</span><span class="p">)</span>
+
+
+    <span class="p">}</span>
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">animationDidStop</span><span class="p">(</span><span class="nv">anim</span><span class="p">:</span> <span class="kt">CAAnimation</span><span class="p">,</span> <span class="n">finished</span> <span class="nv">flag</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//动画完成后去处遮罩</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">transitionContext</span><span class="o">.</span><span class="nf">completeTransition</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+        <span class="c1">//动画完成后去处遮罩</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">transitionContext</span><span class="o">.</span><span class="nf">viewControllerForKey</span><span class="p">(</span><span class="kt">UITransitionContextFromViewControllerKey</span><span class="p">)?</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="kc">nil</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">transitionContext</span><span class="o">.</span><span class="nf">viewControllerForKey</span><span class="p">(</span><span class="kt">UITransitionContextToViewControllerKey</span><span class="p">)?</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="kc">nil</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+</code></pre></div></div>
+
+<h2 id="自定义过渡交互实现一个下滑手势解除modal状态的效果">自定义过渡交互，实现一个下滑手势解除modal状态的效果</h2>
+
+<p>UINavigationControllerDelegate和UIViewControllerTransitioningDelegate委托都有对交互的方法支持，返回一个UIViewControllerInteractiveTransitioning对象，他是实现过渡交互的具体实现。</p>
+
+<p>这里我们只实现UIViewControllerTransitioningDelegate的交互，UINavgationController的实现和它类似。这个demo参考了猫神的文章：<a href="http://onevcat.com/2013/10/vc-transition-in-ios7/">iOS7中的ViewController切换</a> 区别是，这里使用swift实现。猫神在他的文章中有几个地方没看明白，后来自己写了一遍才明白，这里会仔细说明下。</p>
+
+<h3 id="第一步实现interactioncontrollerfordismissal委托">第一步：实现interactionControllerForDismissal委托</h3>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+   <span class="c1">//present、dismiss视图切换效果</span>
+   <span class="kd">extension</span> <span class="kt">ControllerTransitioningDemoViewController</span><span class="p">:</span><span class="kt">UIViewControllerTransitioningDelegate</span><span class="p">{</span>
+
+    <span class="o">...</span>
+
+    <span class="c1">//返回dismiss使用的UIViewControllerAnimatedTransitioning类</span>
+    <span class="kd">func</span> <span class="nf">animationControllerForDismissedController</span><span class="p">(</span><span class="nv">dismissed</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewControllerAnimatedTransitioning</span><span class="p">?</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kt">DismissAnimation</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="c1">//返回dismiss交互时的使用的UIViewControllerInteractiveTransitioning类</span>
+    <span class="kd">func</span> <span class="nf">interactionControllerForDismissal</span><span class="p">(</span><span class="nv">animator</span><span class="p">:</span> <span class="kt">UIViewControllerAnimatedTransitioning</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewControllerInteractiveTransitioning</span><span class="p">?</span> <span class="p">{</span>
+       <span class="k">return</span> <span class="n">interactiveTransition</span><span class="o">.</span><span class="n">isInteracting</span> <span class="p">?</span> <span class="nv">interactiveTransition</span> <span class="p">:</span> <span class="kc">nil</span>
+    <span class="p">}</span>
+
+
+   <span class="p">}</span>
+
+
+</code></pre></div></div>
+
+<h3 id="第二步完成dismissanimation动画效果">第二步：完成DismissAnimation动画效果</h3>
+
+<p>DismissAnimation动画和前文中的PresentedAnimation动画效果类似，只是一个自下而上一个自上而下</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">UIKit</span>
+
+<span class="kd">class</span> <span class="kt">DismissAnimation</span><span class="p">:</span><span class="kt">NSObject</span><span class="p">,</span><span class="kt">UIViewControllerAnimatedTransitioning</span> <span class="p">{</span>
+
+    <span class="kd">func</span> <span class="nf">transitionDuration</span><span class="p">(</span><span class="nv">transitionContext</span><span class="p">:</span> <span class="kt">UIViewControllerContextTransitioning</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">NSTimeInterval</span><span class="p">{</span>
+        <span class="k">return</span> <span class="mf">0.6</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">animateTransition</span><span class="p">(</span><span class="nv">transitionContext</span><span class="p">:</span> <span class="kt">UIViewControllerContextTransitioning</span><span class="p">){</span>
+
+        <span class="k">let</span> <span class="nv">fromVC</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">viewControllerForKey</span><span class="p">(</span><span class="kt">UITransitionContextFromViewControllerKey</span><span class="p">)</span><span class="o">!</span>
+        <span class="k">let</span> <span class="nv">toVC</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">viewControllerForKey</span><span class="p">(</span><span class="kt">UITransitionContextToViewControllerKey</span><span class="p">)</span><span class="o">!</span>
+
+        <span class="k">let</span> <span class="nv">screenBounds</span> <span class="o">=</span> <span class="kt">UIScreen</span><span class="o">.</span><span class="nf">mainScreen</span><span class="p">()</span><span class="o">.</span><span class="n">bounds</span>
+        <span class="k">let</span> <span class="nv">initFrame</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">initialFrameForViewController</span><span class="p">(</span><span class="n">fromVC</span><span class="p">)</span>
+        <span class="k">let</span> <span class="nv">finalFrame</span> <span class="o">=</span> <span class="kt">CGRectOffset</span><span class="p">(</span><span class="n">initFrame</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">screenBounds</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+
+        <span class="k">let</span> <span class="nv">containerView</span> <span class="o">=</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">containerView</span><span class="p">()</span><span class="o">!</span>
+        <span class="n">containerView</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">toVC</span><span class="o">.</span><span class="n">view</span><span class="p">)</span>
+        <span class="n">containerView</span><span class="o">.</span><span class="nf">sendSubviewToBack</span><span class="p">(</span><span class="n">toVC</span><span class="o">.</span><span class="n">view</span><span class="p">)</span>
+
+        <span class="k">let</span> <span class="nv">duration</span><span class="p">:</span> <span class="kt">NSTimeInterval</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="nf">transitionDuration</span><span class="p">(</span><span class="n">transitionContext</span><span class="p">)</span>
+        <span class="kt">UIView</span><span class="o">.</span><span class="nf">animateWithDuration</span><span class="p">(</span><span class="n">duration</span><span class="p">,</span> <span class="nv">animations</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">fromVC</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">finalFrame</span>
+            <span class="p">},</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">{</span>
+                <span class="p">(</span><span class="nv">finished</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="k">in</span> <span class="n">transitionContext</span><span class="o">.</span><span class="nf">completeTransition</span><span class="p">(</span><span class="o">!</span><span class="n">transitionContext</span><span class="o">.</span><span class="nf">transitionWasCancelled</span><span class="p">())</span>
+        <span class="p">})</span>
+
+     <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h3 id="第三步完成swipeupinteractivetransition交互处理">第三步：完成SwipeUpInteractiveTransition交互处理</h3>
+
+<p>SwipeUpInteractiveTransition继承自UIPercentDrivenInteractiveTransition，UIPercentDrivenInteractiveTransition继承UIViewControllerInteractiveTransitioning，使用UIPercentDrivenInteractiveTransition可以帮你省许多事情。</p>
+
+<p>实现的原理是让SwipeUpInteractiveTransition监控presenting view的手势，检测手指y位置的移动，如果超过200，则标志为完成。大家可以看下代码，交互实现主要是那三个方法的运用。</p>
+
+<ul>
+  <li>updateInteractiveTransition() ： 更新界面，实际效果就是手指上下移动时presenting会跟着上下移动</li>
+  <li>cancelInteractiveTransition()： 取消交互，页面恢复presenting</li>
+  <li>finishInteractiveTransition()： 完成交互，页面切到presention</li>
+</ul>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+ <span class="kd">import</span> <span class="kt">UIKit</span>
+
+ <span class="kd">class</span> <span class="kt">SwipeUpInteractiveTransition</span><span class="p">:</span> <span class="kt">UIPercentDrivenInteractiveTransition</span> <span class="p">{</span>
+
+     <span class="k">var</span> <span class="nv">vc</span><span class="p">:</span><span class="kt">UIViewController</span><span class="p">?</span>
+
+     <span class="c1">//是否正在交互</span>
+     <span class="k">var</span> <span class="nv">isInteracting</span><span class="p">:</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span>
+     <span class="c1">//是否判断交互完成</span>
+     <span class="k">var</span> <span class="nv">shouldComplete</span><span class="p">:</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span>
+
+     <span class="nf">init</span><span class="p">(</span><span class="nv">vc</span><span class="p">:</span><span class="kt">UIViewController</span><span class="p">)</span> <span class="p">{</span>
+         <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">()</span>
+         <span class="k">self</span><span class="o">.</span><span class="n">vc</span> <span class="o">=</span> <span class="n">vc</span>
+         <span class="c1">//添加手势</span>
+         <span class="n">vc</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="nf">addGestureRecognizer</span><span class="p">(</span><span class="kt">UIPanGestureRecognizer</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="k">self</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="s">"panGestureHandler:"</span><span class="p">))</span>
+
+     <span class="p">}</span>
+
+     <span class="c1">//处理滑动手势</span>
+     <span class="kd">func</span> <span class="nf">panGestureHandler</span><span class="p">(</span><span class="nv">gesture</span><span class="p">:</span><span class="kt">UIPanGestureRecognizer</span><span class="p">){</span>
+         <span class="k">let</span> <span class="nv">translation</span> <span class="o">=</span> <span class="n">gesture</span><span class="o">.</span><span class="nf">translationInView</span><span class="p">(</span><span class="n">gesture</span><span class="o">.</span><span class="n">view</span><span class="p">)</span>
+         <span class="k">switch</span><span class="p">(</span><span class="n">gesture</span><span class="o">.</span><span class="n">state</span><span class="p">){</span>
+         <span class="k">case</span> <span class="o">.</span><span class="kt">Began</span><span class="p">:</span>
+             <span class="c1">//标记交互开始，dismiss model</span>
+             <span class="n">isInteracting</span> <span class="o">=</span> <span class="kc">true</span>
+             <span class="n">vc</span><span class="p">?</span><span class="o">.</span><span class="nf">dismissViewControllerAnimated</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+         <span class="k">case</span> <span class="o">.</span><span class="kt">Changed</span><span class="p">:</span>
+             <span class="k">var</span> <span class="nv">fraction</span> <span class="o">=</span> <span class="kt">Float</span><span class="p">(</span><span class="n">translation</span><span class="o">.</span><span class="n">y</span> <span class="o">/</span> <span class="mi">400</span><span class="p">)</span>
+             <span class="c1">//限制fraction值在0-1之间</span>
+             <span class="n">fraction</span> <span class="o">=</span> <span class="nf">fminf</span><span class="p">(</span><span class="nf">fmaxf</span><span class="p">(</span><span class="n">fraction</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">)</span>
+             <span class="n">shouldComplete</span> <span class="o">=</span> <span class="n">fraction</span> <span class="o">&gt;</span> <span class="mf">0.5</span>
+             <span class="nf">updateInteractiveTransition</span><span class="p">(</span><span class="kt">CGFloat</span><span class="p">(</span><span class="n">fraction</span><span class="p">))</span>
+             <span class="kt">NSLog</span><span class="p">(</span><span class="s">"x:%f y:%f"</span> <span class="p">,</span> <span class="n">translation</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">translation</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+             <span class="kt">NSLog</span><span class="p">(</span><span class="s">"fraction:%f"</span> <span class="p">,</span> <span class="n">fraction</span><span class="p">)</span>
+             <span class="kt">NSLog</span><span class="p">(</span><span class="s">"shouldComplete:%@"</span> <span class="p">,</span><span class="n">shouldComplete</span><span class="p">)</span>
+         <span class="k">case</span> <span class="o">.</span><span class="kt">Ended</span> <span class="p">,</span> <span class="o">.</span><span class="kt">Cancelled</span><span class="p">:</span>
+              <span class="n">isInteracting</span> <span class="o">=</span> <span class="kc">false</span>
+              <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">shouldComplete</span> <span class="o">||</span> <span class="n">gesture</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="o">.</span><span class="kt">Cancelled</span><span class="p">){</span>
+                  <span class="nf">cancelInteractiveTransition</span><span class="p">()</span>
+              <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                  <span class="nf">finishInteractiveTransition</span><span class="p">()</span>
+              <span class="p">}</span>
+
+         <span class="k">default</span><span class="p">:</span><span class="k">break</span>
+
+         <span class="p">}</span>
+
+     <span class="p">}</span>
+ <span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>这里要注意下，为什么.Began时候就要执行 <code class="highlighter-rouge">vc?.dismissViewControllerAnimated(true, completion: nil)</code> ，因为执行dismiss的时候不会直接dismiss，会进入interactionControllerForDismissal委托问你要UIViewControllerInteractiveTransitioning，
+因为设置了标志位isInteracting，所以会返回SwipeUpInteractiveTransition，接着处理手指移动和移动结束事件。涉及到很多委托方法的先后发生顺序的问题，请看下节内容</p>
+
+<h2 id="controller过渡和uiviewcontroller的委托事件发生的先后顺序">controller过渡和UIViewController的委托事件发生的先后顺序</h2>
+
+<p>presention -》 presenting ：弹出模态视图过程</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+     <span class="n">presenting</span> <span class="n">viewWillAppear</span>
+     <span class="n">animateTransition</span> <span class="n">start</span>
+     <span class="n">presenting</span> <span class="n">viewDidAppear</span>
+     <span class="n">presention</span> <span class="n">viewDidDisappear</span>
+     <span class="n">animateTransition</span> <span class="n">ended</span>
+
+</code></pre></div></div>
+
+<p>presenting -》presention ：解除模态视图过程</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="n">presention</span> <span class="n">viewWillAppear</span>
+    <span class="n">animateTransition</span> <span class="n">start</span>
+    <span class="n">presention</span> <span class="n">viewDidAppear</span>
+    <span class="n">presenting</span> <span class="n">viewDidDisappear</span>
+    <span class="n">animateTransition</span> <span class="n">ended</span>
+
+</code></pre></div></div>
+
+<p>可以看出来，animate 发生在 viewWillAppear和viewDidAppear之间的，并且在viewDidDisappear后，animateTransition才结束。了解这些的发生先后顺序，对理解整个过渡动画的处理过程很好帮助</p>
+
+<h2 id="demo">demo</h2>
+<hr />
+
+<p><img src="http://localhost:4000/assets/uploads/ControllerTransitioning1.gif" alt="" /></p>
+
+<p><a href="https://github.com/coolnameismy/demo/tree/master/AnimationAndEffects">本文的demo下载</a></p>
+
+<p>本文的代码对于的文件夹/ControllerTransitioning</p>
+
+<ul>
+  <li>SwipeUpInteractiveTransition.swift:motal 手势dismiss视图的实现</li>
+  <li>PresentedAnimation.swift : 呈现modal视图从下至上弹出vc的动画实现</li>
+  <li>DismissAnimation.swift : dismiss modal视图从上至上消失的动画</li>
+  <li>ControllerTransitioningDemoViewController.swift : 实现了push、pop 、present、dismiss视图动画委托的viewcontroller</li>
+  <li>To1ViewController、To2ViewController ： 两个用于展示的viewcontroller</li>
+</ul>
+
+<p>感谢收看，如果对大家有帮助，请<a href="https://github.com/coolnameismy">github上follow和star</a>，本文发布在<a href="https://zsmsimon.github.io/">刘彦玮的技术博客</a>，转载请注明出处</p>
+
+<h2 id="文章引用和参考">文章引用和参考</h2>
+
+<ul>
+  <li><a href="http://onevcat.com/2013/10/vc-transition-in-ios7/">iOS7中的ViewController切换</a></li>
+  <li><a href="http://www.kittenyang.com/pingtransition/">实现通过圆圈放大缩小的转场动画</a></li>
+</ul>
+
+    <div class="declare">
+        <div>
+
+        </div>
+    </div>
+</article>
+<!-- end #post__content -->
+
+<div id="post__share">
+  <a id="icon-twitter" class="fontello" href="https://twitter.com/intent/tweet?url=http://localhost:4000/2015/11/06/iOS-controller-transitioning.html&text=iOS动画和特效（四）controller间的自定义过渡效果" target="_blank"></a>
+  <a id="icon-cc" class="fontello" href="http://github.com/ZSMSimon" target="_blank"></a>
+  <a id="icon-weibo" class="fontello" href="http://v.t.sina.com.cn/share/share.php?url=http://localhost:4000/2015/11/06/iOS-controller-transitioning.html&title=iOS动画和特效（四）controller间的自定义过渡效果" target="_blank"></a>
+    <!-- <div class="share-info">分享一下~</div> -->
+</div>
+<div id="qrcode" >
+	<img src="http://localhost:4000/assets/images/qrcode.jpg" style="margin: 0 auto;display: block;" width="200" height="200" alt="">
+</div>
+<!-- end #post__share -->
+<div id="disqus_thread" name="coolnameismy">
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink" target="_blank">Loading Disqus comments...</a>
+</div>
+
+
+            <!---->
+    <!--<p id="copyright">Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>-->
+    <!--&nbsp;&nbsp;|&nbsp;&nbsp;Theme <a href="https://github.com/P233/3-Jekyll" target="_blank">3-Jekyll</a>-->
+    <!--&nbsp;&nbsp;|&nbsp;&nbsp;Hosted on <a href="https://pages.github.com" target="_blank">Github</a></p>-->
+      </div> <!-- end #pjax -->
+
+      <div id="post__toc-trigger">
+        <div id="post__toc">
+          <span id="post__toc-title">Table of Contents</span>
+          <ul id="post__toc-ul"></ul>
+        </div>
+      </div>
+    </div> <!-- end #post -->
+
+    <button id="js-fullscreen"><span id="icon-arrow" class="fontello"></span></button>
+
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.pjax.js"></script>
+<script src="/assets/js/nprogress.js"></script>
+<script src="/assets/js/searchbox.js"></script>
+<script src="/assets/js/script.js"></script>
+
+
+    <script>
+    //百度站点统计,排除localhost
+    if(window.location.host.indexOf("localhost") ==-1 &&  window.location.host.indexOf("127.0.0.1") == -1){
+
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?2c1583237ca3f5343d8dab0140019ca7";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    }
+</script>
+   </body>
+ </html>

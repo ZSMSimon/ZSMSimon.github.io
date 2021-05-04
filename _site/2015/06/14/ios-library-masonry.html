@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="baidu-site-verification" content="w9Akh6dPe4" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<!--[if lte IE 8]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
+
+<title>Masonry的使用 | 曾绍明的博客</title>
+<meta name="author" content="曾绍明">
+
+  <meta name="keywords" content="iOS,AFNetworking,RestKit,SVProgressHUD,CocoaLumberjack,facebook/pop,Masonry">
+
+
+
+
+<link rel="shortcut icon" href="" />
+
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
+<link href="/pages/rss.xml" rel="alternate" title="曾绍明的博客" type="application/atom+xml">
+
+
+
+  </head>
+  <body>
+        <aside id="sidebar">
+  <nav id="tags">
+    <a href="/index.html" id="avatar" style="background-image:url(https://avatars1.githubusercontent.com/u/15245912)"></a>
+
+    <ul id="tags__ul">
+      <li id="pl__all" class="tags__li tags-btn active">所有文章</li>
+       
+        <li id="技术" class="tags__li tags-btn">技术</li>
+       
+        <li id="web前端" class="tags__li tags-btn">web前端</li>
+       
+        <li id="专题" class="tags__li tags-btn">专题</li>
+       
+        <li id="iOS" class="tags__li tags-btn">iOS</li>
+       
+        <li id="生活" class="tags__li tags-btn">生活</li>
+       
+        <li id="react-native" class="tags__li tags-btn">react-native</li>
+       
+        <li id="其他" class="tags__li tags-btn">其他</li>
+       
+        <li id="IoT" class="tags__li tags-btn">IoT</li>
+      
+    </ul>
+
+    <div id="tags__bottom">
+      <a href="http://github.com/ZSMSimon" id="icon-github" class="tags-btn fontello" target="_blank"></a>
+      <a href="/pages/rss.xml" id="icon-feed" class="tags-btn fontello" target="_blank"></a>
+      <a href="mailto:ZSMSimon@163.com" id="icon-email" class="tags-btn fontello"></a>
+    </div>
+  </nav> <!-- end #tags -->
+
+  <div id="posts-list">
+    <form action="" id="search-form">
+      <a href="/index.html" id="mobile-avatar" style="background-image:url(https://avatars1.githubusercontent.com/u/15245912)"></a>
+      <!-- NOTE: input field is disabled by default -->
+      <input id="search-input" type="text" placeholder="Search..." >
+    </form>
+
+    <nav id="pl__container">
+    
+      <a class="IoT pl__all" href="/2017/05/16/JavaScript-mqtt-temperaturedemo.html"><span class="pl__circle"></span><span class="pl__title">IoT技术选型及模型设计的思考</span><span class="pl__date">17/05/16</span></a>
+    
+      <a class="IoT pl__all" href="/2017/05/02/hello-nodemcu.html"><span class="pl__circle"></span><span class="pl__title">hello nodemcu</span><span class="pl__date">17/05/02</span></a>
+    
+      <a class="其他 pl__all" href="/2017/03/16/Recruitment.html"><span class="pl__circle"></span><span class="pl__title">阿里云iot事业部招聘信息</span><span class="pl__date">17/03/16</span></a>
+    
+      <a class="技术 pl__all" href="/2017/01/23/zhihu-live-a-hour-for-bluetooth-0.html"><span class="pl__circle"></span><span class="pl__title">知乎live：一小时蓝牙科普 文字整理版</span><span class="pl__date">17/01/23</span></a>
+    
+      <a class="web前端 pl__all" href="/2016/12/08/eslint-guide.html"><span class="pl__circle"></span><span class="pl__title">ESLint使用</span><span class="pl__date">16/12/08</span></a>
+    
+      <a class="其他 pl__all" href="/2016/12/06/how-to-fupan.html"><span class="pl__circle"></span><span class="pl__title">柳传志：我的复盘方法论</span><span class="pl__date">16/12/06</span></a>
+    
+      <a class="react-native pl__all" href="/2016/11/14/react-native-flux%E6%95%B0%E6%8D%AE%E6%B5%81.html"><span class="pl__circle"></span><span class="pl__title">flux数据流在rn中的使用</span><span class="pl__date">16/11/14</span></a>
+    
+      <a class="专题 pl__all" href="/2016/05/09/iOS-networking-0.html"><span class="pl__circle"></span><span class="pl__title">iOS 网络请求专题</span><span class="pl__date">16/05/09</span></a>
+    
+      <a class="iOS pl__all" href="/2016/04/03/iOS-JavaScriptCore.html"><span class="pl__circle"></span><span class="pl__title">iOS JavaScriptCore使用</span><span class="pl__date">16/04/03</span></a>
+    
+      <a class="iOS pl__all" href="/2016/04/02/iOS-3DTouch-3.html"><span class="pl__circle"></span><span class="pl__title">iOS 3D touch开发(三) Force Properties-按压力度</span><span class="pl__date">16/04/02</span></a>
+    
+      <a class="iOS pl__all" href="/2016/04/01/iOS-3DTouch-2.html"><span class="pl__circle"></span><span class="pl__title">iOS 3D touch开发(二) peek and pop - 预览和弹出</span><span class="pl__date">16/04/01</span></a>
+    
+      <a class="iOS pl__all" href="/2016/03/21/iOS-3DTouch-1.html"><span class="pl__circle"></span><span class="pl__title">iOS 3D touch开发(一) Home Screen Quick Actions</span><span class="pl__date">16/03/21</span></a>
+    
+      <a class="iOS pl__all" href="/2016/03/10/iOS-unit-test.html"><span class="pl__circle"></span><span class="pl__title">iOS单元测试</span><span class="pl__date">16/03/10</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/29/iOS-objc-styleguide.html"><span class="pl__circle"></span><span class="pl__title">iOS objc编程规范</span><span class="pl__date">16/02/29</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/13/ios-networking-5.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（五）网络请求中的cookie</span><span class="pl__date">16/02/13</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/09/ios-networking-4.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（四） http异步文件上传和下载以及进度指示</span><span class="pl__date">16/02/09</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/04/ios-networking-3.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（三） http异步请求和https认证</span><span class="pl__date">16/02/04</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/03/ios-networking-2.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（二） http异步队列请求</span><span class="pl__date">16/02/03</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/03/ios-networking-1.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（一） http同步请求</span><span class="pl__date">16/02/03</span></a>
+    
+      <a class="react-native pl__all" href="/2016/02/02/react-native-demo.html"><span class="pl__circle"></span><span class="pl__title">react-native（二） 自己写的react-native学习demo和整理的tips</span><span class="pl__date">16/02/02</span></a>
+    
+      <a class="react-native pl__all" href="/2016/01/11/react-native-helloworld.html"><span class="pl__circle"></span><span class="pl__title">react-native（一） hello world</span><span class="pl__date">16/01/11</span></a>
+    
+      <a class="iOS pl__all" href="/2016/01/06/iOS-app-versions.html"><span class="pl__circle"></span><span class="pl__title">api如何设计才能支撑多个不同版本的app共存</span><span class="pl__date">16/01/06</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/31/playwith-imageToAscii.html"><span class="pl__circle"></span><span class="pl__title">那些好玩的nodejs插件 - 把图片转为ascii</span><span class="pl__date">15/12/31</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/10/fe-componentization.html"><span class="pl__circle"></span><span class="pl__title">前端开发框架 - seajs+handlebars模块化开发</span><span class="pl__date">15/12/10</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/06/fe-nginx-usage.html"><span class="pl__circle"></span><span class="pl__title">mac环境nginx的安装和使用</span><span class="pl__date">15/12/06</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/03/fe-js-handlebars.html"><span class="pl__circle"></span><span class="pl__title">handlerbars的使用及模板预编译</span><span class="pl__date">15/12/03</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/01/fe-engineering-gulp.html"><span class="pl__circle"></span><span class="pl__title">gulp自动构建工具教程</span><span class="pl__date">15/12/01</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/11/27/fe-environment.html"><span class="pl__circle"></span><span class="pl__title">前端开发工具和环境搭建</span><span class="pl__date">15/11/27</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/11/26/rem-em-px.html"><span class="pl__circle"></span><span class="pl__title">css3属性rem的使用</span><span class="pl__date">15/11/26</span></a>
+    
+      <a class="生活 pl__all" href="/2015/11/26/mylift-github.html"><span class="pl__circle"></span><span class="pl__title">我每天都在github上做些什么</span><span class="pl__date">15/11/26</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/24/iOS-affine-transfermation-animation.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（七）仿射变换-CGAffineTransform</span><span class="pl__date">15/11/24</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/22/iOS-library-spring.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（六）swift动画库spring使用和代码拆解</span><span class="pl__date">15/11/22</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/16/iOS-Implicit-Animation.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（五）layer隐式动画</span><span class="pl__date">15/11/16</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/06/iOS-controller-transitioning.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（四）controller间的自定义过渡效果</span><span class="pl__date">15/11/06</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/01/iOS-MotionEffects.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（三）MotionEffects</span><span class="pl__date">15/11/01</span></a>
+    
+      <a class="iOS pl__all" href="/2015/10/30/iOS-UIKit-Dynamics.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（二）UIKit力学行为</span><span class="pl__date">15/10/30</span></a>
+    
+      <a class="iOS pl__all" href="/2015/10/30/iOS-Animation-UIViewAndCoreAnimation.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（一）UIView动画和CoreAnimation</span><span class="pl__date">15/10/30</span></a>
+    
+      <a class="专题 pl__all" href="/2015/10/29/iOS-animation-0.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效专题（零）- 大纲和计划</span><span class="pl__date">15/10/29</span></a>
+    
+      <a class="iOS pl__all" href="/2015/10/17/ios-webView.html"><span class="pl__circle"></span><span class="pl__title">UIWebView和WKWebView的使用及js交互</span><span class="pl__date">15/10/17</span></a>
+    
+      <a class="iOS pl__all" href="/2015/10/06/ios-swift-quick.html"><span class="pl__circle"></span><span class="pl__title">swift5分钟语法速记</span><span class="pl__date">15/10/06</span></a>
+    
+      <a class="iOS pl__all" href="/2015/09/20/ios-macro.html"><span class="pl__circle"></span><span class="pl__title">ios宏的使用和技巧</span><span class="pl__date">15/09/20</span></a>
+    
+      <a class="iOS pl__all" href="/2015/09/11/ios-BLE-4.html"><span class="pl__circle"></span><span class="pl__title">ios蓝牙开发（四）BabyBluetooth蓝牙库介绍</span><span class="pl__date">15/09/11</span></a>
+    
+      <a class="iOS pl__all" href="/2015/09/07/ios-BLE-3.html"><span class="pl__circle"></span><span class="pl__title">ios蓝牙开发（三）app作为外设被连接的实现</span><span class="pl__date">15/09/07</span></a>
+    
+      <a class="iOS pl__all" href="/2015/09/02/ios-draw-Graffiti-2.html"><span class="pl__circle"></span><span class="pl__title">ios绘图demo,做一个涂鸦板(下)</span><span class="pl__date">15/09/02</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/08/29/go-deep-into-unsilder.js.html"><span class="pl__circle"></span><span class="pl__title">深入理解unslider.js源码</span><span class="pl__date">15/08/29</span></a>
+    
+      <a class="生活 pl__all" href="/2015/08/23/life-keyboardAndHHKB.html"><span class="pl__circle"></span><span class="pl__title">键盘那些事，hhkb开箱</span><span class="pl__date">15/08/23</span></a>
+    
+      <a class="技术 pl__all" href="/2015/08/22/github-ImagesUploadWebSite.html"><span class="pl__circle"></span><span class="pl__title">自己markdown博客的图床程序</span><span class="pl__date">15/08/22</span></a>
+    
+      <a class="iOS pl__all" href="/2015/08/19/ios-ThreadAndAsynchronization.html"><span class="pl__circle"></span><span class="pl__title">ios的线程和同步异步操作</span><span class="pl__date">15/08/19</span></a>
+    
+      <a class="iOS pl__all" href="/2015/08/14/ios-BLE-2.html"><span class="pl__circle"></span><span class="pl__title">ios蓝牙开发（二）ios连接外设的代码实现</span><span class="pl__date">15/08/14</span></a>
+    
+      <a class="iOS pl__all" href="/2015/07/26/ios-draw-Graffiti.html"><span class="pl__circle"></span><span class="pl__title">ios绘图demo,做一个涂鸦板(上)</span><span class="pl__date">15/07/26</span></a>
+    
+      <a class="iOS pl__all" href="/2015/07/25/ios-draw-base.html"><span class="pl__circle"></span><span class="pl__title">ios绘图基础</span><span class="pl__date">15/07/25</span></a>
+    
+      <a class="iOS pl__all" href="/2015/07/17/ios-BLE-1.html"><span class="pl__circle"></span><span class="pl__title">iOS蓝牙开发（一）蓝牙相关基础知识</span><span class="pl__date">15/07/17</span></a>
+    
+      <a class="专题 pl__all" href="/2015/07/17/ios-BLE-0.html"><span class="pl__circle"></span><span class="pl__title">iOS蓝牙的开发专题</span><span class="pl__date">15/07/17</span></a>
+    
+      <a class="技术 pl__all" href="/2015/07/07/mybatis.html"><span class="pl__circle"></span><span class="pl__title">MyBatis简单使用的demo</span><span class="pl__date">15/07/07</span></a>
+    
+      <a class="技术 pl__all" href="/2015/07/06/rabbitmq.html"><span class="pl__circle"></span><span class="pl__title">RabbitMQ使用</span><span class="pl__date">15/07/06</span></a>
+    
+      <a class="iOS pl__all" href="/2015/06/14/ios-library-masonry.html"><span class="pl__circle"></span><span class="pl__title">Masonry的使用</span><span class="pl__date">15/06/14</span></a>
+    
+      <a class="专题 pl__all" href="/2015/06/14/ios-library-0.html"><span class="pl__circle"></span><span class="pl__title">iOS中那些好用的第三方库</span><span class="pl__date">15/06/14</span></a>
+    
+      <a class="iOS pl__all" href="/2015/05/29/ios-develop-tool.html"><span class="pl__circle"></span><span class="pl__title">提高iOS开发效率的工具</span><span class="pl__date">15/05/29</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/spring-4.html"><span class="pl__circle"></span><span class="pl__title">Spring 文件上传</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/spring-3.html"><span class="pl__circle"></span><span class="pl__title">Spring- Hibernate数据基本操作</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/spring-2.html"><span class="pl__circle"></span><span class="pl__title">Spring RestController 请求参数详解</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/spring-1.html"><span class="pl__circle"></span><span class="pl__title">Spring和hibernate的maven配置</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/tomcat-domain-name.html"><span class="pl__circle"></span><span class="pl__title">tomcat部署绑定多个域名</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="专题 pl__all" href="/2015/05/28/spring-0.html"><span class="pl__circle"></span><span class="pl__title">Spring4+hibernate专题</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/04/29/css-selector.html"><span class="pl__circle"></span><span class="pl__title">css选择器的用法</span><span class="pl__date">15/04/29</span></a>
+    
+      <a class="技术 pl__all" href="/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html"><span class="pl__circle"></span><span class="pl__title">在Github上搭建Jekyll博客和创建主题</span><span class="pl__date">14/02/12</span></a>
+    
+      <a class="技术 pl__all" href="/2013/04/23/opensource-licenses.html"><span class="pl__circle"></span><span class="pl__title">五中常见的开源协议整理(BSD,Apache,GPL,LGPL,MIT)</span><span class="pl__date">13/04/23</span></a>
+    
+    </nav>
+  </div> <!-- end #posts-list -->
+</aside> <!-- end #sidebar -->
+    <div id="post">
+      <div id="pjax">
+        <article id="post__content">
+    <h1 id="post__title" data-identifier="20150614">Masonry的使用</h1>
+    <h1 id="一masonry介绍">（一）Masonry介绍</h1>
+
+<blockquote>
+  <p>Masonry是一个轻量级的布局框架 拥有自己的描述语法 采用更优雅的链式语法封装自动布局 简洁明了 并具有高可读性 而且同时支持 iOS 和 Max OS X。
+ Masonry是一个用代码写iOS或os界面的库，可以代替Auto layout。
+ Masonry的github地址：https://github.com/SnapKit/Masonry</p>
+</blockquote>
+
+<h2 id="本章内容">本章内容</h2>
+
+<ol>
+  <li>
+    <ul>
+      <li>Masonry配置</li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>Masonry使用</li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>Masonry实例</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="masonry配置">Masonry配置</h3>
+
+<ol>
+  <li>
+    <ul>
+      <li>推荐使用pods方式引入类库，pod ‘Masonry’，若不知道pod如何使用，情况我的另一篇文章： <a href="https://zsmsimon.github.io/2015/05/29/ios-develop-tool.html">提高iOS开发效率的工具</a></li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>引入头文件 #import “Masonry.h”</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="masonry使用讲解">Masonry使用讲解</h3>
+
+<ol>
+  <li>
+    <p>mas_makeConstraints 是给view添加约束，约束有几种，分别是边距，宽，高，左上右下距离，基准线。添加过约束后可以有修正，修正
+有offset（位移）修正和multipliedBy（倍率）修正</p>
+  </li>
+  <li>
+    <p>语法一般是 make.equalTo or make.greaterThanOrEqualTo or make.lessThanOrEqualTo  + 倍数和位移修正</p>
+  </li>
+  <li>
+    <p>注意点1： 使用 mas_makeConstraints方法的元素必须事先添加到父元素的中，例如[self.view addSubview:view];</p>
+  </li>
+  <li>
+    <p>注意点2： mas_equalTo 和 equalTo 区别：mas_equalTo 比equalTo多了类型转换操作，一般来说，大多数时候两个方法都是
+通用的，但是对于数值元素使用mas_equalTo。对于对象或是多个属性的处理，使用equalTo。特别是多个属性时，必须使用equalTo,例如
+make.left.and.right.equalTo(self.view);</p>
+  </li>
+  <li>
+    <p>注意点3: 注意到方法with和and,这连个方法其实没有做任何操作，方法只是返回对象本身，这这个方法的左右完全是为了方法写的时候的可读性
+。make.left.and.right.equalTo(self.view);和make.left.right.equalTo(self.view);是完全一样的，但是明显的加了and方法的语句可读性
+更好点。</p>
+  </li>
+</ol>
+
+<h3 id="masonry初级使用例子">Masonry初级使用例子</h3>
+
+<pre><code class="language-objective-c">
+// exp1: 中心点与self.view相同，宽度为400*400
+-(void)exp1{
+
+    UIView *view = [UIView new];
+    [view setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:view];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+
+         make.center.equalTo(self.view);
+         make.size.mas_equalTo(CGSizeMake(400,400));
+    }];
+
+}
+
+
+//exp2: 上下左右边距都为10
+-(void)exp2{
+
+    UIView *view = [UIView new];
+    [view setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:view];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(10, 10, 10, 10));
+
+        //  make.left.equalTo(self.view).with.offset(10);
+        //  make.right.equalTo(self.view).with.offset(-10);
+        //  make.top.equalTo(self.view).with.offset(10);
+        //  make.bottom.equalTo(self.view).with.offset(-10);
+    }];
+
+}
+
+//exp3 让两个高度为150的view垂直居中且等宽且等间隔排列 间隔为10
+-(void)exp3{
+
+    UIView *view1 = [UIView new];
+    [view1 setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:view1];
+
+    UIView *view2 = [UIView new];
+    [view2 setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:view2];
+
+    [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+
+        make.centerY.mas_equalTo(self.view.mas_centerY);
+        make.height.mas_equalTo(150);
+        make.width.mas_equalTo(view2.mas_width);
+        make.left.mas_equalTo(self.view.mas_left).with.offset(10);
+        make.right.mas_equalTo(view2.mas_left).offset(-10);
+
+    }];
+    [view2 mas_makeConstraints:^(MASConstraintMaker *make) {
+
+        make.centerY.mas_equalTo(self.view.mas_centerY);
+        make.height.mas_equalTo(150);
+        make.width.mas_equalTo(view1.mas_width);
+        make.left.mas_equalTo(view1.mas_right).with.offset(10);
+        make.right.equalTo(self.view.mas_right).offset(-10);
+
+    }];
+
+}
+
+
+</code></pre>
+
+<h3 id="masonry例子-计算器布局">Masonry例子-计算器布局</h3>
+
+<p><img src="http://localhost:4000/assets/uploads/masonry_1.png" alt="" /></p>
+
+<pre><code class="language-objective-c">
+//高级布局练习 iOS自带计算器布局
+-(void)exp4{
+
+
+    //申明区域，displayView是显示区域，keyboardView是键盘区域
+    UIView *displayView = [UIView new];
+    [displayView setBackgroundColor:[UIColor blackColor]];
+    [self.view addSubview:displayView];
+
+    UIView *keyboardView = [UIView new];
+    [self.view addSubview:keyboardView];
+
+    //先按1：3分割 displView（显示结果区域）和 keyboardView（键盘区域）
+    [displayView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top);
+        make.left.and.right.equalTo(self.view);
+        make.height.equalTo(keyboardView).multipliedBy(0.3f);
+    }];
+
+    [keyboardView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(displayView.mas_bottom);
+        make.bottom.equalTo(self.view.mas_bottom);
+        make.left.and.right.equalTo(self.view);
+
+    }];
+
+    //设置显示位置的数字为0
+    UILabel *displayNum = [[UILabel alloc]init];
+    [displayView addSubview:displayNum];
+    displayNum.text = @"0";
+    displayNum.font = [UIFont fontWithName:@"HeiTi SC" size:70];
+    displayNum.textColor = [UIColor whiteColor];
+    displayNum.textAlignment = NSTextAlignmentRight;
+    [displayNum mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.right.equalTo(displayView).with.offset(-10);
+        make.bottom.equalTo(displayView).with.offset(-10);
+    }];
+
+
+    //定义键盘键名称，？号代表合并的单元格
+    NSArray *keys = @[@"AC",@"+/-",@"%",@"÷"
+                     ,@"7",@"8",@"9",@"x"
+                     ,@"4",@"5",@"6",@"-"
+                     ,@"1",@"2",@"3",@"+"
+                     ,@"0",@"?",@".",@"="];
+
+
+    int indexOfKeys = 0;
+    for (NSString *key in keys){
+        //循环所有键
+        indexOfKeys++;
+        int rowNum = indexOfKeys %4 ==0? indexOfKeys/4:indexOfKeys/4 +1;
+        int colNum = indexOfKeys %4 ==0? 4 :indexOfKeys %4;
+        NSLog(@"index is:%d and row:%d,col:%d",indexOfKeys,rowNum,colNum);
+
+        //键样式
+        UIButton *keyView = [UIButton buttonWithType:UIButtonTypeCustom];
+        [keyboardView addSubview:keyView];
+        [keyView setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [keyView setTitle:key forState:UIControlStateNormal];
+        [keyView.layer setBorderWidth:1];
+        [keyView.layer setBorderColor:[[UIColor blackColor]CGColor]];
+        [keyView.titleLabel setFont:[UIFont fontWithName:@"Arial-BoldItalicMT" size:30]];
+
+        //键约束
+        [keyView mas_makeConstraints:^(MASConstraintMaker *make) {
+
+            //处理 0 合并单元格
+            if([key isEqualToString:@"0"] || [key isEqualToString:@"?"] ){
+
+                if([key isEqualToString:@"0"]){
+                    [keyView mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.height.equalTo(keyboardView.mas_height).with.multipliedBy(.2f);
+                        make.width.equalTo(keyboardView.mas_width).multipliedBy(.5);
+                        make.left.equalTo(keyboardView.mas_left);
+                        make.baseline.equalTo(keyboardView.mas_baseline).with.multipliedBy(.9f);
+                    }];
+                }if([key isEqualToString:@"?"]){
+                    [keyView removeFromSuperview];
+                }
+
+            }
+            //正常的单元格
+            else{
+                make.width.equalTo(keyboardView.mas_width).with.multipliedBy(.25f);
+                make.height.equalTo(keyboardView.mas_height).with.multipliedBy(.2f);
+
+                //按照行和列添加约束，这里添加行约束
+                switch (rowNum) {
+                    case 1:
+                    {
+                        make.baseline.equalTo(keyboardView.mas_baseline).with.multipliedBy(.1f);
+                        keyView.backgroundColor = [UIColor colorWithRed:205 green:205 blue:205 alpha:1];
+
+                    }
+                        break;
+                    case 2:
+                    {
+                        make.baseline.equalTo(keyboardView.mas_baseline).with.multipliedBy(.3f);
+                    }
+                        break;
+                    case 3:
+                    {
+                        make.baseline.equalTo(keyboardView.mas_baseline).with.multipliedBy(.5f);
+                    }
+                        break;
+                    case 4:
+                    {
+                        make.baseline.equalTo(keyboardView.mas_baseline).with.multipliedBy(.7f);
+                    }
+                        break;
+                    case 5:
+                    {
+                        make.baseline.equalTo(keyboardView.mas_baseline).with.multipliedBy(.9f);
+                    }
+                        break;
+                    default:
+                        break;
+                }
+                //按照行和列添加约束，这里添加列约束
+                switch (colNum) {
+                    case 1:
+                    {
+                        make.left.equalTo(keyboardView.mas_left);
+
+                    }
+                        break;
+                    case 2:
+                    {
+                        make.right.equalTo(keyboardView.mas_centerX);
+
+                    }
+                        break;
+                    case 3:
+                    {
+                        make.left.equalTo(keyboardView.mas_centerX);
+                    }
+                        break;
+                    case 4:
+                    {
+                        make.right.equalTo(keyboardView.mas_right);
+                        [keyView setBackgroundColor:[UIColor colorWithRed:243 green:127 blue:38 alpha:1]];
+                    }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }];
+    }
+
+}
+
+</code></pre>
+
+<p>本例子使用的baseline去控制高度位置，这似乎不是太准，如果想要精准控制高度位置，可以使用一行一行添加的方法，每次当前行的top去equelTo上一行的bottom。
+给个提示：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+for（遍历所有行)
+    for（遍历所以列）
+    //当前行约束根据上一行去设置
+    ......
+
+</code></pre></div></div>
+
+<ul>
+  <li>下一个例子中，使用上面类似的方法</li>
+</ul>
+
+<h3 id="masonry高级使用例子2">Masonry高级使用例子2</h3>
+
+<h4 id="根据设计图使用masonry布局">根据设计图，使用masonry布局：</h4>
+
+<p>步骤1
+<img src="http://localhost:4000/assets/uploads/masonry_2.png" alt="" />
+步骤2
+<img src="https://geekpics.net/images/2015/06/15/dOGITvg.jpg" alt="步骤2" /></p>
+
+<p><a href="https://github.com/coolnameismy/demo">代码下载</a></p>
+
+<h6 id="步骤1">步骤1</h6>
+<pre><code class="language-objective-c"> -(void)createUI{
+
+    UIView *titleView = [UIView new];
+    titleView.backgroundColor = [UIColor redColor];
+    UIView *caredView = [UIView new];
+    [self.view addSubview:caredView];
+    UIView *brifeView = [UIView new];
+    [self.view addSubview:brifeView];
+
+    //self.view
+    self.view.backgroundColor = [UIColor colorWithWhite:0.965 alpha:1.000];
+
+    //thrm
+    UIImageView *plantThrm = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"defalutPlantReferenceIcon"]];
+    [self.view addSubview:plantThrm];
+    [plantThrm mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.top.equalTo(self.view).with.offset(10);
+    }];
+
+    //title
+       [self.view addSubview:titleView];
+       UIImageView *bgTitleView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg-plant-reference-title"]];
+    [titleView addSubview:bgTitleView];
+    [titleView mas_makeConstraints:^(MASConstraintMaker *make) {
+
+        make.right.equalTo(self.view.mas_right);
+        make.left.equalTo(plantThrm.mas_right).with.offset(20);
+        make.centerY.equalTo(plantThrm.mas_centerY);
+   }];
+
+    [bgTitleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(titleView);
+    }];
+
+    UILabel *title = [[UILabel alloc]init];
+    title.textColor =  [UIColor whiteColor];
+    title.font = [UIFont fontWithName:@"Heiti SC" size:26];
+    title.text = _reference.name;
+    [titleView addSubview:title];
+    [title mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(titleView.mas_left).offset(10);
+        make.width.equalTo(titleView.mas_width);
+        make.centerY.equalTo(titleView.mas_centerY);
+    }];
+
+    //植物养护
+    UILabel *caredTitle = [[UILabel alloc]init];
+    caredTitle.textColor =  [UIColor colorWithRed:0.172 green:0.171 blue:0.219 alpha:1.000];
+    caredTitle.font = [UIFont fontWithName:@"Heiti SC" size:10];
+    caredTitle.text = @"植物养护";
+    [self.view addSubview:caredTitle];
+    [caredTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(plantThrm.mas_bottom).with.offset(20);
+        make.left.and.right.equalTo(self.view).with.offset(10);
+        make.height.mas_equalTo(10);
+    }];
+
+
+
+    //将图层的边框设置为圆脚
+    caredView.layer.cornerRadius = 5;
+    caredView.layer.masksToBounds = YES;
+    //给图层添加一个有色边框
+    caredView.layer.borderWidth = 1;
+    caredView.layer.borderColor = [[UIColor colorWithWhite:0.521 alpha:1.000] CGColor];
+    caredView.backgroundColor = [UIColor whiteColor];
+
+
+    [caredView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(caredTitle.mas_bottom).with.offset(5);
+        make.left.equalTo(self.view.mas_left).with.offset(10);
+        make.right.equalTo(self.view.mas_right).with.offset(-10);
+        make.height.equalTo(brifeView);
+    }];
+
+
+    //植物简介
+    UILabel *brifeTitle = [[UILabel alloc]init];
+    brifeTitle.textColor =  [UIColor colorWithRed:0.172 green:0.171 blue:0.219 alpha:1.000];
+    brifeTitle.font = [UIFont fontWithName:@"Heiti SC" size:10];
+    brifeTitle.text = @"植物简介";
+    [self.view addSubview:brifeTitle];
+    [brifeTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(caredView.mas_bottom).with.offset(20);
+        make.left.and.right.equalTo(self.view).with.offset(10);
+        make.height.mas_equalTo(10);
+    }];
+
+
+    //将图层的边框设置为圆脚
+    brifeView.layer.cornerRadius = 5;
+    brifeView.layer.masksToBounds = YES;
+    //给图层添加一个有色边框
+    brifeView.layer.borderWidth = 1;
+    brifeView.layer.borderColor = [[UIColor colorWithWhite:0.521 alpha:1.000] CGColor];
+    brifeView.backgroundColor = [UIColor whiteColor];
+
+
+    [brifeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(brifeTitle.mas_bottom).with.offset(5);
+        make.left.equalTo(self.view.mas_left).with.offset(10);
+        make.right.equalTo(self.view.mas_right).with.offset(-10);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-10);
+        make.height.equalTo(caredView);
+    }];
+
+
+}
+
+</code></pre>
+
+<p>完成之后如下图
+<img src="https://geekpics.net/images/2015/06/11/ZFqHcpm.jpg" alt="步骤1" /></p>
+
+<h6 id="步骤2在上面的基础上增加植物养护部分ui构造的代码思想是先构造出四行然后根据每行单独构造出行样式">步骤2,在上面的基础上，增加植物养护部分ui构造的代码，思想是，先构造出四行，然后根据每行单独构造出行样式。</h6>
+
+<pre><code class="language-objective-c">//把块拆分为四行
+-(void)createIndexUIWithView:(UIView *)view{
+
+    //拆分四行
+    UIView *row1 = [UIView new];
+    UIView *row2 = [UIView new];
+    UIView *row3 = [UIView new];
+    UIView *row4 = [UIView new];
+    [view addSubview:row1];
+    [view addSubview:row2];
+    [view addSubview:row3];
+    [view addSubview:row4];
+
+    [row1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.and.left.equalTo(view);
+        make.height.equalTo(view.mas_height).multipliedBy(0.25);
+        make.top.equalTo(view.mas_top);
+    }];
+    [row2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.and.left.equalTo(view);
+        make.top.equalTo(row1.mas_bottom);
+        make.height.equalTo(view.mas_height).multipliedBy(0.25);
+    }];
+    [row3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(view.mas_right);
+        make.top.equalTo(row2.mas_bottom);
+        make.height.equalTo(view.mas_height).multipliedBy(0.25);
+        make.left.equalTo(view.mas_left);
+    }];
+    [row4 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.and.left.equalTo(view);
+        make.top.equalTo(row3.mas_bottom);
+        make.height.equalTo(view.mas_height).multipliedBy(0.25);
+    }];
+
+    [self createIndexRowUI:PlantReferenceWaterIndex withUIView:row1];
+    [self createIndexRowUI:PlantReferenceSumIndex withUIView:row2];
+    [self createIndexRowUI:PlantReferenceTemperatureIndex withUIView:row3];
+    [self createIndexRowUI:PlantReferenceElectrolyteIndex withUIView:row4];
+}
+
+
+//构造每行的UI
+-(void)createIndexRowUI:(PlantReferenceIndex) index withUIView:(UIView *)view{
+
+    //index标题
+    UILabel *indexTitle = [UILabel new];
+
+    indexTitle.font = [UIFont fontWithName:@"HeiTi SC" size:14];
+    indexTitle.textColor = [UIColor colorWithWhite:0.326 alpha:1.000];
+
+    [view addSubview:indexTitle];
+    [indexTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(view.mas_left).with.offset(20);
+        make.centerY.equalTo(view.mas_centerY);
+    }];
+
+
+    switch (index) {
+
+
+        case PlantReferenceWaterIndex:
+        {
+            indexTitle.text = @"水分";
+            UIImageView * current;
+            for(int i=1;i&lt;=5;i++){
+                if(i&lt;_reference.waterIndex){
+                    current = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_water_light"]];
+                }else{
+                    current = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_water_dark"]];
+                }
+                [view addSubview:current];
+
+                //间距12%，左边留空30%
+                [current mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.left.equalTo(view.mas_right).with.multipliedBy(0.12*(i-1) +0.3);
+                    make.centerY.equalTo(view.mas_centerY);
+                }];
+            }
+
+        }
+              break;
+        case PlantReferenceSumIndex:
+        {
+            indexTitle.text = @"光照";
+            UIImageView * current;
+            for(int i=1;i&lt;=5;i++){
+                if(i&lt;_reference.temperatureIndex){
+                    current = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_summer_light"]];
+                }else{
+                    current = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_summer_dark"]];
+                }
+                [view addSubview:current];
+
+                //间距12%，左边留空30%
+                [current mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.left.equalTo(view.mas_right).with.multipliedBy(0.12*(i-1) +0.3);
+                    make.centerY.equalTo(view.mas_centerY);
+                }];
+            }
+
+        }
+              break;
+        case PlantReferenceTemperatureIndex:
+        {
+            indexTitle.text = @"温度";
+            UIImageView * current;
+            for(int i=1;i&lt;=5;i++){
+                if(i&lt;_reference.sumIndex){
+                    current = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_temperature_light"]];
+                }else{
+                    current = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_temperature_dark"]];
+                }
+                [view addSubview:current];
+
+                //间距12%，左边留空30%
+                [current mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.left.equalTo(view.mas_right).with.multipliedBy(0.12*(i-1) +0.3);
+                    make.centerY.equalTo(view.mas_centerY);
+                }];
+            }
+
+        }
+              break;
+        case PlantReferenceElectrolyteIndex:
+        {
+            indexTitle.text = @"肥料";
+            UIImageView * current;
+            for(int i=1;i&lt;=5;i++){
+                if(i&lt;_reference.electrolyteIndex){
+                    current = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_electolyte_light"]];
+                }else{
+                    current = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_electolyte_dark"]];
+                }
+                [view addSubview:current];
+
+                //间距12%，左边留空30%
+                [current mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.left.equalTo(view.mas_right).with.multipliedBy(0.12*(i-1) +0.3);
+                    make.centerY.equalTo(view.mas_centerY);
+                }];
+            }
+
+        }
+            break;
+
+        default:
+            break;
+    }
+
+
+}
+
+
+//在步骤1createui的基础上，做了一些微调。
+-(void)createUI{
+
+    self.title = _reference.name;
+
+    UIView *titleView = [UIView new];
+    UIView *caredView = [UIView new];
+    [self.view addSubview:caredView];
+    UITextView *brifeView = [UITextView new];
+    [self.view addSubview:brifeView];
+
+    //self.view
+    self.view.backgroundColor = [UIColor colorWithWhite:0.965 alpha:1.000];
+
+    //thrm
+    UIImageView *plantThrm = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"defalutPlantReferenceIcon"]];
+    [self.view addSubview:plantThrm];
+    [plantThrm mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.top.equalTo(self.view).with.offset(10);
+    }];
+
+    //title
+       [self.view addSubview:titleView];
+       UIImageView *bgTitleView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg-plant-reference-title"]];
+    [titleView addSubview:bgTitleView];
+    [titleView mas_makeConstraints:^(MASConstraintMaker *make) {
+
+        make.right.equalTo(self.view.mas_right);
+        make.left.equalTo(plantThrm.mas_right).with.offset(20);
+        make.centerY.equalTo(plantThrm.mas_centerY);
+   }];
+
+    [bgTitleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(titleView);
+    }];
+
+    UILabel *title = [[UILabel alloc]init];
+    title.textColor =  [UIColor whiteColor];
+    title.font = [UIFont fontWithName:@"Heiti SC" size:26];
+    title.text = _reference.name;
+    [titleView addSubview:title];
+    [title mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(titleView.mas_left).offset(10);
+        make.width.equalTo(titleView.mas_width);
+        make.centerY.equalTo(titleView.mas_centerY);
+    }];
+
+    //植物养护
+    UILabel *caredTitle = [[UILabel alloc]init];
+    caredTitle.textColor =  [UIColor colorWithRed:0.172 green:0.171 blue:0.219 alpha:1.000];
+    caredTitle.font = [UIFont fontWithName:@"Heiti SC" size:10];
+    caredTitle.text = @"植物养护";
+    [self.view addSubview:caredTitle];
+    [caredTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(plantThrm.mas_bottom).with.offset(20);
+        make.left.and.right.equalTo(self.view).with.offset(10);
+        make.height.mas_equalTo(10);
+    }];
+    //植物养护 数据
+    [self createIndexUIWithView:caredView];
+
+
+
+
+
+    //将图层的边框设置为圆脚
+    caredView.layer.cornerRadius = 5;
+    caredView.layer.masksToBounds = YES;
+    //给图层添加一个有色边框
+    caredView.layer.borderWidth = 1;
+    caredView.layer.borderColor = [[UIColor colorWithWhite:0.521 alpha:1.000] CGColor];
+    caredView.backgroundColor = [UIColor whiteColor];
+
+
+    [caredView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(caredTitle.mas_bottom).with.offset(5);
+        make.left.equalTo(self.view.mas_left).with.offset(10);
+        make.right.equalTo(self.view.mas_right).with.offset(-10);
+        make.height.equalTo(brifeView);
+    }];
+
+
+    //植物简介
+    UILabel *brifeTitle = [[UILabel alloc]init];
+    brifeTitle.textColor =  [UIColor colorWithRed:0.172 green:0.171 blue:0.219 alpha:1.000];
+    brifeTitle.font = [UIFont fontWithName:@"Heiti SC" size:10];
+    brifeTitle.text = @"植物简介";
+    [self.view addSubview:brifeTitle];
+    [brifeTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(caredView.mas_bottom).with.offset(20);
+        make.left.and.right.equalTo(self.view).with.offset(10);
+        make.height.mas_equalTo(10);
+    }];
+
+
+
+    //将图层的边框设置为圆脚
+    brifeView.layer.cornerRadius = 5;
+    brifeView.layer.masksToBounds = YES;
+    //给图层添加一个有色边框
+    brifeView.layer.borderWidth = 1;
+    brifeView.layer.borderColor = [[UIColor colorWithWhite:0.447 alpha:1.000] CGColor];
+    brifeView.backgroundColor = [UIColor whiteColor];
+
+    //文字样式
+//    brifeView.textColor = [UIColor colorWithWhite:0.352 alpha:1.000];
+//    brifeView.font = [UIFont fontWithName:@"HeiTi SC" size:12];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+    paragraphStyle.lineHeightMultiple = 20.f;
+    paragraphStyle.maximumLineHeight = 25.f;
+    paragraphStyle.minimumLineHeight = 15.f;
+    paragraphStyle.alignment = NSTextAlignmentJustified;
+    NSDictionary *attributes = @{ NSFontAttributeName:[UIFont systemFontOfSize:12], NSParagraphStyleAttributeName:paragraphStyle, NSForegroundColorAttributeName:[UIColor colorWithWhite:0.447 alpha:1.000]};
+    //植物简介数据
+    //brifeView.text = _reference.brief;
+    brifeView.attributedText = [[NSAttributedString alloc] initWithString: _reference.brief attributes:attributes];
+
+
+
+    [brifeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(brifeTitle.mas_bottom).with.offset(5);
+        make.left.equalTo(self.view.mas_left).with.offset(10);
+        make.right.equalTo(self.view.mas_right).with.offset(-10);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-10);
+        make.height.equalTo(caredView);
+    }];
+
+
+}
+
+
+
+</code></pre>
+
+<p>完成之后如下图
+<img src="https://geekpics.net/images/2015/06/15/dOGITvg.jpg" alt="步骤2" /></p>
+
+<h2 id="最后">最后</h2>
+
+<p>感谢收看，如果对大家有帮助，请<a href="https://github.com/coolnameismy">github上follow和star</a>，本文发布在<a href="https://zsmsimon.github.io/">刘彦玮的技术博客</a>，转载请注明出处</p>
+
+    <div class="declare">
+        <div>
+
+        </div>
+    </div>
+</article>
+<!-- end #post__content -->
+
+<div id="post__share">
+  <a id="icon-twitter" class="fontello" href="https://twitter.com/intent/tweet?url=http://localhost:4000/2015/06/14/ios-library-masonry.html&text=Masonry的使用" target="_blank"></a>
+  <a id="icon-cc" class="fontello" href="http://github.com/ZSMSimon" target="_blank"></a>
+  <a id="icon-weibo" class="fontello" href="http://v.t.sina.com.cn/share/share.php?url=http://localhost:4000/2015/06/14/ios-library-masonry.html&title=Masonry的使用" target="_blank"></a>
+    <!-- <div class="share-info">分享一下~</div> -->
+</div>
+<div id="qrcode" >
+	<img src="http://localhost:4000/assets/images/qrcode.jpg" style="margin: 0 auto;display: block;" width="200" height="200" alt="">
+</div>
+<!-- end #post__share -->
+<div id="disqus_thread" name="coolnameismy">
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink" target="_blank">Loading Disqus comments...</a>
+</div>
+
+
+            <!---->
+    <!--<p id="copyright">Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>-->
+    <!--&nbsp;&nbsp;|&nbsp;&nbsp;Theme <a href="https://github.com/P233/3-Jekyll" target="_blank">3-Jekyll</a>-->
+    <!--&nbsp;&nbsp;|&nbsp;&nbsp;Hosted on <a href="https://pages.github.com" target="_blank">Github</a></p>-->
+      </div> <!-- end #pjax -->
+
+      <div id="post__toc-trigger">
+        <div id="post__toc">
+          <span id="post__toc-title">Table of Contents</span>
+          <ul id="post__toc-ul"></ul>
+        </div>
+      </div>
+    </div> <!-- end #post -->
+
+    <button id="js-fullscreen"><span id="icon-arrow" class="fontello"></span></button>
+
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.pjax.js"></script>
+<script src="/assets/js/nprogress.js"></script>
+<script src="/assets/js/searchbox.js"></script>
+<script src="/assets/js/script.js"></script>
+
+
+    <script>
+    //百度站点统计,排除localhost
+    if(window.location.host.indexOf("localhost") ==-1 &&  window.location.host.indexOf("127.0.0.1") == -1){
+
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?2c1583237ca3f5343d8dab0140019ca7";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    }
+</script>
+   </body>
+ </html>

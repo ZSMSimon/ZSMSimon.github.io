@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="baidu-site-verification" content="w9Akh6dPe4" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<!--[if lte IE 8]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
+
+<title>iOS动画和特效（二）UIKit力学行为 | 曾绍明的博客</title>
+<meta name="author" content="曾绍明">
+
+
+
+
+<link rel="shortcut icon" href="" />
+
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
+<link href="/pages/rss.xml" rel="alternate" title="曾绍明的博客" type="application/atom+xml">
+
+
+
+  </head>
+  <body>
+        <aside id="sidebar">
+  <nav id="tags">
+    <a href="/index.html" id="avatar" style="background-image:url(https://avatars1.githubusercontent.com/u/15245912)"></a>
+
+    <ul id="tags__ul">
+      <li id="pl__all" class="tags__li tags-btn active">所有文章</li>
+       
+        <li id="技术" class="tags__li tags-btn">技术</li>
+       
+        <li id="web前端" class="tags__li tags-btn">web前端</li>
+       
+        <li id="专题" class="tags__li tags-btn">专题</li>
+       
+        <li id="iOS" class="tags__li tags-btn">iOS</li>
+       
+        <li id="生活" class="tags__li tags-btn">生活</li>
+       
+        <li id="react-native" class="tags__li tags-btn">react-native</li>
+       
+        <li id="其他" class="tags__li tags-btn">其他</li>
+       
+        <li id="IoT" class="tags__li tags-btn">IoT</li>
+      
+    </ul>
+
+    <div id="tags__bottom">
+      <a href="http://github.com/ZSMSimon" id="icon-github" class="tags-btn fontello" target="_blank"></a>
+      <a href="/pages/rss.xml" id="icon-feed" class="tags-btn fontello" target="_blank"></a>
+      <a href="mailto:ZSMSimon@163.com" id="icon-email" class="tags-btn fontello"></a>
+    </div>
+  </nav> <!-- end #tags -->
+
+  <div id="posts-list">
+    <form action="" id="search-form">
+      <a href="/index.html" id="mobile-avatar" style="background-image:url(https://avatars1.githubusercontent.com/u/15245912)"></a>
+      <!-- NOTE: input field is disabled by default -->
+      <input id="search-input" type="text" placeholder="Search..." >
+    </form>
+
+    <nav id="pl__container">
+    
+      <a class="IoT pl__all" href="/2017/05/16/JavaScript-mqtt-temperaturedemo.html"><span class="pl__circle"></span><span class="pl__title">IoT技术选型及模型设计的思考</span><span class="pl__date">17/05/16</span></a>
+    
+      <a class="IoT pl__all" href="/2017/05/02/hello-nodemcu.html"><span class="pl__circle"></span><span class="pl__title">hello nodemcu</span><span class="pl__date">17/05/02</span></a>
+    
+      <a class="其他 pl__all" href="/2017/03/16/Recruitment.html"><span class="pl__circle"></span><span class="pl__title">阿里云iot事业部招聘信息</span><span class="pl__date">17/03/16</span></a>
+    
+      <a class="技术 pl__all" href="/2017/01/23/zhihu-live-a-hour-for-bluetooth-0.html"><span class="pl__circle"></span><span class="pl__title">知乎live：一小时蓝牙科普 文字整理版</span><span class="pl__date">17/01/23</span></a>
+    
+      <a class="web前端 pl__all" href="/2016/12/08/eslint-guide.html"><span class="pl__circle"></span><span class="pl__title">ESLint使用</span><span class="pl__date">16/12/08</span></a>
+    
+      <a class="其他 pl__all" href="/2016/12/06/how-to-fupan.html"><span class="pl__circle"></span><span class="pl__title">柳传志：我的复盘方法论</span><span class="pl__date">16/12/06</span></a>
+    
+      <a class="react-native pl__all" href="/2016/11/14/react-native-flux%E6%95%B0%E6%8D%AE%E6%B5%81.html"><span class="pl__circle"></span><span class="pl__title">flux数据流在rn中的使用</span><span class="pl__date">16/11/14</span></a>
+    
+      <a class="专题 pl__all" href="/2016/05/09/iOS-networking-0.html"><span class="pl__circle"></span><span class="pl__title">iOS 网络请求专题</span><span class="pl__date">16/05/09</span></a>
+    
+      <a class="iOS pl__all" href="/2016/04/03/iOS-JavaScriptCore.html"><span class="pl__circle"></span><span class="pl__title">iOS JavaScriptCore使用</span><span class="pl__date">16/04/03</span></a>
+    
+      <a class="iOS pl__all" href="/2016/04/02/iOS-3DTouch-3.html"><span class="pl__circle"></span><span class="pl__title">iOS 3D touch开发(三) Force Properties-按压力度</span><span class="pl__date">16/04/02</span></a>
+    
+      <a class="iOS pl__all" href="/2016/04/01/iOS-3DTouch-2.html"><span class="pl__circle"></span><span class="pl__title">iOS 3D touch开发(二) peek and pop - 预览和弹出</span><span class="pl__date">16/04/01</span></a>
+    
+      <a class="iOS pl__all" href="/2016/03/21/iOS-3DTouch-1.html"><span class="pl__circle"></span><span class="pl__title">iOS 3D touch开发(一) Home Screen Quick Actions</span><span class="pl__date">16/03/21</span></a>
+    
+      <a class="iOS pl__all" href="/2016/03/10/iOS-unit-test.html"><span class="pl__circle"></span><span class="pl__title">iOS单元测试</span><span class="pl__date">16/03/10</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/29/iOS-objc-styleguide.html"><span class="pl__circle"></span><span class="pl__title">iOS objc编程规范</span><span class="pl__date">16/02/29</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/13/ios-networking-5.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（五）网络请求中的cookie</span><span class="pl__date">16/02/13</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/09/ios-networking-4.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（四） http异步文件上传和下载以及进度指示</span><span class="pl__date">16/02/09</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/04/ios-networking-3.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（三） http异步请求和https认证</span><span class="pl__date">16/02/04</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/03/ios-networking-2.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（二） http异步队列请求</span><span class="pl__date">16/02/03</span></a>
+    
+      <a class="iOS pl__all" href="/2016/02/03/ios-networking-1.html"><span class="pl__circle"></span><span class="pl__title">iOS networking（一） http同步请求</span><span class="pl__date">16/02/03</span></a>
+    
+      <a class="react-native pl__all" href="/2016/02/02/react-native-demo.html"><span class="pl__circle"></span><span class="pl__title">react-native（二） 自己写的react-native学习demo和整理的tips</span><span class="pl__date">16/02/02</span></a>
+    
+      <a class="react-native pl__all" href="/2016/01/11/react-native-helloworld.html"><span class="pl__circle"></span><span class="pl__title">react-native（一） hello world</span><span class="pl__date">16/01/11</span></a>
+    
+      <a class="iOS pl__all" href="/2016/01/06/iOS-app-versions.html"><span class="pl__circle"></span><span class="pl__title">api如何设计才能支撑多个不同版本的app共存</span><span class="pl__date">16/01/06</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/31/playwith-imageToAscii.html"><span class="pl__circle"></span><span class="pl__title">那些好玩的nodejs插件 - 把图片转为ascii</span><span class="pl__date">15/12/31</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/10/fe-componentization.html"><span class="pl__circle"></span><span class="pl__title">前端开发框架 - seajs+handlebars模块化开发</span><span class="pl__date">15/12/10</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/06/fe-nginx-usage.html"><span class="pl__circle"></span><span class="pl__title">mac环境nginx的安装和使用</span><span class="pl__date">15/12/06</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/03/fe-js-handlebars.html"><span class="pl__circle"></span><span class="pl__title">handlerbars的使用及模板预编译</span><span class="pl__date">15/12/03</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/12/01/fe-engineering-gulp.html"><span class="pl__circle"></span><span class="pl__title">gulp自动构建工具教程</span><span class="pl__date">15/12/01</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/11/27/fe-environment.html"><span class="pl__circle"></span><span class="pl__title">前端开发工具和环境搭建</span><span class="pl__date">15/11/27</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/11/26/rem-em-px.html"><span class="pl__circle"></span><span class="pl__title">css3属性rem的使用</span><span class="pl__date">15/11/26</span></a>
+    
+      <a class="生活 pl__all" href="/2015/11/26/mylift-github.html"><span class="pl__circle"></span><span class="pl__title">我每天都在github上做些什么</span><span class="pl__date">15/11/26</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/24/iOS-affine-transfermation-animation.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（七）仿射变换-CGAffineTransform</span><span class="pl__date">15/11/24</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/22/iOS-library-spring.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（六）swift动画库spring使用和代码拆解</span><span class="pl__date">15/11/22</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/16/iOS-Implicit-Animation.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（五）layer隐式动画</span><span class="pl__date">15/11/16</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/06/iOS-controller-transitioning.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（四）controller间的自定义过渡效果</span><span class="pl__date">15/11/06</span></a>
+    
+      <a class="iOS pl__all" href="/2015/11/01/iOS-MotionEffects.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（三）MotionEffects</span><span class="pl__date">15/11/01</span></a>
+    
+      <a class="iOS pl__all" href="/2015/10/30/iOS-UIKit-Dynamics.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（二）UIKit力学行为</span><span class="pl__date">15/10/30</span></a>
+    
+      <a class="iOS pl__all" href="/2015/10/30/iOS-Animation-UIViewAndCoreAnimation.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效（一）UIView动画和CoreAnimation</span><span class="pl__date">15/10/30</span></a>
+    
+      <a class="专题 pl__all" href="/2015/10/29/iOS-animation-0.html"><span class="pl__circle"></span><span class="pl__title">iOS动画和特效专题（零）- 大纲和计划</span><span class="pl__date">15/10/29</span></a>
+    
+      <a class="iOS pl__all" href="/2015/10/17/ios-webView.html"><span class="pl__circle"></span><span class="pl__title">UIWebView和WKWebView的使用及js交互</span><span class="pl__date">15/10/17</span></a>
+    
+      <a class="iOS pl__all" href="/2015/10/06/ios-swift-quick.html"><span class="pl__circle"></span><span class="pl__title">swift5分钟语法速记</span><span class="pl__date">15/10/06</span></a>
+    
+      <a class="iOS pl__all" href="/2015/09/20/ios-macro.html"><span class="pl__circle"></span><span class="pl__title">ios宏的使用和技巧</span><span class="pl__date">15/09/20</span></a>
+    
+      <a class="iOS pl__all" href="/2015/09/11/ios-BLE-4.html"><span class="pl__circle"></span><span class="pl__title">ios蓝牙开发（四）BabyBluetooth蓝牙库介绍</span><span class="pl__date">15/09/11</span></a>
+    
+      <a class="iOS pl__all" href="/2015/09/07/ios-BLE-3.html"><span class="pl__circle"></span><span class="pl__title">ios蓝牙开发（三）app作为外设被连接的实现</span><span class="pl__date">15/09/07</span></a>
+    
+      <a class="iOS pl__all" href="/2015/09/02/ios-draw-Graffiti-2.html"><span class="pl__circle"></span><span class="pl__title">ios绘图demo,做一个涂鸦板(下)</span><span class="pl__date">15/09/02</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/08/29/go-deep-into-unsilder.js.html"><span class="pl__circle"></span><span class="pl__title">深入理解unslider.js源码</span><span class="pl__date">15/08/29</span></a>
+    
+      <a class="生活 pl__all" href="/2015/08/23/life-keyboardAndHHKB.html"><span class="pl__circle"></span><span class="pl__title">键盘那些事，hhkb开箱</span><span class="pl__date">15/08/23</span></a>
+    
+      <a class="技术 pl__all" href="/2015/08/22/github-ImagesUploadWebSite.html"><span class="pl__circle"></span><span class="pl__title">自己markdown博客的图床程序</span><span class="pl__date">15/08/22</span></a>
+    
+      <a class="iOS pl__all" href="/2015/08/19/ios-ThreadAndAsynchronization.html"><span class="pl__circle"></span><span class="pl__title">ios的线程和同步异步操作</span><span class="pl__date">15/08/19</span></a>
+    
+      <a class="iOS pl__all" href="/2015/08/14/ios-BLE-2.html"><span class="pl__circle"></span><span class="pl__title">ios蓝牙开发（二）ios连接外设的代码实现</span><span class="pl__date">15/08/14</span></a>
+    
+      <a class="iOS pl__all" href="/2015/07/26/ios-draw-Graffiti.html"><span class="pl__circle"></span><span class="pl__title">ios绘图demo,做一个涂鸦板(上)</span><span class="pl__date">15/07/26</span></a>
+    
+      <a class="iOS pl__all" href="/2015/07/25/ios-draw-base.html"><span class="pl__circle"></span><span class="pl__title">ios绘图基础</span><span class="pl__date">15/07/25</span></a>
+    
+      <a class="iOS pl__all" href="/2015/07/17/ios-BLE-1.html"><span class="pl__circle"></span><span class="pl__title">iOS蓝牙开发（一）蓝牙相关基础知识</span><span class="pl__date">15/07/17</span></a>
+    
+      <a class="专题 pl__all" href="/2015/07/17/ios-BLE-0.html"><span class="pl__circle"></span><span class="pl__title">iOS蓝牙的开发专题</span><span class="pl__date">15/07/17</span></a>
+    
+      <a class="技术 pl__all" href="/2015/07/07/mybatis.html"><span class="pl__circle"></span><span class="pl__title">MyBatis简单使用的demo</span><span class="pl__date">15/07/07</span></a>
+    
+      <a class="技术 pl__all" href="/2015/07/06/rabbitmq.html"><span class="pl__circle"></span><span class="pl__title">RabbitMQ使用</span><span class="pl__date">15/07/06</span></a>
+    
+      <a class="iOS pl__all" href="/2015/06/14/ios-library-masonry.html"><span class="pl__circle"></span><span class="pl__title">Masonry的使用</span><span class="pl__date">15/06/14</span></a>
+    
+      <a class="专题 pl__all" href="/2015/06/14/ios-library-0.html"><span class="pl__circle"></span><span class="pl__title">iOS中那些好用的第三方库</span><span class="pl__date">15/06/14</span></a>
+    
+      <a class="iOS pl__all" href="/2015/05/29/ios-develop-tool.html"><span class="pl__circle"></span><span class="pl__title">提高iOS开发效率的工具</span><span class="pl__date">15/05/29</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/spring-4.html"><span class="pl__circle"></span><span class="pl__title">Spring 文件上传</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/spring-3.html"><span class="pl__circle"></span><span class="pl__title">Spring- Hibernate数据基本操作</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/spring-2.html"><span class="pl__circle"></span><span class="pl__title">Spring RestController 请求参数详解</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/spring-1.html"><span class="pl__circle"></span><span class="pl__title">Spring和hibernate的maven配置</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="技术 pl__all" href="/2015/05/28/tomcat-domain-name.html"><span class="pl__circle"></span><span class="pl__title">tomcat部署绑定多个域名</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="专题 pl__all" href="/2015/05/28/spring-0.html"><span class="pl__circle"></span><span class="pl__title">Spring4+hibernate专题</span><span class="pl__date">15/05/28</span></a>
+    
+      <a class="web前端 pl__all" href="/2015/04/29/css-selector.html"><span class="pl__circle"></span><span class="pl__title">css选择器的用法</span><span class="pl__date">15/04/29</span></a>
+    
+      <a class="技术 pl__all" href="/2014/02/12/how-to-deploy-a-blog-on-github-by-jekyll.html"><span class="pl__circle"></span><span class="pl__title">在Github上搭建Jekyll博客和创建主题</span><span class="pl__date">14/02/12</span></a>
+    
+      <a class="技术 pl__all" href="/2013/04/23/opensource-licenses.html"><span class="pl__circle"></span><span class="pl__title">五中常见的开源协议整理(BSD,Apache,GPL,LGPL,MIT)</span><span class="pl__date">13/04/23</span></a>
+    
+    </nav>
+  </div> <!-- end #posts-list -->
+</aside> <!-- end #sidebar -->
+    <div id="post">
+      <div id="pjax">
+        <article id="post__content">
+    <h1 id="post__title" data-identifier="20151030">iOS动画和特效（二）UIKit力学行为</h1>
+    <blockquote>
+  <p>UIKit Dynamics是UIKit的动力交互体系，比如重力，铰链连接，碰撞，悬挂等物理效果，它将2D物理引擎引入了人UIKit，它能使原本的动画和交互效果更加符合物理规律，当然动画效果也更逼真。</p>
+</blockquote>
+
+<h2 id="先看一个简单的demo-view添加重力效果">先看一个简单的demo view添加重力效果</h2>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="c1">//自由落体</span>
+    <span class="kd">func</span> <span class="nf">fall</span><span class="p">(){</span>
+
+        <span class="cm">/*给箱子加上重力效果*/</span>
+        <span class="c1">//初始化动画的持有者</span>
+        <span class="k">let</span> <span class="nv">gravityAnimator</span> <span class="o">=</span>  <span class="kt">UIDynamicAnimator</span><span class="p">(</span><span class="nv">referenceView</span><span class="p">:</span> <span class="n">view</span><span class="p">)</span>
+        <span class="c1">//初始化重力行为</span>
+        <span class="k">let</span> <span class="nv">gravityBehavior</span> <span class="o">=</span> <span class="kt">UIGravityBehavior</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="n">box</span><span class="p">])</span>
+        <span class="c1">//添加重力行为</span>
+        <span class="n">gravityAnimator</span><span class="o">.</span><span class="nf">addBehavior</span><span class="p">(</span><span class="n">gravityBehavior</span><span class="p">)</span>
+        <span class="c1">//需要保持变量</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">animator</span> <span class="o">=</span> <span class="n">gravityAnimator</span>
+
+    <span class="p">}</span>
+
+
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/uploads/UIKitDynamics01.gif" alt="" /></p>
+
+<h2 id="uikit-dynamics基础">UIKit Dynamics基础</h2>
+
+<p>为了实现动力行为UI，我们必须先了解四个对象</p>
+
+<ul>
+  <li>UIDynamicItem：用来描述一个力学物体的状态，其实就是实现了UIDynamicItem委托的对象，或者抽象为有面积有旋转的质点；</li>
+  <li>UIDynamicBehavior：动力行为的描述，如例子中的重力行为</li>
+  <li>UIDynamicAnimator：动力行为（UIDynamicBehavior）的容器，添加到容器内的行为将发挥作用。</li>
+  <li>ReferenceView：力学参考对象，就是对象在哪个view中会产生响应的力学行为，例子中<code class="highlighter-rouge">let gravityAnimator =  UIDynamicAnimator(referenceView: view)</code> 对象产生力学作用的区域是 self.view</li>
+</ul>
+
+<p>场见的力学行为有这么几种</p>
+
+<ul>
+  <li>UIAttachmentBehavior：连接行为</li>
+  <li>UICollisionBehavior：碰撞行为</li>
+  <li>UIGravityBehavior：重力行为</li>
+  <li>UIPushBehavior：推力行为</li>
+  <li>UISnapBehavior：不知道怎么翻译，实际效果类似吸引力</li>
+</ul>
+
+<h2 id="重力碰撞">重力+碰撞</h2>
+<blockquote>
+  <p>前面的demo中box会一直落下，我们给demo改一改，变成落到地下后就停止</p>
+</blockquote>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+        <span class="c1">//自由落在地板上</span>
+        <span class="kd">func</span> <span class="nf">fallDown</span><span class="p">(){</span>
+
+            <span class="c1">//初始化动画的持有者</span>
+            <span class="k">let</span> <span class="nv">animator</span> <span class="o">=</span>  <span class="kt">UIDynamicAnimator</span><span class="p">(</span><span class="nv">referenceView</span><span class="p">:</span> <span class="n">view</span><span class="p">)</span>
+            <span class="c1">//初始化重力行为</span>
+            <span class="k">let</span> <span class="nv">gravityBehavior</span> <span class="o">=</span> <span class="kt">UIGravityBehavior</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="n">box</span><span class="p">])</span>
+            <span class="c1">//添加重力行为</span>
+            <span class="n">animator</span><span class="o">.</span><span class="nf">addBehavior</span><span class="p">(</span><span class="n">gravityBehavior</span><span class="p">)</span>
+            <span class="c1">//初始化碰撞行为</span>
+            <span class="k">let</span> <span class="nv">collisionBehavior</span> <span class="o">=</span> <span class="kt">UICollisionBehavior</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="n">box</span><span class="p">])</span>
+            <span class="c1">//指定边界为参考系的边界</span>
+            <span class="n">collisionBehavior</span><span class="o">.</span><span class="n">translatesReferenceBoundsIntoBoundary</span> <span class="o">=</span> <span class="kc">true</span>
+            <span class="n">animator</span><span class="o">.</span><span class="nf">addBehavior</span><span class="p">(</span><span class="n">collisionBehavior</span><span class="p">)</span>
+
+            <span class="c1">//需要保持变量</span>
+            <span class="k">self</span><span class="o">.</span><span class="n">animator</span> <span class="o">=</span> <span class="n">animator</span>
+        <span class="p">}</span>
+
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/uploads/UIKitDynamics02.gif" alt="" /></p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//还可以添加更为复杂边界</span>
+<span class="c1">//Bezier边界</span>
+<span class="n">collisionBehavior</span><span class="o">.</span><span class="nf">addBoundaryWithIdentifier</span><span class="p">(</span><span class="o">&lt;</span><span class="nv">identifier</span><span class="p">:</span> <span class="kt">NSCopying</span> <span class="kt">NSCopying</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">forPath</span><span class="p">:</span> <span class="o">&lt;</span><span class="kt">UIBezierPath</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="c1">//线边界</span>
+<span class="n">collisionBehavior</span><span class="o">.</span><span class="nf">addBoundaryWithIdentifier</span><span class="p">(</span><span class="o">&lt;</span><span class="nv">#identifier</span><span class="p">:</span> <span class="kt">NSCopying</span> <span class="kt">NSCopying</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">fromPoint</span><span class="p">:</span> <span class="o">&lt;</span><span class="kt">CGPoint</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">toPoint</span><span class="p">:</span> <span class="o">&lt;</span><span class="kt">GPoint</span><span class="o">&gt;</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="重力附着力">重力+附着力</h2>
+<blockquote>
+  <p>这次把box钉在点200，200位置</p>
+</blockquote>
+
+<p>UIAttachmentBehavior是连接行为，要把box钉在某一位置，就给他添加连接行为即可</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">//把box钉在 x: 200, y: 200 位置</span>
+    <span class="kd">func</span> <span class="nf">pin</span><span class="p">(){</span>
+        <span class="c1">//初始化动画的持有者</span>
+        <span class="k">let</span> <span class="nv">animator</span> <span class="o">=</span>  <span class="kt">UIDynamicAnimator</span><span class="p">(</span><span class="nv">referenceView</span><span class="p">:</span> <span class="n">view</span><span class="p">)</span>
+        <span class="c1">//初始化重力行为</span>
+        <span class="k">let</span> <span class="nv">gravityBehavior</span> <span class="o">=</span> <span class="kt">UIGravityBehavior</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="n">box</span><span class="p">])</span>
+        <span class="c1">//添加重力行为</span>
+        <span class="n">animator</span><span class="o">.</span><span class="nf">addBehavior</span><span class="p">(</span><span class="n">gravityBehavior</span><span class="p">)</span>
+        <span class="c1">//初始化连接行为</span>
+        <span class="k">let</span> <span class="nv">attachmentBehavior</span> <span class="o">=</span> <span class="kt">UIAttachmentBehavior</span><span class="p">(</span><span class="nv">item</span><span class="p">:</span> <span class="n">box</span><span class="p">,</span> <span class="nv">attachedToAnchor</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">200</span><span class="p">))</span>
+
+        <span class="c1">//把点画出来</span>
+        <span class="k">let</span> <span class="nv">point</span> <span class="o">=</span> <span class="kt">UIImageView</span><span class="p">(</span><span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"AttachmentPoint_Mask"</span><span class="p">))</span>
+        <span class="n">point</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">CGRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+        <span class="c1">//设置行为</span>
+        <span class="n">animator</span><span class="o">.</span><span class="nf">addBehavior</span><span class="p">(</span><span class="n">attachmentBehavior</span><span class="p">)</span>
+
+        <span class="c1">//需要保持变量</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">animator</span> <span class="o">=</span> <span class="n">animator</span>
+
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/uploads/UIKitDynamics03.gif" alt="" /></p>
+
+<h2 id="重力推力">重力+推力</h2>
+<blockquote>
+  <p>这次利用推力，把箱子往右上角方向推一下，把箱子丢出去</p>
+</blockquote>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="c1">//丢箱子</span>
+    <span class="kd">func</span> <span class="nf">throwBox</span><span class="p">(){</span>
+
+        <span class="c1">//重新设置box的位置</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="kc">true</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">CGRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">50</span><span class="p">)</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="kc">false</span>
+
+        <span class="c1">//初始化动画的持有者</span>
+        <span class="k">let</span> <span class="nv">animator</span> <span class="o">=</span>  <span class="kt">UIDynamicAnimator</span><span class="p">(</span><span class="nv">referenceView</span><span class="p">:</span> <span class="n">view</span><span class="p">)</span>
+        <span class="c1">//初始化重力行为</span>
+        <span class="k">let</span> <span class="nv">gravityBehavior</span> <span class="o">=</span> <span class="kt">UIGravityBehavior</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="n">box</span><span class="p">])</span>
+        <span class="c1">//添加重力行为</span>
+        <span class="n">animator</span><span class="o">.</span><span class="nf">addBehavior</span><span class="p">(</span><span class="n">gravityBehavior</span><span class="p">)</span>
+        <span class="c1">//初始化推力行为     Continuous:持续给力 Instantaneous:瞬间给力</span>
+        <span class="k">let</span> <span class="nv">pushBehavior</span> <span class="o">=</span> <span class="kt">UIPushBehavior</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="n">box</span><span class="p">],</span> <span class="nv">mode</span><span class="p">:</span> <span class="o">.</span><span class="kt">Instantaneous</span><span class="p">)</span>
+        <span class="c1">//推力速度</span>
+        <span class="n">pushBehavior</span><span class="o">.</span><span class="n">magnitude</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="c1">//推力方向</span>
+        <span class="n">pushBehavior</span><span class="o">.</span><span class="n">angle</span> <span class="o">=</span> <span class="nf">pointToAngle</span><span class="p">(</span><span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="o">-</span><span class="mi">300</span><span class="p">))</span>
+        <span class="c1">//设置行为</span>
+        <span class="n">animator</span><span class="o">.</span><span class="nf">addBehavior</span><span class="p">(</span><span class="n">pushBehavior</span><span class="p">)</span>
+
+        <span class="c1">//设置边界</span>
+        <span class="k">let</span> <span class="nv">collisionBehavior</span> <span class="o">=</span> <span class="kt">UICollisionBehavior</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="n">box</span><span class="p">])</span>
+        <span class="n">collisionBehavior</span><span class="o">.</span><span class="n">translatesReferenceBoundsIntoBoundary</span> <span class="o">=</span> <span class="kc">true</span>
+        <span class="n">animator</span><span class="o">.</span><span class="nf">addBehavior</span><span class="p">(</span><span class="n">collisionBehavior</span><span class="p">)</span>
+
+        <span class="c1">//需要保持变量</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">animator</span> <span class="o">=</span> <span class="n">animator</span>
+
+    <span class="p">}</span>
+
+    <span class="c1">//根据给定点和view中心点计算角度</span>
+    <span class="kd">func</span> <span class="nf">pointToAngle</span><span class="p">(</span><span class="nv">p</span><span class="p">:</span><span class="kt">CGPoint</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">CGFloat</span><span class="p">{</span>
+        <span class="k">let</span> <span class="nv">o</span><span class="p">:</span> <span class="kt">CGPoint</span> <span class="o">=</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="kt">CGRectGetMidX</span><span class="p">(</span><span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">bounds</span><span class="p">),</span> <span class="kt">CGRectGetMidY</span><span class="p">(</span><span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">bounds</span><span class="p">))</span>
+        <span class="k">let</span> <span class="nv">angle</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="nf">atan2</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">o</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">o</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">angle</span>
+    <span class="p">}</span>
+
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/uploads/UIKitDynamics04.gif" alt="" /></p>
+
+<h2 id="重力黑洞吸引">重力+黑洞吸引</h2>
+<blockquote>
+  <p>让自由落下的箱子被黑洞吸引吧！</p>
+</blockquote>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//黑洞</span>
+<span class="kd">func</span> <span class="nf">blockHole</span><span class="p">(){</span>
+
+    <span class="c1">//把黑洞画出来</span>
+    <span class="k">let</span> <span class="nv">point</span> <span class="o">=</span> <span class="kt">UIImageView</span><span class="p">(</span><span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"blackhole"</span><span class="p">))</span>
+    <span class="n">point</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">CGRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">140</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">50</span><span class="p">)</span>
+    <span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+
+    <span class="c1">//初始化动画的持有者</span>
+    <span class="k">let</span> <span class="nv">animator</span> <span class="o">=</span>  <span class="kt">UIDynamicAnimator</span><span class="p">(</span><span class="nv">referenceView</span><span class="p">:</span> <span class="n">view</span><span class="p">)</span>
+    <span class="c1">//初始化重力行为</span>
+    <span class="k">let</span> <span class="nv">gravityBehavior</span> <span class="o">=</span> <span class="kt">UIGravityBehavior</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="n">box</span><span class="p">])</span>
+    <span class="c1">//添加重力行为</span>
+    <span class="n">animator</span><span class="o">.</span><span class="nf">addBehavior</span><span class="p">(</span><span class="n">gravityBehavior</span><span class="p">)</span>
+
+    <span class="c1">//需要保持变量</span>
+    <span class="k">self</span><span class="o">.</span><span class="n">animator</span> <span class="o">=</span> <span class="n">animator</span>
+
+    <span class="c1">//0.5秒后启动黑洞</span>
+    <span class="nf">dispatch_after</span><span class="p">(</span><span class="nf">dispatch_time</span><span class="p">(</span><span class="kt">DISPATCH_TIME_NOW</span><span class="p">,</span> <span class="kt">Int64</span><span class="p">(</span><span class="mi">500</span> <span class="o">*</span> <span class="kt">NSEC_PER_MSEC</span><span class="p">)),</span> <span class="nf">dispatch_get_main_queue</span><span class="p">())</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="k">in</span>
+        <span class="kt">NSLog</span><span class="p">(</span><span class="s">"black hole !!!"</span><span class="p">)</span>
+        <span class="k">let</span> <span class="nv">snapBehavior</span> <span class="o">=</span> <span class="kt">UISnapBehavior</span><span class="p">(</span><span class="nv">item</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">box</span><span class="p">,</span> <span class="nv">snapToPoint</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">140</span><span class="p">))</span>
+        <span class="n">snapBehavior</span><span class="o">.</span><span class="n">damping</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1">//阻尼</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">animator</span><span class="o">.</span><span class="nf">addBehavior</span><span class="p">(</span><span class="n">snapBehavior</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/uploads/UIKitDynamics05.gif" alt="" /></p>
+
+<h2 id="自定义力学行为合成多个力学行为的效果">自定义力学行为，合成多个力学行为的效果</h2>
+<blockquote>
+  <p>让自由落下的箱子被黑洞吸引吧！</p>
+</blockquote>
+
+<p>定义一个行为类，给行为添加重力和吸力子行为</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="kd">class</span> <span class="kt">GravityAndSnapBehavior</span><span class="p">:</span><span class="kt">UIDynamicBehavior</span> <span class="p">{</span>
+        <span class="nf">init</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span><span class="kt">UIView</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">var</span> <span class="nv">point</span><span class="p">:</span><span class="kt">CGPoint</span><span class="o">!</span>
+            <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">()</span>
+            <span class="k">let</span> <span class="nv">gravityBehavior</span> <span class="o">=</span> <span class="kt">UIGravityBehavior</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="n">view</span><span class="p">])</span>
+            <span class="k">let</span> <span class="nv">snapBehavior</span> <span class="o">=</span> <span class="kt">UISnapBehavior</span><span class="p">(</span><span class="nv">item</span><span class="p">:</span> <span class="n">view</span><span class="p">,</span> <span class="nv">snapToPoint</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">140</span><span class="p">))</span>
+            <span class="k">self</span><span class="o">.</span><span class="nf">addChildBehavior</span><span class="p">(</span><span class="n">gravityBehavior</span><span class="p">)</span>
+            <span class="n">point</span> <span class="o">=</span>  <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">100</span> <span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">100</span><span class="p">)</span>
+            <span class="k">self</span><span class="o">.</span><span class="nf">addChildBehavior</span><span class="p">(</span><span class="n">snapBehavior</span><span class="p">)</span>
+            <span class="c1">//可以监听每一个步骤，然后自己对行为加自定义的影响和作用</span>
+            <span class="k">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="kt">NSLog</span><span class="p">(</span><span class="s">"step"</span><span class="p">)</span>
+<span class="c1">//                view.layer.position = CGPoint(x: point.x++, y: point.y++)</span>
+      <span class="p">}</span>
+
+
+</code></pre></div></div>
+
+<p>黑洞+使用自定义的合成行为</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="kd">class</span> <span class="kt">GravityAndSnapBehavior</span><span class="p">:</span><span class="kt">UIDynamicBehavior</span> <span class="p">{</span>
+        <span class="nf">init</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span><span class="kt">UIView</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//把黑洞画出来</span>
+            <span class="k">let</span> <span class="nv">blackhole</span> <span class="o">=</span> <span class="kt">UIImageView</span><span class="p">(</span><span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"blackhole"</span><span class="p">))</span>
+            <span class="n">blackhole</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">CGRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">140</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">50</span><span class="p">)</span>
+            <span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">blackhole</span><span class="p">)</span>
+
+            <span class="c1">//初始化动画的持有者</span>
+            <span class="k">let</span> <span class="nv">animator</span> <span class="o">=</span>  <span class="kt">UIDynamicAnimator</span><span class="p">(</span><span class="nv">referenceView</span><span class="p">:</span> <span class="n">view</span><span class="p">)</span>
+            <span class="c1">//初始化合成行为</span>
+            <span class="k">let</span> <span class="nv">gravityAndSnapBehavior</span> <span class="o">=</span> <span class="kt">GravityAndSnapBehavior</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="n">box</span><span class="p">)</span>
+            <span class="c1">//添加重力行为</span>
+            <span class="n">animator</span><span class="o">.</span><span class="nf">addBehavior</span><span class="p">(</span><span class="n">gravityAndSnapBehavior</span><span class="p">)</span>
+            <span class="c1">//需要保持变量</span>
+            <span class="k">self</span><span class="o">.</span><span class="n">animator</span> <span class="o">=</span> <span class="n">animator</span>
+      <span class="p">}</span>
+
+
+</code></pre></div></div>
+
+<p>指定注意的是UIDynamBehavior中的action属性，这个属性会再每次view改变时候出发，因此你可以根据自己需要，添加自己的特殊行为</p>
+
+<h2 id="demo">demo</h2>
+<hr />
+<p><a href="https://github.com/coolnameismy/demo/tree/master/AnimationAndEffects">本文的demo下载</a></p>
+
+<p>本文的代码对于的文件名：AnimationAndEffects/UIKitDynamicsViewController.swift</p>
+
+<p>感谢收看，如果对大家有帮助，请<a href="https://github.com/coolnameismy">github上follow和star</a>，本文发布在<a href="https://zsmsimon.github.io/">刘彦玮的技术博客</a>，转载请注明出处</p>
+
+<h2 id="参考文章">参考文章</h2>
+<hr />
+
+<ul>
+  <li><a href="/2015/10/29/iOS-animation-0.html">iOS动画和特效专题</a></li>
+  <li><a href="http://www.cocoachina.com/industry/20131106/7309.html">WWDC 2013 Session笔记 - UIKit Dynamics入门</a></li>
+  <li><a href="http://www.cocoachina.com/industry/20140425/8241.html">UICollectionView和UIKit Dynamics</a></li>
+  <li><a href="http://www.csdn.net/article/1970-01-01/2825673">实战iOS 9：剖析UIKit Dynamics的改进 移动·旋转·放大·缩小</a></li>
+</ul>
+
+    <div class="declare">
+        <div>
+
+        </div>
+    </div>
+</article>
+<!-- end #post__content -->
+
+<div id="post__share">
+  <a id="icon-twitter" class="fontello" href="https://twitter.com/intent/tweet?url=http://localhost:4000/2015/10/30/iOS-UIKit-Dynamics.html&text=iOS动画和特效（二）UIKit力学行为" target="_blank"></a>
+  <a id="icon-cc" class="fontello" href="http://github.com/ZSMSimon" target="_blank"></a>
+  <a id="icon-weibo" class="fontello" href="http://v.t.sina.com.cn/share/share.php?url=http://localhost:4000/2015/10/30/iOS-UIKit-Dynamics.html&title=iOS动画和特效（二）UIKit力学行为" target="_blank"></a>
+    <!-- <div class="share-info">分享一下~</div> -->
+</div>
+<div id="qrcode" >
+	<img src="http://localhost:4000/assets/images/qrcode.jpg" style="margin: 0 auto;display: block;" width="200" height="200" alt="">
+</div>
+<!-- end #post__share -->
+<div id="disqus_thread" name="coolnameismy">
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink" target="_blank">Loading Disqus comments...</a>
+</div>
+
+
+            <!---->
+    <!--<p id="copyright">Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>-->
+    <!--&nbsp;&nbsp;|&nbsp;&nbsp;Theme <a href="https://github.com/P233/3-Jekyll" target="_blank">3-Jekyll</a>-->
+    <!--&nbsp;&nbsp;|&nbsp;&nbsp;Hosted on <a href="https://pages.github.com" target="_blank">Github</a></p>-->
+      </div> <!-- end #pjax -->
+
+      <div id="post__toc-trigger">
+        <div id="post__toc">
+          <span id="post__toc-title">Table of Contents</span>
+          <ul id="post__toc-ul"></ul>
+        </div>
+      </div>
+    </div> <!-- end #post -->
+
+    <button id="js-fullscreen"><span id="icon-arrow" class="fontello"></span></button>
+
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.pjax.js"></script>
+<script src="/assets/js/nprogress.js"></script>
+<script src="/assets/js/searchbox.js"></script>
+<script src="/assets/js/script.js"></script>
+
+
+    <script>
+    //百度站点统计,排除localhost
+    if(window.location.host.indexOf("localhost") ==-1 &&  window.location.host.indexOf("127.0.0.1") == -1){
+
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?2c1583237ca3f5343d8dab0140019ca7";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    }
+</script>
+   </body>
+ </html>
