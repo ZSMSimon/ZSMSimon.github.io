@@ -17,6 +17,9 @@ DerivedData/
 !default.perspectivev3
 xcuserdata/
 
+## jekyllcn
+*.jekyll-metadata
+
 ## Other
 *.moved-aside
 *.xccheckout
