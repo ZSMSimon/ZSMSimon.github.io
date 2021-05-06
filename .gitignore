@@ -19,6 +19,7 @@ xcuserdata/
 
 ## jekyllcn
 *.jekyll-metadata
+_site
 
 ## Other
 *.moved-aside
