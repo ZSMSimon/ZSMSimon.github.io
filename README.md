@@ -1,14 +1,9 @@
-### 我的博客
+# Simon Zeng's Blog
 
-地址：[https://zsmsimon.github.io](https://zsmsimon.github.io)
+## [About Me](https://zsmsimon.github.io/about/)
 
+Hello, there!<br>
+This blog is to post whatever I feel like to.<br>
+I like writing & organizing stuffs as much as reading, so I've decided to dedicate my times to make this blog.<br>
 
-### 安装说明
-
-1. fork库到自己的github
-2. 修改名字为：`username.github.io`
-3. clone库到本地，参考`_posts`中的目录结构自己创建适合自己的文章目录结构
-4. 修改CNAME，或者删掉这个文件，使用默认域名
-5. 修改`_config.yml`配置项
-6. 修改或删除footer最后的百度站点统计
-7. It's done!
+Please feel free to contact me for any questions!

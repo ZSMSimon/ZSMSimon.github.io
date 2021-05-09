@@ -1,0 +1,214 @@
+basics:
+  name: "Simon Zeng"
+  label: "Senior iOS Development Engineer"
+  picture: /assets/img/reborn.png
+  email: "zsmsimon@163.com"
+  phone: "(+86) 1832****2089"
+  website: "https://zsmsimon.github.io/"
+  summary: >
+    Hello, I'm Simon Zeng from China.<br>
+    I'd like to describe myself as a fast learner;<br>
+    I am confident that I can satisfy expectations of coworkers.
+  location:
+    address: "xxxx xxxxxxx xxx"
+    postalCode: "xx xxxxxx"
+    city: "xxxx xxxx"
+    countryCode: "ZH"
+    region: "xxxxxxxxx"
+  profiles:
+    - network: "Github"
+      username: "ZSMSimon"
+      url: "https://github.com/ZSMSimon"
+    - network: "LinkedIn"
+      username: "Simon Zeng"
+      url: "https://www.linkedin.com/in/simon-zeng-xxxxxxx/"
+work:
+  - company: "xxxxxxxxxx"
+    position: "xxxxxxxxxxxx"
+    website: "xxxxxxxxxx"
+    startDate: "2021-05-08"
+    endDate: ""
+    summary: >
+      xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx.
+    highlights:
+      - "xxxxxx xxxxxx xxxxx xxxxxx xxxxxx xxxxxx"
+  - company: "xxxxxxxxxx"
+    position: "xxxxxxxxxxxx"
+    website: "xxxxxxxxxx"
+    startDate: "2021-05-08"
+    endDate: ""
+    summary: >
+      xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx.
+    highlights:
+      - "xxxxxx xxxxxx xxxxx xxxxxx xxxxxx xxxxxx"
+  - company: "xxxxxxxxxx"
+    position: "xxxxxxxxxxxx"
+    website: "xxxxxxxxxx"
+    startDate: "2021-05-08"
+    endDate: ""
+    summary: >
+      xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx.
+    highlights:
+      - "xxxxxx xxxxxx xxxxx xxxxxx xxxxxx xxxxxx"
+      - "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+  - company: "xxxxxxxxxx"
+    position: "xxxxxxxxxxxx"
+    website: "xxxxxxxxxx"
+    startDate: "2021-05-08"
+    endDate: ""
+    summary: >
+      xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx.
+    highlights:
+      - "xxxxxx xxxxxx xxxxx xxxxxx xxxxxx xxxxxx"
+      - "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+      - "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+  - company: "xxxxxxxxxx"
+    position: "xxxxxxxxxxxx"
+    website: "xxxxxxxxxx"
+    startDate: "2021-05-08"
+    endDate: ""
+    summary: >
+      xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx.
+    highlights:
+      - "xxxxxx xxxxxx xxxxx xxxxxx xxxxxx xxxxxx"
+      - "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+volunteer:
+  - organization: "xxxxx xxxxx xxxxx"
+    position: "xxxxx"
+    website: ""
+    startDate: "2021-05-08"
+    endDate: "2021-05-08"
+    summary: "xxxxxx xxxxxx xxxxx xxxxxx xxxxxx xxxxxx"
+    highlights:
+      - "xxxxxx xxxxxx xxxxx xxxxxx xxxxxx xxxxxx"
+      - "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+      - "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+  - organization: "xxxxxx, xxxxxx xxxxxx xxxxxx"
+    position: "xxxxxx"
+    website: ""
+    startDate: "2021-05-08"
+    endDate: "2021-05-08"
+    summary: "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+    highlights:
+education:
+  - institution: "xxxxx xxxxx, xxxxx"
+    area: "xxxxx xxxxx xxxxx"
+    studyType: "xxxxx"
+    startDate: "2021-05-08"
+    endDate: "2021-05-08"
+    gpa: "xxxxx xxxxx xxxxx"
+    courses:
+      - "xxxxx xxxxx"
+      - "xxxxx xxxxx"
+      - "xxxxx xxxxx"
+      - "xxxxx xxxxx"
+      - "xxxxx xxxxx"
+      - "xxxxx xxxxx"
+  - certificate: "xxxxx xxxxx xxxxx (xxxxx)"
+    date: "2021-05-08"
+projects:
+  - title: "xxxxx xxxxx xxxxx"
+    startDate: "2021-05-08"
+    endDate: "2021-05-08"
+    summary: "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+    url: "https://xxxxx.xxxxx.xxxxx/xxxxx-xxxxx/"
+    highlights:
+      - "xxxxxx xxxxxx xxxxx xxxxxx xxxxxx xxxxxx"
+      - "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+      - "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+  - title: "xxxxx xxxxx xxxxx"
+    startDate: "2021-05-08"
+    endDate: "2021-05-08"
+    summary: "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+    url: "https://xxxxx.xxxxx.xxxxx/xxxxx-xxxxx/"
+    highlights:
+      - "xxxxxx xxxxxx xxxxx xxxxxx xxxxxx xxxxxx"
+      - "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+      - "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+  - title: "xxxxx xxxxx xxxxx"
+    startDate: "2021-05-08"
+    endDate: "2021-05-08"
+    summary: "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+    url: "https://xxxxx.xxxxx.xxxxx/xxxxx-xxxxx/"
+    highlights:
+      - "xxxxxx xxxxxx xxxxx xxxxxx xxxxxx xxxxxx"
+      - "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+      - "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+awards:
+  - title: "xxxxxx xxxxxx xxxxxx xxxxxx"
+    awarder: "xxxxxx xxxxxx."
+    highlights:
+      - "xxxxxx, xxxxxx xxxxxx"
+      - "xxxxxx, xxxxxx xxxxxx(xxxxxx xxxxxx)"
+  - title: "xxxxxx xxxxxx xxxxxx"
+    awarder: "xxxxxx xxxxxx."
+    highlights:
+      - "xxxxxx, xxxxxx xxxxxx"
+      - "xxxxxx, xxxxxx/xxxxxx xxxxxx"
+      - "xxxxxx, xxxxxx xxxxxx"
+  - title: "xxxxxx, xxxxxx xxxxxx"
+    date: "2021-05-08"
+    awarder: "xxxxxx xxxxxx xxxxx xxxxxx xxxxxx xxxxxx"
+    summary: ""
+  - title: "xxxxxx xxxxxx xxxxx xxxxxx xxxxxx xxxxxx"
+    date: "2021-05-08"
+    awarder: "xxxxxx xxxxxx xxxxx xxxxxx xxxxxx xxxxxx"
+    summary: ""
+  - title: "xxxxxx, xxxxxx xxxxxx"
+    date: "2021-05-08"
+    awarder: "xxxxxx, xxxxxx xxxxxx"
+    summary: ""
+# publications:
+#   - name: "Video compression for 3d media"
+#     publisher: "Hooli"
+#     releaseDate: "2014-10-01"
+#     website: "https://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)"
+#     summary: "Innovative middle-out compression algorithm that changes the way we store data."
+skills:
+  - name: "xxxxxx xxxxxx"
+    level: "xxxxxx"
+    keywords:
+      - "xxxxxx xxxxxx"
+      - "xxxxxx xxxxxx"
+      - "xxxxxx/xxxxxx++"
+  - name: "xxxxxx"
+    level: "xxxxxx"
+  - name: "xxxxxx xxxxxx"
+    level: "xxxxxx"
+    keywords:
+      - "xxxxxx"
+      - "xxxxxx"
+      - "xxxxxx"
+  - name: "xxxxxx"
+    level: "xxxxxx"
+    keywords:
+      - "xxxxxx"
+      - "xxxxxx"
+languages:
+  - language: "xxxxxx"
+    fluency: "xxxxxx xxxxxx"
+  - language: "xxxxxx"
+    fluency: "xxxxxx"
+interests:
+  - name: "xxxxxx"
+    keywords:
+      - "xxxxxx"
+      - "xxxxxx"
+      - "xxxxxx"
+  - name: "xxxxxx"
+    keywords:
+      - "xxxxxx. xxxxxx. xxxxxx"
+      - "xxxxxx"
+      - "xxxxxx"
+  - name: "xxxxxx"
+    keywords:
+      - "xxxxxx xxxxxx"
+      - "xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx."
+
+references:
+  - name: "xxxxxx xxxxxx"
+    reference: >
+      xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx.
+      xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx.
+
+# <https://jsonresume.org/>

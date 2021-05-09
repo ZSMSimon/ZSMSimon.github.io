@@ -20,7 +20,6 @@ xcuserdata/
 ## jekyllcn
 *.jekyll-metadata
 _site
-*.gitignore
 
 ## Other
 *.moved-aside
